@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --neon: #00FF6A;
+      --neon-dim: #00cc55;
+      --neon-glow: rgba(0,255,106,0.18);
+      --white: #ffffff;
+      --off-white: #f7f9f7;
+      --border: #e4e8e4;
+      --text: #111;
+      --text-sub: #555;
+      --text-muted: #999;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Inter', sans-serif;
+      --radius: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-logo span {
+      display: inline-block;
+      width: 10px; height: 10px;
+      background: var(--neon);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--neon);
+    }
+    .nav-links {
+      display: flex; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-sub);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--neon-dim); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 3.5rem 2.5rem 2rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--off-white);
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--neon-dim);
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--neon-dim);
+    }
+    .hero-meta {
+      margin-top: 1.2rem;
+      display: flex; gap: 2rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .hero-meta strong { color: var(--text); }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      padding: 2.5rem 2.5rem 1.2rem;
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .section-header h2 {
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .section-header .count {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--neon-dim);
+    }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+      padding: 0 2.5rem 3rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem 1.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      border-color: var(--neon);
+      box-shadow: 0 0 0 3px var(--neon-glow), 0 4px 18px rgba(0,0,0,0.05);
+    }
+    .card-status-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .card-status-bar.active   { background: var(--neon); box-shadow: 0 0 8px var(--neon); }
+    .card-status-bar.pending  { background: #f59e0b; }
+    .card-status-bar.shipped  { background: #3b82f6; }
+    .card-status-bar.on-hold  { background: #ef4444; }
+
+    .card-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      max-width: 70%;
+    }
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 4px;
+    }
+    .badge.active  { background: #e6fff2; color: var(--neon-dim); border: 1px solid #b3ffd9; }
+    .badge.pending { background: #fff8e6; color: #d97706; border: 1px solid #fde68a; }
+    .badge.shipped { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+    .badge.on-hold { background: #fff1f2; color: #dc2626; border: 1px solid #fecaca; }
+
+    .card-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .card-rows {
+      display: flex; flex-direction: column; gap: 0.52rem;
+    }
+    .card-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 0.82rem;
+    }
+    .card-row .label {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: var(--mono);
+      flex-shrink: 0;
+      margin-right: 0.5rem;
+    }
+    .card-row .value {
+      color: var(--text);
+      font-weight: 500;
+      text-align: right;
+    }
+    .card-row .value.money {
+      font-family: var(--mono);
+      color: var(--neon-dim);
+      font-weight: 600;
+    }
+    .card-row .value.date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+
+    .card-footer {
+      background: var(--off-white);
+      border-radius: 6px;
+      padding: 0.7rem 0.85rem;
+      font-size: 0.78rem;
+    }
+    .card-footer .footer-label {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+    .card-footer .footer-val {
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .card-next {
+      background: #f0fff6;
+      border: 1px solid #b3ffd9;
+      border-radius: 6px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.78rem;
+    }
+    .card-next .footer-label { color: var(--neon-dim); }
+
+    /* ── CAROUSEL SECTION ── */
+    #carousel-section {
+      background: #0a0f0a;
+      padding: 0;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    .carousel-header {
+      padding: 2.2rem 2.5rem 1.5rem;
+      border-bottom: 1px solid #1a231a;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .carousel-header h2 {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3a4a3a;
+    }
+    .carousel-header .tv-badge {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neon);
+      display: flex; align-items: center; gap: 0.45rem;
+    }
+    .tv-badge .blink {
+      width: 6px; height: 6px;
+      background: var(--neon);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--neon);
+      animation: blink 1.2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .carousel-stage {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 3rem 4vw;
+    }
+    .carousel-track {
+      width: 100%;
+      max-width: 860px;
+      position: relative;
+    }
+    .carousel-slide {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    .carousel-slide.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* TV CARD */
+    .tv-card {
+      background: #0e160e;
+      border: 1.5px solid #1e2e1e;
+      border-radius: 14px;
+      padding: 2.4rem 2.8rem;
+      color: #e0ffe0;
+    }
+    .tv-card-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3a5a3a;
+      margin-bottom: 0.6rem;
+    }
+    .tv-card-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .tv-card-integrator {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--neon-dim);
+      margin-bottom: 2rem;
+    }
+    .tv-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.6rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .tv-stat .tv-stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3a5a3a;
+      margin-bottom: 0.3rem;
+    }
+    .tv-stat .tv-stat-val {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e0ffe0;
+    }
+    .tv-stat .tv-stat-val.money {
+      font-family: var(--mono);
+      color: var(--neon);
+      font-size: 1.3rem;
+    }
+    .tv-stat .tv-stat-val.date {
+      font-family: var(--mono);
+    }
+    .tv-divider {
+      border: none;
+      border-top: 1px solid #1e2e1e;
+      margin: 1.5rem 0;
+    }
+    .tv-address-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 2rem;
+    }
+    .tv-address .tv-stat-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #3a5a3a; margin-bottom: 0.3rem; }
+    .tv-address .tv-stat-val { font-size: 0.88rem; color: #a0c0a0; line-height: 1.6; }
+    .tv-badge-status {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+    .tv-badge-status.active  { background: rgba(0,255,106,0.12); color: var(--neon); border: 1px solid rgba(0,255,106,0.3); }
+    .tv-badge-status.pending { background: rgba(245,158,11,0.1); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+    .tv-badge-status.shipped { background: rgba(59,130,246,0.1); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+    .tv-badge-status.on-hold { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+
+    /* Carousel controls */
+    .carousel-controls {
+      padding: 1.5rem 2.5rem 2.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 1.2rem;
+    }
+    .carousel-controls button {
+      background: none;
+      border: 1px solid #2a3a2a;
+      color: #3a5a3a;
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      width: 38px; height: 38px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-controls button:hover {
+      border-color: var(--neon);
+      color: var(--neon);
+    }
+    .carousel-dots {
+      display: flex; gap: 0.5rem; align-items: center;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #1e2e1e;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .dot.active {
+      background: var(--neon);
+      box-shadow: 0 0 6px var(--neon);
+    }
+    .carousel-progress {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: #2a3a2a;
+      margin-left: 1rem;
+    }
+    .autoplay-bar {
+      height: 2px;
+      background: #1a2a1a;
+      position: relative;
+      margin: 0 2.5rem;
+    }
+    .autoplay-fill {
+      height: 100%;
+      background: var(--neon);
+      box-shadow: 0 0 6px var(--neon);
+      width: 0%;
+      transition: width linear;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 2.5rem;
+      border-top: 1.5px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex; justify-content: space-between;
+    }
+
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; padding: 0 1rem 2rem; }
+      nav, .hero, .section-header { padding-left: 1rem; padding-right: 1rem; }
+      .tv-card-grid { grid-template-columns: 1fr 1fr; }
+      .tv-card { padding: 1.5rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span></span>MODO8 Projects</div>
+  <ul class="nav-links">
+    <li><a href="#projects">All Projects</a></li>
+    <li><a href="#carousel-section">TV View</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Project Dashboard</div>
+  <h1>Active Portfolio<br><em>FY 2025–26</em></h1>
+  <div class="hero-meta">
+    <div><strong id="total-value">—</strong> total contract value</div>
+    <div><strong id="total-invoiced">—</strong> invoiced to date</div>
+    <div><strong id="active-count">—</strong> active projects</div>
+  </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section id="projects">
+  <div class="section-header">
+    <h2>All Projects</h2>
+    <span class="count" id="grid-count"></span>
+  </div>
+  <div class="grid" id="project-grid"></div>
+</section>
+
+<!-- CAROUSEL -->
+<section id="carousel-section">
+  <div class="carousel-header">
+    <h2>TV Display — Auto Cycle</h2>
+    <div class="carousel-header tv-badge"><span class="blink"></span>Live</div>
+  </div>
+  <div class="autoplay-bar"><div class="autoplay-fill" id="autoplay-fill"></div></div>
+  <div class="carousel-stage">
+    <div class="carousel-track" id="carousel-track"></div>
+  </div>
+  <div class="carousel-controls">
+    <button id="prev-btn">&#8592;</button>
+    <div class="carousel-dots" id="carousel-dots"></div>
+    <button id="next-btn">&#8594;</button>
+    <span class="carousel-progress" id="carousel-progress"></span>
+  </div>
+</section>
+
+<footer>
+  <span>MODO8 LLC — Internal Use</span>
+  <span id="footer-date"></span>
+</footer>
+
+<script>
+  const projects = [
+    {
+      title: "ACTUS Robotics Integration",
+      integrator: "Moto8 / ACTUS",
+      status: "active",
+      state: "On-site CMES visit scheduled",
+      shipDate: "Jul 1, 2025",
+      contractValue: 487500,
+      invoiced: 195000,
+      nextInvoice: "75,000 — Teardown milestone",
+      lastInvoice: "Apr 18, 2025",
+      address: "4402 Industrial Pkwy\nChicago, IL 60607"
+    },
+    {
+      title: "Midwest Fulfillment Conveyor Upgrade",
+      integrator: "RapidLine Systems",
+      status: "active",
+      state: "FAT complete, awaiting install window",
+      shipDate: "Jun 28, 2025",
+      contractValue: 312000,
+      invoiced: 156000,
+      nextInvoice: "78,000 — Post-install sign-off",
+      lastInvoice: "May 2, 2025",
+      address: "8800 Commerce Dr\nRockford, IL 61109"
+    },
+    {
+      title: "Auto-Palletizer Cell — Detroit",
+      integrator: "Apex Automation",
+      status: "pending",
+      state: "Design review in progress",
+      shipDate: "Sep 12, 2025",
+      contractValue: 610000,
+      invoiced: 61000,
+      nextInvoice: "122,000 — Engineering release",
+      lastInvoice: "Mar 30, 2025",
+      address: "2210 Assembly Blvd\nDetroit, MI 48211"
+    },
+    {
+      title: "Vision Inspection System",
+      integrator: "ClearVue Tech",
+      status: "shipped",
+      state: "Delivered & commissioned",
+      shipDate: "Apr 4, 2025",
+      contractValue: 145000,
+      invoiced: 145000,
+      nextInvoice: "Warranty hold — $14,500",
+      lastInvoice: "Apr 10, 2025",
+      address: "550 Plant Rd\nToledo, OH 43604"
+    },
+    {
+      title: "AMR Fleet Deployment",
+      integrator: "MobileBot Partners",
+      status: "active",
+      state: "Phase 2 units staged for delivery",
+      shipDate: "Jul 18, 2025",
+      contractValue: 890000,
+      invoiced: 356000,
+      nextInvoice: "178,000 — Phase 2 delivery",
+      lastInvoice: "May 14, 2025",
+      address: "14000 Logistics Way\nColumbus, OH 43219"
+    },
+    {
+      title: "Weld Cell Enclosure & Extraction",
+      integrator: "SafeAir Industrial",
+      status: "on-hold",
+      state: "Pending customer change order approval",
+      shipDate: "TBD",
+      contractValue: 198000,
+      invoiced: 39600,
+      nextInvoice: "On hold pending CO",
+      lastInvoice: "Feb 20, 2025",
+      address: "700 Fabrication Ave\nGary, IN 46401"
+    },
+    {
+      title: "Pick-and-Place Gantry — Facility 3",
+      integrator: "PrecisionMotion Corp",
+      status: "active",
+      state: "Assembly 60% — on schedule",
+      shipDate: "Aug 5, 2025",
+      contractValue: 540000,
+      invoiced: 216000,
+      nextInvoice: "108,000 — Mechanical complete",
+      lastInvoice: "May 1, 2025",
+      address: "9901 Tech Park Dr\nIndy, IN 46278"
+    },
+    {
+      title: "Sortation Line Retrofit",
+      integrator: "FlowTech Integrations",
+      status: "shipped",
+      state: "Site support complete — Jul 13",
+      shipDate: "Jun 1, 2025",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+  ];
+
+  const fmt = n => '$' + n.toLocaleString();
+
+  // ── Build cards ──
+  const grid = document.getElementById('project-grid');
+
+  projects.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-status-bar ${p.status}"></div>
+      <div class="card-top">
+        <div class="card-title">${p.title}</div>
+        <span class="badge ${p.status}">${p.status.replace('-',' ')}</span>
+      </div>
+      <hr class="card-divider">
+      <div class="card-rows">
+        <div class="card-row"><span class="label">Status</span><span class="value">${p.state}</span></div>
+        <div class="card-row"><span class="label">Ship Date</span><span class="value date">${p.shipDate}</span></div>
+        <div class="card-row"><span class="label">Contract</span><span class="value money">${fmt(p.contractValue)}</span></div>
+        <div class="card-row"><span class="label">Invoiced</span><span class="value money">${fmt(p.invoiced)}</span></div>
+        <div class="card-row"><span class="label">Last Invoice</span><span class="value date">${p.lastInvoice}</span></div>
+        <div class="card-row"><span class="label">Integrator</span><span class="value">${p.integrator}</span></div>
+      </div>
+      <div class="card-next">
+        <div class="footer-label">Next Invoice</div>
+        <div class="footer-val">${p.nextInvoice}</div>
+      </div>
+      <div class="card-footer">
+        <div class="footer-label">Ship-To Address</div>
+        <div class="footer-val">${p.address.replace('\n','<br>')}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // ── Hero stats ──
+  const total = projects.reduce((a, p) => a + p.contractValue, 0);
+  const totalInv = projects.reduce((a, p) => a + p.invoiced, 0);
+  const activeCount = projects.filter(p => p.status === 'active').length;
+  document.getElementById('total-value').textContent = fmt(total);
+  document.getElementById('total-invoiced').textContent = fmt(totalInv);
+  document.getElementById('active-count').textContent = activeCount;
+  document.getElementById('grid-count').textContent = projects.length + ' projects';
+  document.getElementById('footer-date').textContent = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+
+  // ── Build carousel ──
+  const track = document.getElementById('carousel-track');
+  const dotsEl = document.getElementById('carousel-dots');
+
+  projects.forEach((p, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+    slide.innerHTML = `
+      <div class="tv-card">
+        <div class="tv-card-eyebrow">Project ${String(i+1).padStart(2,'0')} of ${projects.length}</div>
+        <div class="tv-card-title">${p.title}</div>
+        <div class="tv-card-integrator">Integrator: ${p.integrator}</div>
+        <div class="tv-card-grid">
+          <div class="tv-stat">
+            <div class="tv-stat-label">Status</div>
+            <div class="tv-stat-val">${p.state}</div>
+          </div>
+          <div class="tv-stat">
+            <div class="tv-stat-label">Ship Date</div>
+            <div class="tv-stat-val date">${p.shipDate}</div>
+          </div>
+          <div class="tv-stat">
+            <div class="tv-stat-label">Contract Value</div>
+            <div class="tv-stat-val money">${fmt(p.contractValue)}</div>
+          </div>
+          <div class="tv-stat">
+            <div class="tv-stat-label">Invoiced to Date</div>
+            <div class="tv-stat-val money">${fmt(p.invoiced)}</div>
+          </div>
+          <div class="tv-stat">
+            <div class="tv-stat-label">Last Invoice</div>
+            <div class="tv-stat-val date">${p.lastInvoice}</div>
+          </div>
+          <div class="tv-stat">
+            <div class="tv-stat-label">Next Invoice</div>
+            <div class="tv-stat-val">${p.nextInvoice}</div>
+          </div>
+        </div>
+        <hr class="tv-divider">
+        <div class="tv-address-row">
+          <div class="tv-address">
+            <div class="tv-stat-label">Ship-To Address</div>
+            <div class="tv-stat-val">${p.address.replace('\n','<br>')}</div>
+          </div>
+          <span class="tv-badge-status ${p.status}">${p.status.replace('-',' ')}</span>
+        </div>
+      </div>
+    `;
+    track.appendChild(slide);
+
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  // ── Carousel logic ──
+  let current = 0;
+  const INTERVAL = 7000;
+  let timer, fillTimer, fillStart;
+
+  const slides = () => track.querySelectorAll('.carousel-slide');
+  const dots = () => dotsEl.querySelectorAll('.dot');
+  const fill = document.getElementById('autoplay-fill');
+  const progress = document.getElementById('carousel-progress');
+
+  function goTo(n) {
+    slides().forEach((s,i) => s.classList.toggle('active', i === n));
+    dots().forEach((d,i) => d.classList.toggle('active', i === n));
+    current = n;
+    progress.textContent = `${n+1} / ${projects.length}`;
+    startFill();
+  }
+
+  function next() { goTo((current + 1) % projects.length); }
+  function prev() { goTo((current - 1 + projects.length) % projects.length); }
+
+  function startFill() {
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    clearTimeout(timer);
+    clearTimeout(fillTimer);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        fill.style.transition = `width ${INTERVAL}ms linear`;
+        fill.style.width = '100%';
+      });
+    });
+    timer = setTimeout(next, INTERVAL);
+  }
+
+  document.getElementById('next-btn').addEventListener('click', next);
+  document.getElementById('prev-btn').addEventListener('click', prev);
+
+  goTo(0);
+</script>
+</body>
+</html>
