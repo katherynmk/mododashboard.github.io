@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
       state: "Working On CET Drawing",
       shipDate: "July 27, 2026",
       contractValue: 226822.25,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
+      invoiced: 90728,
+      nextInvoice: "68,046 — Engineering Complete",
+      lastInvoice: "90728 - Downpayment",
       address: "PITNEY BOWES 5071 W 74TH ST INDIANAPOLIS, IN 46268"
     },
     {
