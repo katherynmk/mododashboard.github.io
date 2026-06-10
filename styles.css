@@ -149,6 +149,8 @@ nav {
 .card-status-bar.engineering     { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
 .card-status-bar.production      { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
 .card-status-bar.done            { background: #000000; }
+.card-status-bar.purchasing      { background: #6b7280; box-shadow: 0 0 8px #6b7280; }
+.card-status-bar.pulling         { background: #ec4899; box-shadow: 0 0 8px #ec4899; }
 
 .card-top {
   display: flex; justify-content: space-between; align-items: flex-start;
