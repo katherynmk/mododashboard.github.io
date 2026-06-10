@@ -63,15 +63,15 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       title: "CONVEYOR ON CASTERS",
-      integrator: "Temple Controls",
-      status: "in-production",
-      state: "Working On Phased Shipping and Installation",
-      shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      integrator: "FORMIC",
+      status: "active",
+      state: "Purchasing",
+      shipDate: "August 3, 2026",
+      contractValue: 4938,
+      invoiced: 4938,
+      nextInvoice: "Freight Invoice",
+      lastInvoice: "Complete",
+      address: "979 Corporate Blvd Linthicum Heights, MD 21090."
     },
     {
       title: "PITNEY BOS",
