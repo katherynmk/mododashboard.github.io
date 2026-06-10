@@ -91,11 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "active",
       state: "Justin Needs to Program",
       shipDate: "July 27, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      contractValue: 187126,
+      invoiced: 93563,
+      nextInvoice: "93,563 — Final Ship",
+      lastInvoice: "93,563 -  50% Downpayment",
+      address: "4550 Spring Valley Rd Farmers Branch, TX 75244"
     },
     {
       title: "NEW HORIZONS",
