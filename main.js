@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "active",
       state: "On-site CMES visit scheduled",
       shipDate: "Jul 1, 2026",
-      contractValue: 230141.36,
+      contractValue: 253217.36,
       invoiced: 195000,
-      nextInvoice: "23013 for shipment",
-      lastInvoice: "23076 for change order ",
+      nextInvoice: "$23,013 for shipment",
+      lastInvoice: "$23,076 for change order ",
       address: "Wautoma Plant Milk Specialties Global E. Chicago RoadPHONE: (612)439-5212 Wautoma, WI 5498"
     },
     {
