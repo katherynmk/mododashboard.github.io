@@ -119,19 +119,19 @@ document.addEventListener('DOMContentLoaded', function () {
       invoiced: 39454,
       nextInvoice: "invoicing needs adjustment",
       lastInvoice: "May 30, 2026",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      address: "Sioux Falls DC 1300 West Elkhorn Avenue Sioux Falls, SD 57101"
     },
     {
       title: "R2",
-      integrator: "ADVANCED INTRALOGISTICS",
+      integrator: "Automation Intelligence",
       status: "active",
-      state: "pre-procurement",
-      shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      state: "pre-procurement, NO downpayment",
+      shipDate: "August 17, 2026",
+      contractValue: 77310,
+      invoiced: 38655,
+      nextInvoice: "23193 — First Shipment",
+      lastInvoice: "38655 - Downpayment",
+      address: "Automation Intelligence LLC b6181 Taylor Dr Flint, MI 48507 USA????"
     },
     {
       title: "AMAZON CANADA",
