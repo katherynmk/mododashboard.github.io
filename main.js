@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
       shipDate: "Jul 1, 2026",
       contractValue: 253217.36,
       invoiced: 195000,
-      nextInvoice: "$23,013 for shipment",
-      lastInvoice: "$23,076 for change order ",
+      nextInvoice: "$23,013 — Initial Shipment",
+      lastInvoice: "$23,076 - Change Order",
       address: "Wautoma Plant Milk Specialties Global E. Chicago RoadPHONE: (612)439-5212 Wautoma, WI 5498"
     },
     {
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
       shipDate: "Jun 15, 2026",
       contractValue: 560517.32,
       invoiced: 144693.14,
-      nextInvoice: "109,293.07 upon initial shipment",
-      lastInvoice: "35,400.07 for insallation downpayment",
+      nextInvoice: "109,293.07 — Initial Shipment",
+      lastInvoice: "35,400.07 - Install Downpayment",
       address: "9091 88th Ave in Pleasant Prairie, Wisconsin"
     },
     {
@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
       state: "Working On Phased Shipping",
       shipDate: "Jun 22, 2026",
       contractValue: 278500,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      invoiced: 194950,
+      nextInvoice: "26,700 — Initial Shipment",
+      lastInvoice: "83,550.00 - Completion of Engineering",
+      address: "3200 Richmond Rd Easton, PA 18040"
     },
     {
       title: "EQUIPMENT DEPOT",
