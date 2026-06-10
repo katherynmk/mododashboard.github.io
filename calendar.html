@@ -271,6 +271,13 @@
   <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>Production</div>
   <div class="legend-item"><div class="legend-dot" style="background:#6b7280;"></div>Purchasing</div>
   <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div>Pulling</div>
+  <div style="width:1px;height:14px;background:var(--border);margin:0 0.2rem;"></div>
+  <div class="legend-item" style="color:var(--text-sub);">✅ DP Received</div>
+  <div class="legend-item" style="color:var(--text-sub);">📐 Eng Due</div>
+  <div class="legend-item" style="color:var(--text-sub);">🛒 Parts Order</div>
+  <div class="legend-item" style="color:var(--text-sub);">📥 Prod Start</div>
+  <div class="legend-item" style="color:var(--text-sub);">🚢 Ship</div>
+  <div class="legend-item" style="color:var(--text-sub);">💵 Invoice</div>
 </div>
 
 <!-- CALENDAR GRID -->
@@ -287,41 +294,135 @@
 
 <script>
   // ── Events derived from project data ──
+  // Pipeline logic per project (working backwards from ship date):
+  //   Ship date                    = known
+  //   Production start             = ship - 18 days (~2.5 wks)
+  //   Parts must arrive / ordered  = production start (parts order placed 4 wks prior)
+  //   Parts order placed           = production start - 28 days
+  //   Purchasing sends order       = engineering complete + 7 days
+  //   Engineering due              = parts order date - 7 days (purchasing window)
+  //   Pre-procurement / DP trigger = engineering start (noted where applicable)
+
   const events = [
-    // ACTUS
-    { date: '2026-07-01', project: 'ACTUS',         label: 'Ship Date',              status: 'production' },
-    { date: '2026-07-13', project: 'ACTUS',         label: 'Site Support',           status: 'production' },
-    // OCADO
-    { date: '2026-06-15', project: 'OCADO',         label: 'Ship Date',              status: 'production' },
-    // ADI
-    { date: '2026-06-22', project: 'ADI',           label: 'Ship Date',              status: 'production' },
-    // ARHAUS
-    { date: '2026-07-02', project: 'ARHAUS',        label: 'Ship Date',              status: 'pulling' },
-    // FRONTIER DENTAL
-    { date: '2026-07-20', project: 'FRONTIER DENTAL', label: 'Ship Date',            status: 'purchasing' },
-    // CONVEYOR ON CASTERS
-    { date: '2026-08-03', project: 'COC',           label: 'Ship Date',              status: 'purchasing' },
-    // PITNEY BOS
-    { date: '2026-07-27', project: 'PITNEY BOS',    label: 'Ship Date',              status: 'engineering' },
-    // LOLOI RUGS
-    { date: '2026-07-27', project: 'LOLOI RUGS',    label: 'Ship Date',              status: 'production' },
-    // NEW HORIZONS
-    { date: '2026-07-31', project: 'NEW HORIZONS',  label: 'Ship Date',              status: 'pre-procurement' },
-    // SPARTAN NASH
-    { date: '2026-08-07', project: 'SPARTAN NASH',  label: 'Ship Date',              status: 'pre-procurement' },
-    // R2
-    { date: '2026-08-17', project: 'R2',            label: 'Ship Date',              status: 'no-downpayment' },
-    // AMAZON CANADA
-    { date: '2026-08-28', project: 'AMAZON CA',     label: 'Ship Date',              status: 'pre-procurement' },
-    // Invoice milestones
-    { date: '2026-06-15', project: 'OCADO',         label: '→ Invoice $109K',        status: 'production' },
-    { date: '2026-06-22', project: 'ADI',           label: '→ Invoice $26.7K',       status: 'production' },
-    { date: '2026-07-01', project: 'ACTUS',         label: '→ Invoice $23K',         status: 'production' },
-    { date: '2026-07-02', project: 'ARHAUS',        label: '→ Invoice $9.7K',        status: 'pulling' },
-    { date: '2026-07-20', project: 'FRONTIER',      label: '→ Invoice $35K',         status: 'purchasing' },
-    { date: '2026-07-27', project: 'PITNEY BOS',    label: '→ Invoice $68K Eng',     status: 'engineering' },
-    { date: '2026-07-27', project: 'LOLOI RUGS',    label: '→ Invoice $93.5K',       status: 'production' },
-    { date: '2026-08-17', project: 'R2',            label: '→ Invoice $23.2K',       status: 'no-downpayment' },
+
+    // ─────────────────────────────────────────
+    // ACTUS  |  Ship: Jul 1  |  status: production
+    // ─────────────────────────────────────────
+    // Production: Jun 13 → Jul 1  (already in production)
+    // Parts ordered: ~May 16  (already done)
+    // Engineering was due: ~May 9
+    { date: '2026-07-01', project: 'ACTUS', label: '🚢 Ship Date',            status: 'production' },
+    { date: '2026-07-13', project: 'ACTUS', label: '🔧 Site Support (CMES)',   status: 'production' },
+    { date: '2026-07-01', project: 'ACTUS', label: '💵 Invoice $23K — Ship',   status: 'production' },
+
+    // ─────────────────────────────────────────
+    // OCADO  |  Ship: Jun 15  |  status: production
+    // ─────────────────────────────────────────
+    // Production: May 28 → Jun 15  (in production / shipping now)
+    // Parts ordered: ~Apr 30
+    { date: '2026-06-15', project: 'OCADO', label: '🚢 Ship Date',             status: 'production' },
+    { date: '2026-06-15', project: 'OCADO', label: '💵 Invoice $109K — Ship',  status: 'production' },
+
+    // ─────────────────────────────────────────
+    // ADI  |  Ship: Jun 22  |  status: production
+    // ─────────────────────────────────────────
+    { date: '2026-06-22', project: 'ADI', label: '🚢 Ship Date',               status: 'production' },
+    { date: '2026-06-22', project: 'ADI', label: '💵 Invoice $26.7K — Ship',   status: 'production' },
+
+    // ─────────────────────────────────────────
+    // ARHAUS  |  Ship: Jul 2  |  status: pulling
+    // ─────────────────────────────────────────
+    // Pulling now → ship Jul 2
+    { date: '2026-06-11', project: 'ARHAUS', label: '📦 Pulling Starts',       status: 'pulling' },
+    { date: '2026-07-02', project: 'ARHAUS', label: '🚢 Ship Date',            status: 'pulling' },
+    { date: '2026-07-02', project: 'ARHAUS', label: '💵 Invoice $9.7K — Ship', status: 'pulling' },
+
+    // ─────────────────────────────────────────
+    // FRONTIER DENTAL  |  Ship: Jul 20  |  status: purchasing
+    // ─────────────────────────────────────────
+    // Engineering info → purchasing Jun 2 → parts order Jun 9 → parts arrive Jul 7 → production Jul 7–20
+    { date: '2026-06-02', project: 'FRONTIER', label: '📐 Eng Info → Purchasing', status: 'purchasing' },
+    { date: '2026-06-09', project: 'FRONTIER', label: '🛒 Parts Order Placed',    status: 'purchasing' },
+    { date: '2026-07-07', project: 'FRONTIER', label: '📥 Parts Arrive / Prod Start', status: 'purchasing' },
+    { date: '2026-07-20', project: 'FRONTIER', label: '🚢 Ship Date',             status: 'purchasing' },
+    { date: '2026-07-20', project: 'FRONTIER', label: '💵 Invoice $35K — Ship',   status: 'purchasing' },
+
+    // ─────────────────────────────────────────
+    // CONVEYOR ON CASTERS  |  Ship: Aug 3  |  status: purchasing
+    // ─────────────────────────────────────────
+    // Eng info → purchasing Jun 16 → parts order Jun 23 → parts arrive Jul 21 → production Jul 21–Aug 3
+    { date: '2026-06-16', project: 'COC', label: '📐 Eng Info → Purchasing',   status: 'purchasing' },
+    { date: '2026-06-23', project: 'COC', label: '🛒 Parts Order Placed',       status: 'purchasing' },
+    { date: '2026-07-21', project: 'COC', label: '📥 Parts Arrive / Prod Start',status: 'purchasing' },
+    { date: '2026-08-03', project: 'COC', label: '🚢 Ship Date',                status: 'purchasing' },
+    { date: '2026-08-03', project: 'COC', label: '💵 Freight Invoice',          status: 'purchasing' },
+
+    // ─────────────────────────────────────────
+    // PITNEY BOS  |  Ship: Jul 27  |  status: engineering
+    // ─────────────────────────────────────────
+    // Eng due: Jun 16 → purchasing Jun 23 → parts order Jun 23 → parts arrive Jul 21 → prod Jul 21–27
+    { date: '2026-06-16', project: 'PITNEY BOS', label: '📐 Engineering Due',        status: 'engineering' },
+    { date: '2026-06-23', project: 'PITNEY BOS', label: '🛒 Parts Order Placed',     status: 'engineering' },
+    { date: '2026-07-21', project: 'PITNEY BOS', label: '📥 Parts Arrive / Prod Start', status: 'engineering' },
+    { date: '2026-07-27', project: 'PITNEY BOS', label: '🚢 Ship Date',              status: 'engineering' },
+    { date: '2026-07-27', project: 'PITNEY BOS', label: '💵 Invoice $68K — Eng',     status: 'engineering' },
+
+    // ─────────────────────────────────────────
+    // LOLOI RUGS  |  Ship: Jul 27  |  status: production
+    // ─────────────────────────────────────────
+    // Production: Jul 9 → Jul 27  |  Parts ordered Jun 11  |  Eng done ~Jun 4
+    { date: '2026-06-04', project: 'LOLOI RUGS', label: '📐 Engineering Due',        status: 'production' },
+    { date: '2026-06-11', project: 'LOLOI RUGS', label: '🛒 Parts Order Placed',     status: 'production' },
+    { date: '2026-07-09', project: 'LOLOI RUGS', label: '📥 Parts Arrive / Prod Start', status: 'production' },
+    { date: '2026-07-27', project: 'LOLOI RUGS', label: '🚢 Ship Date',              status: 'production' },
+    { date: '2026-07-27', project: 'LOLOI RUGS', label: '💵 Invoice $93.5K — Ship',  status: 'production' },
+
+    // ─────────────────────────────────────────
+    // NEW HORIZONS  |  Ship: Jul 31  |  status: pre-procurement
+    // ─────────────────────────────────────────
+    // DP received (trigger) → Eng starts now → Eng due Jun 20
+    // → purchasing Jun 27 → parts order Jun 27 → parts arrive Jul 25 → prod Jul 25–31
+    { date: '2026-06-10', project: 'NEW HORIZONS', label: '✅ Downpayment Received — Start Eng', status: 'pre-procurement' },
+    { date: '2026-06-20', project: 'NEW HORIZONS', label: '📐 Engineering Due',        status: 'pre-procurement' },
+    { date: '2026-06-27', project: 'NEW HORIZONS', label: '🛒 Parts Order Placed',     status: 'pre-procurement' },
+    { date: '2026-07-25', project: 'NEW HORIZONS', label: '📥 Parts Arrive / Prod Start', status: 'pre-procurement' },
+    { date: '2026-07-31', project: 'NEW HORIZONS', label: '🚢 Ship Date',              status: 'pre-procurement' },
+
+    // ─────────────────────────────────────────
+    // SPARTAN NASH  |  Ship: Aug 7  |  status: pre-procurement
+    // ─────────────────────────────────────────
+    // DP received → Eng starts → Eng due Jun 27
+    // → purchasing Jul 4 → parts order Jul 4 → parts arrive Aug 1 → prod Aug 1–7
+    { date: '2026-06-10', project: 'SPARTAN NASH', label: '✅ Downpayment Received — Start Eng', status: 'pre-procurement' },
+    { date: '2026-06-27', project: 'SPARTAN NASH', label: '📐 Engineering Due',        status: 'pre-procurement' },
+    { date: '2026-07-04', project: 'SPARTAN NASH', label: '🛒 Parts Order Placed',     status: 'pre-procurement' },
+    { date: '2026-08-01', project: 'SPARTAN NASH', label: '📥 Parts Arrive / Prod Start', status: 'pre-procurement' },
+    { date: '2026-08-07', project: 'SPARTAN NASH', label: '🚢 Ship Date',              status: 'pre-procurement' },
+
+    // ─────────────────────────────────────────
+    // R2  |  Ship: Aug 17  |  status: no-downpayment
+    // ─────────────────────────────────────────
+    // ⚠️ NO DOWNPAYMENT — nothing can start until received
+    // If DP received ~Jun 17: Eng due Jul 10 → purchasing Jul 17 → parts Jul 17 → arrive Aug 14 → prod Aug 14–17
+    { date: '2026-06-10', project: 'R2', label: '⚠️ DP Overdue — Eng Blocked',    status: 'no-downpayment' },
+    { date: '2026-06-17', project: 'R2', label: '⚠️ DP Deadline to Hit Ship Date', status: 'no-downpayment' },
+    { date: '2026-07-10', project: 'R2', label: '📐 Eng Due (if DP Jun 17)',        status: 'no-downpayment' },
+    { date: '2026-07-17', project: 'R2', label: '🛒 Parts Order (if on track)',     status: 'no-downpayment' },
+    { date: '2026-08-14', project: 'R2', label: '📥 Parts Arrive / Prod Start',     status: 'no-downpayment' },
+    { date: '2026-08-17', project: 'R2', label: '🚢 Ship Date',                     status: 'no-downpayment' },
+    { date: '2026-08-17', project: 'R2', label: '💵 Invoice $23.2K — Ship',         status: 'no-downpayment' },
+
+    // ─────────────────────────────────────────
+    // AMAZON CANADA  |  Ship: Aug 28  |  status: pre-procurement
+    // ─────────────────────────────────────────
+    // DP received Jun 8 → Eng due Jun 27 → purchasing Jul 4 → parts order Jul 4 → arrive Aug 1 → prod Aug 1–28
+    // (larger system, production ~3.5 wks)
+    { date: '2026-06-08', project: 'AMAZON CA', label: '✅ Downpayment Received — Start Eng', status: 'pre-procurement' },
+    { date: '2026-06-27', project: 'AMAZON CA', label: '📐 Engineering Due',        status: 'pre-procurement' },
+    { date: '2026-07-04', project: 'AMAZON CA', label: '🛒 Parts Order Placed',     status: 'pre-procurement' },
+    { date: '2026-08-01', project: 'AMAZON CA', label: '📥 Parts Arrive / Prod Start', status: 'pre-procurement' },
+    { date: '2026-08-28', project: 'AMAZON CA', label: '🚢 Ship Date',              status: 'pre-procurement' },
+    { date: '2026-08-28', project: 'AMAZON CA', label: '💵 Invoice — Final Ship',   status: 'pre-procurement' },
   ];
 
   // ── Calendar state ──
