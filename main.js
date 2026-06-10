@@ -136,12 +136,12 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "AMAZON CANADA",
       integrator: "SJF",
-      status: "",
+      status: "active",
       state: "pre-procurement phase",
       shipDate: "August 28th, 2026",
-      contractValue: 77310,
-      invoiced: 38655,
-      nextInvoice: "23193 when shipped",
+      contractValue: 177856,
+      invoiced: 71142.40,
+      nextInvoice: "53356.80 when shipped",
       lastInvoice: "Jun 8, 2026",
       address: "RYDER 1530 GAMBLE PL WINNIPEG MB R3T 1N6 CANADA"
     }
