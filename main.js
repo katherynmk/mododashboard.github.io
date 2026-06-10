@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "active",
       state: "On-site CMES visit scheduled",
       shipDate: "Jul 1, 2026",
-      contractValue: 487500,
+      contractValue: 230141.36,
       invoiced: 195000,
-      nextInvoice: "75,000 — Teardown milestone",
-      lastInvoice: "Apr 18, 2025",
-      address: "4402 Industrial Pkwy\nChicago, IL 60607"
+      nextInvoice: "23013 for shipment",
+      lastInvoice: "23076 for change order ",
+      address: "Wautoma Plant Milk Specialties Global E. Chicago RoadPHONE: (612)439-5212 Wautoma, WI 5498"
     },
     {
       title: "OCADO",
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
       shipDate: "August 28th, 2026",
       contractValue: 177856,
       invoiced: 71142.40,
-      nextInvoice: "53356.80 when shipped",
+      nextInvoice: "53356.80 on completion of engineering",
       lastInvoice: "Jun 8, 2026",
       address: "RYDER 1530 GAMBLE PL WINNIPEG MB R3T 1N6 CANADA"
     }
