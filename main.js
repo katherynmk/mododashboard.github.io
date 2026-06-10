@@ -25,6 +25,117 @@ document.addEventListener('DOMContentLoaded', function () {
       lastInvoice: "Jun 3, 2025",
       address: "3300 Distribution Blvd\nKankakee, IL 60901"
     }
+          title: "MALIN ADI",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "EQUIPMENT DEPOT",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "KPI FRONTIER DENTAL",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "CONVEYOR ON CASTERS",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "PITNEY BOS",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "LOLOI RUGS",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "NEW HORIZONS",
+      integrator: "Temple Controls",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "SPARTAN NASH",
+      integrator: "Tompkins",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "R2",
+      integrator: "ADVANCED INTRALOGISTICS",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+      title: "AMAZON CANADA",
+      integrator: "SJF",
+      status: "in-production",
+      state: "Working On Phased Shipping and Installation",
+      shipDate: "Jun 15, 2026",
+      contractValue: 267000,
+      invoiced: 240300,
+      nextInvoice: "26,700 — Final retention",
+      lastInvoice: "Jun 3, 2025",
+      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+    }
+
   ];
 
   const fmt = n => '$' + n.toLocaleString();
