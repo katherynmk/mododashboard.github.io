@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
       address: "3200 Richmond Rd Easton, PA 18040"
     },
     {
-      title: "EQUIPMENT DEPOT",
-      integrator: "Temple Controls",
+      title: "ARHAUS",
+      integrator: "EQUIPMENT DEPOT",
       status: "active",
       state: "Pulling job",
       shipDate: "July 2, 2026",
@@ -47,19 +47,19 @@ document.addEventListener('DOMContentLoaded', function () {
       invoiced: 19462,
       nextInvoice: "9,731.00 — Initial Shipment",
       lastInvoice: "14,596.50 — Engineering Complete",
-      address: "Boston Heights, OH 4423651 East Hines Hill RdJames Coddington 216 276 3956 Arhaus LLC"
+      address: "Boston Heights, OH 4423651 East Hines Hill Rd James Coddington 216 276 3956 Arhaus LLC"
     },
     {
-      title: "KPI FRONTIER DENTAL",
-      integrator: "Temple Controls",
-      status: "in-production",
-      state: "Working On Phased Shipping and Installation",
-      shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      title: "FRONTIER DENTAL",
+      integrator: "KPI",
+      status: "active",
+      state: "purchased - CHANGE ORDER?",
+      shipDate: "July 20, 2026",
+      contractValue: 350000,
+      invoiced: 315000,
+      nextInvoice: "35,000 — Final Shipment",
+      lastInvoice: "70000 - Initial Shipment",
+      address: "Frontier Dental (Las Vegas, NV) Conveyor 2500 W. Carey Ave, Bldg F North Las Vegas NV 89032 United States"
     },
     {
       title: "CONVEYOR ON CASTERS",
