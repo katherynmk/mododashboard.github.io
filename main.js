@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "PITNEY BOS",
       integrator: "Temple Controls",
-      status: "in-production",
+      status: "active",
       state: "Working On Phased Shipping and Installation",
       shipDate: "Jun 15, 2026",
       contractValue: 267000,
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "R2",
       integrator: "ADVANCED INTRALOGISTICS",
-      status: "in-production",
+      status: "active",
       state: "Working On Phased Shipping and Installation",
       shipDate: "Jun 15, 2026",
       contractValue: 267000,
