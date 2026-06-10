@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "in-production",
       state: "Working On Phased Shipping and Installation",
       shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
+      contractValue: 560517.32,
+      invoiced: 144693.14,
       nextInvoice: "26,700 — Final retention",
       lastInvoice: "Jun 3, 2025",
       address: "3300 Distribution Blvd\nKankakee, IL 60901"
