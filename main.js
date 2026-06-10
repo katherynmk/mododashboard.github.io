@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "EQUIPMENT DEPOT",
       integrator: "Temple Controls",
-      status: "in-production",
-      state: "Working On Phased Shipping and Installation",
-      shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      status: "active",
+      state: "Pulling job",
+      shipDate: "July 2, 2026",
+      contractValue: 48655,
+      invoiced: 19462,
+      nextInvoice: "9,731.00 — Initial Shipment",
+      lastInvoice: "14,596.50 — Engineering Complete",
+      address: "Boston Heights, OH 4423651 East Hines Hill RdJames Coddington 216 276 3956 Arhaus LLC"
     },
     {
       title: "KPI FRONTIER DENTAL",
