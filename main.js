@@ -101,13 +101,13 @@ document.addEventListener('DOMContentLoaded', function () {
       title: "NEW HORIZONS",
       integrator: "FORMIC",
       status: "active",
-      state: "Working On Phased Shipping and Installation",
-      shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      state: "pre-procurement",
+      shipDate: "July 31, 2026",
+      contractValue: 202665,
+      invoiced: 121599,
+      nextInvoice: "invoicing needs adjustment",
+      lastInvoice: "May 8th",
+      address: "211 Woodlawn Avenue, Norwalk, OH, US, 44857"
     },
     {
       title: "SPARTAN NASH",
