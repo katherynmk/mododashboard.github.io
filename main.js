@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "ACTUS",
       integrator: "MODO8",
-      status: "active",
+      status: "production",
       state: "On-site CMES visit scheduled",
       shipDate: "Jul 1, 2026",
       contractValue: 253217.36,
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "OCADO",
       integrator: "Temple Controls",
-      status: "in-production",
+      status: "production",
       state: "Working On Phased Shipping and Installation",
       shipDate: "Jun 15, 2026",
       contractValue: 560517.32,
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "ADI",
       integrator: "MALIN",
-      status: "in-production",
+      status: "production",
       state: "Working On Phased Shipping",
       shipDate: "Jun 22, 2026",
       contractValue: 278500,
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "ARHAUS",
       integrator: "EQUIPMENT DEPOT",
-      status: "active",
+      status: "pulling",
       state: "Pulling job",
       shipDate: "July 2, 2026",
       contractValue: 48655,
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "FRONTIER DENTAL",
       integrator: "KPI",
-      status: "active",
+      status: "purchasing",
       state: "purchased - CHANGE ORDER?",
       shipDate: "July 20, 2026",
       contractValue: 350000,
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "CONVEYOR ON CASTERS",
       integrator: "FORMIC",
-      status: "active",
+      status: "purchasing",
       state: "Purchasing",
       shipDate: "August 3, 2026",
       contractValue: 4938,
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "PITNEY BOS",
       integrator: "Temple Controls",
-      status: "active",
+      status: "engineering",
       state: "Working On CET Drawing",
       shipDate: "July 27, 2026",
       contractValue: 226822.25,
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "LOLOI RUGS",
       integrator: "AI",
-      status: "active",
+      status: "production",
       state: "Justin Needs to Program",
       shipDate: "July 27, 2026",
       contractValue: 187126,
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "NEW HORIZONS",
       integrator: "FORMIC",
-      status: "active",
+      status: "pre-procurement",
       state: "pre-procurement",
       shipDate: "July 31, 2026",
       contractValue: 202665,
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "SPARTAN NASH",
       integrator: "Tompkins",
-      status: "active",
+      status: "pre-procurement",
       state: "pre-procurement",
       shipDate: "August 7, 2026",
       contractValue: 98637,
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "R2",
       integrator: "Automation Intelligence",
-      status: "active",
+      status: "no-downpayment",
       state: "pre-procurement, NO downpayment",
       shipDate: "August 17, 2026",
       contractValue: 77310,
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "AMAZON CANADA",
       integrator: "SJF",
-      status: "active",
+      status: "pre-procurement",
       state: "pre-procurement phase",
       shipDate: "August 28th, 2026",
       contractValue: 177856,
