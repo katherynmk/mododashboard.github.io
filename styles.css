@@ -143,11 +143,12 @@ nav {
   top: 0; left: 0; right: 0;
   height: 3px;
 }
-.card-status-bar.active        { background: var(--neon); box-shadow: 0 0 8px var(--neon); }
-.card-status-bar.pending       { background: #f59e0b; }
-.card-status-bar.shipped       { background: #3b82f6; }
-.card-status-bar.on-hold       { background: #ef4444; }
-.card-status-bar.in-production { background: #a855f7; }
+
+.card-status-bar.no-downpayment  { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+.card-status-bar.pre-procurement { background: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
+.card-status-bar.engineering     { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+.card-status-bar.production      { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+.card-status-bar.done            { background: #000000; }
 
 .card-top {
   display: flex; justify-content: space-between; align-items: flex-start;
