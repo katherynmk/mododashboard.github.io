@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const projects = [
     {
-      title: "ACTUS Robotics Integration",
-      integrator: "Moto8 / ACTUS",
+      title: "ACTUS",
+      integrator: "MODO8",
       status: "active",
       state: "On-site CMES visit scheduled",
       shipDate: "Jul 1, 2026",
@@ -126,14 +126,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
       title: "AMAZON CANADA",
       integrator: "SJF",
-      status: "in-production",
-      state: "Working On Phased Shipping and Installation",
-      shipDate: "Jun 15, 2026",
-      contractValue: 267000,
-      invoiced: 240300,
-      nextInvoice: "26,700 — Final retention",
-      lastInvoice: "Jun 3, 2025",
-      address: "3300 Distribution Blvd\nKankakee, IL 60901"
+      status: "",
+      state: "pre-procurement phase",
+      shipDate: "August 28th, 2026",
+      contractValue: 77310,
+      invoiced: 38655,
+      nextInvoice: "23193 when shipped",
+      lastInvoice: "Jun 8, 2026",
+      address: "RYDER 1530 GAMBLE PL WINNIPEG MB R3T 1N6 CANADA"
     }
 
   ];
