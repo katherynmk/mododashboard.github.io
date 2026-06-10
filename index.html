@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span></span>MODO8 Projects</div>
+  <ul class="nav-links">
+    <li><a href="#projects">All Projects</a></li>
+    <li><a href="#carousel-section">TV View</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-eyebrow">UPDATED JUNE 8 2026</div>
+ <h1><em>MODOROLL ACTIVE PROJECTS</em></h1>
+  <div class="hero-meta">
+     <div><strong id="total-value">—</strong> total contract value</div>
+     <div><strong id="total-invoiced">—</strong> invoiced to date</div>
+     <div><strong id="active-count">—</strong> active projects</div>
+  </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section id="projects">
+  <div class="section-header">
+    <h2>All Projects</h2>
+    <span class="count" id="grid-count"></span>
+  </div>
+  <div class="grid" id="project-grid"></div>
+</section>
+
+<!-- CAROUSEL -->
+<section id="carousel-section">
+  <div class="carousel-header">
+    <h2>TV Display — Auto Cycle</h2>
+    <div class="carousel-header tv-badge"><span class="blink"></span>Live</div>
+  </div>
+  <div class="autoplay-bar"><div class="autoplay-fill" id="autoplay-fill"></div></div>
+  <div class="carousel-stage">
+    <div class="carousel-track" id="carousel-track"></div>
+  </div>
+  <div class="carousel-controls">
+    <button id="prev-btn">&#8592;</button>
+    <div class="carousel-dots" id="carousel-dots"></div>
+    <button id="next-btn">&#8594;</button>
+    <span class="carousel-progress" id="carousel-progress"></span>
+  </div>
+</section>
+
+<footer>
+  <span>MODO8 LLC — Internal Use</span>
+  <span id="footer-date"></span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
