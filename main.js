@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "R2",
       integrator: "Automation Intelligence",
-      status: "no-downpayment",
+      status: "pre-procurement",
       state: "pre-procurement, NO downpayment",
       shipDate: "August 17, 2026",
       contractValue: 77310,
