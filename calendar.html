@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calendar — MODO8 Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── CALENDAR PAGE STYLES ── */
+    .cal-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 2.5rem 1.2rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--off-white);
+      position: sticky; top: 58px; z-index: 50;
+    }
+    .cal-nav-month {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .cal-nav-month em {
+      font-style: normal;
+      color: var(--neon-dim);
+    }
+    .cal-nav-btns {
+      display: flex; gap: 0.5rem;
+    }
+    .cal-nav-btns button {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--text-sub);
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cal-nav-btns button:hover {
+      border-color: var(--neon);
+      color: var(--neon-dim);
+    }
+    .cal-nav-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── LEGEND ── */
+    .cal-legend {
+      display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center;
+      padding: 0.9rem 2.5rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--white);
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── CALENDAR GRID ── */
+    .cal-section {
+      padding: 2.5rem 2.5rem 3rem;
+    }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-bottom: 1px;
+    }
+    .cal-weekday {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.5rem 0.6rem;
+      text-align: center;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cal-cell {
+      background: var(--white);
+      min-height: 100px; max-height: 140px; overflow: hidden; align-content: start;
+      padding: 0.5rem 0.6rem;
+      display: flex; flex-direction: column; gap: 0.3rem;
+      transition: background 0.15s;
+    }
+    .cal-cell:hover { background: var(--off-white); }
+    .cal-cell.other-month {
+      background: #fafafa;
+    }
+    .cal-cell.other-month .cal-day-num { color: #ccc; }
+    .cal-cell.today {
+      background: #f0fff6;
+    }
+    .cal-cell.today .cal-day-num {
+      background: var(--neon);
+      color: #0a1a0a;
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+    }
+    .cal-day-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.1rem;
+    }
+    .cal-events {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .cal-event {
+      font-size: 0.67rem;
+      font-weight: 600;
+      padding: 0.18rem 0.4rem;
+      border-radius: 3px;
+      line-height: 1.3;
+      cursor: default;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 0.01em;
+    }
+    /* Span bars — slim background, shows project is active this day */
+    .cal-span {
+      opacity: 0.7;
+      font-size: 0.6rem !important;
+      padding: 0.1rem 0.35rem !important;
+      border-left-width: 3px !important;
+      letter-spacing: 0;
+    }
+    /* Milestone events — bold, stands out */
+    .cal-milestone {
+      font-weight: 700 !important;
+      font-size: 0.67rem !important;
+      border-left-width: 3px !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    /* status colors for events */
+    .cal-event.no-downpayment  { background: rgba(239,68,68,0.12);  color: #dc2626; border-left: 2px solid #ef4444; }
+    .cal-event.pre-procurement { background: rgba(59,130,246,0.12); color: #1d4ed8; border-left: 2px solid #3b82f6; }
+    .cal-event.engineering     { background: rgba(245,158,11,0.12); color: #d97706; border-left: 2px solid #f59e0b; }
+    .cal-event.production      { background: rgba(34,197,94,0.12);  color: #15803d; border-left: 2px solid #22c55e; }
+    .cal-event.done            { background: rgba(0,0,0,0.06);      color: #333;    border-left: 2px solid #555; }
+    .cal-event.purchasing      { background: rgba(107,114,128,0.12);color: #374151; border-left: 2px solid #6b7280; }
+    .cal-event.pulling         { background: rgba(236,72,153,0.12); color: #be185d; border-left: 2px solid #ec4899; }
+
+    /* ── EMPTY MONTH MESSAGE ── */
+    .cal-empty {
+      text-align: center;
+      padding: 3rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── UPCOMING LIST (below calendar) ── */
+    .upcoming-header {
+      padding: 0 2.5rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-top: 1.5px solid var(--border);
+      padding-top: 2rem;
+    }
+    .upcoming-list {
+      padding: 0 2.5rem 3rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .upcoming-item {
+      display: flex; align-items: baseline; gap: 1rem;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .upcoming-item:hover { border-color: var(--neon); }
+    .upcoming-date {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+    .upcoming-project {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+    .upcoming-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      flex: 1;
+    }
+    .upcoming-badge {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .upcoming-badge.no-downpayment  { background: rgba(239,68,68,0.1);  color: #dc2626; }
+    .upcoming-badge.pre-procurement { background: rgba(59,130,246,0.1); color: #1d4ed8; }
+    .upcoming-badge.engineering     { background: rgba(245,158,11,0.1); color: #d97706; }
+    .upcoming-badge.production      { background: rgba(34,197,94,0.1);  color: #15803d; }
+    .upcoming-badge.purchasing      { background: rgba(107,114,128,0.1);color: #374151; }
+    .upcoming-badge.pulling         { background: rgba(236,72,153,0.1); color: #be185d; }
+
+    @media (max-width: 680px) {
+      .cal-section { padding: 1rem; }
+      .cal-nav, .cal-legend, .upcoming-header, .upcoming-list { padding-left: 1rem; padding-right: 1rem; }
+      .cal-cell { min-height: 70px; padding: 0.3rem; }
+      .cal-event { font-size: 0.6rem; padding: 0.12rem 0.3rem; }
+      .upcoming-item { flex-wrap: wrap; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span></span>MODO8 Projects</div>
+  <ul class="nav-links">
+    <li><a href="index.html">All Projects</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+  </ul>
+</nav>
+
+<!-- CALENDAR NAV -->
+<div class="cal-nav">
+  <div>
+    <div class="cal-nav-label">Ship &amp; Milestone Calendar</div>
+    <div class="cal-nav-month" id="cal-month-label">—</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="cal-nav-btns" id="today-btn" style="background:var(--white);border:1.5px solid var(--border);color:var(--text-sub);font-family:var(--mono);font-size:0.72rem;padding:0 0.8rem;height:36px;border-radius:6px;cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;">Today</button>
+    <div class="cal-nav-btns">
+      <button id="prev-month">&#8592;</button>
+      <button id="next-month">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="cal-legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div>No Downpayment</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div>Pre-Procurement</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>Engineering</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>Production</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#6b7280;"></div>Purchasing</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div>Pulling</div>
+</div>
+
+<!-- CALENDAR GRID -->
+<div class="cal-section" id="cal-section"></div>
+
+<!-- UPCOMING THIS MONTH -->
+<div class="upcoming-header" id="upcoming-header"></div>
+<div class="upcoming-list" id="upcoming-list"></div>
+
+<footer>
+  <span>MODO8 LLC — Internal Use</span>
+  <span id="footer-date"></span>
+</footer>
+
+<script>
+  // ── Events derived from project data ──
+  // Pipeline logic per project (working backwards from ship date):
+  //   Ship date                    = known
+  //   Production start             = ship - 3 weeks
+  //   Parts arrive                 = production start
+  //   Parts order placed           = parts arrive - 4 weeks
+  //   Purchasing window            = 1 week after engineering complete
+  //   Engineering due              = parts order - 1 week
+
+  const events = [
+
+    // ─────────────────────────────────────────
+    // ACTUS  |  Ship: Jul 1  |  status: production
+    // ─────────────────────────────────────────
+    { date: '2026-07-01', project: 'ACTUS', label: 'Ship Date',              status: 'production' },
+    { date: '2026-07-01', project: 'ACTUS', label: 'Invoice $23K — SAT',     status: 'production' },
+    { date: '2026-07-13', project: 'ACTUS', label: 'Site Support (CMES)',     status: 'production' },
+
+    // ─────────────────────────────────────────
+    // OCADO  |  Ship: Jul 1  |  status: production
+    // ─────────────────────────────────────────
+    { date: '2026-06-17', project: 'OCADO', label: 'Install Pre-Ship Invoice ($35.4K)', status: 'production' },
+    { date: '2026-06-17', project: 'OCADO', label: 'CO Down Payment ($53.9K)',           status: 'production' },
+    { date: '2026-07-01', project: 'OCADO', label: 'Ship Date',                          status: 'production' },
+    { date: '2026-07-01', project: 'OCADO', label: 'Invoice $109K — Initial Shipment',   status: 'production' },
+    { date: '2026-07-15', project: 'OCADO', label: 'Invoice $53.9K — CO Final',          status: 'production' },
+    { date: '2026-08-01', project: 'OCADO', label: 'Invoice $58.6K — Install + Arrival', status: 'production' },
+
+    // ─────────────────────────────────────────
+    // ADI / MALIN  |  Ship: Jun 22  |  status: production
+    // ─────────────────────────────────────────
+    { date: '2026-06-22', project: 'ADI', label: 'Ship Date',                status: 'production' },
+    { date: '2026-06-22', project: 'ADI', label: 'Invoice $55.7K — Initial Ship', status: 'production' },
+    { date: '2026-06-26', project: 'ADI', label: 'Invoice $27.9K — Final Ship',   status: 'production' },
+
+    // ─────────────────────────────────────────
+    // ARHAUS  |  Ship: Jul 2  |  status: pulling
+    // ─────────────────────────────────────────
+    { date: '2026-06-25', project: 'ARHAUS', label: 'Pull Complete — Stage for Ship', status: 'pulling' },
+    { date: '2026-07-02', project: 'ARHAUS', label: 'Ship Date',              status: 'pulling' },
+    { date: '2026-07-02', project: 'ARHAUS', label: 'Invoice $9.7K — Initial Ship', status: 'pulling' },
+    { date: '2026-08-01', project: 'ARHAUS', label: 'Invoice $4.9K — Final Ship',   status: 'pulling' },
+
+    // ─────────────────────────────────────────
+    // FRONTIER DENTAL  |  Ship: Jul 21  |  status: purchasing
+    // ─────────────────────────────────────────
+    // Eng complete → invoice mfg start Jun 19 → parts arrive Jun 30 → prod Jun 30–Jul 21
+    { date: '2026-06-19', project: 'FRONTIER', label: 'Invoice $70K — Mfg Start',       status: 'purchasing' },
+    { date: '2026-06-30', project: 'FRONTIER', label: 'Parts Arrive / Prod Start',       status: 'purchasing' },
+    { date: '2026-06-30', project: 'FRONTIER', label: 'Invoice $70K — Mfg Complete',     status: 'purchasing' },
+    { date: '2026-07-21', project: 'FRONTIER', label: 'Ship Date',                       status: 'purchasing' },
+    { date: '2026-07-21', project: 'FRONTIER', label: 'Invoice $52.5K — Start Shipping', status: 'purchasing' },
+    { date: '2026-07-23', project: 'FRONTIER', label: 'Invoice $52.5K — Delivery',       status: 'purchasing' },
+
+    // ─────────────────────────────────────────
+    // CONVEYOR ON CASTERS  |  Ship: Aug 3  |  status: purchasing
+    // ─────────────────────────────────────────
+    // Eng info Jun 19 → parts order Jun 22 → parts arrive Jul 20 → prod Jul 20–Aug 3
+    { date: '2026-06-19', project: 'COC', label: 'Eng Info → Purchasing',    status: 'purchasing' },
+    { date: '2026-06-22', project: 'COC', label: 'Parts Order Placed',        status: 'purchasing' },
+    { date: '2026-07-20', project: 'COC', label: 'Parts Arrive / Prod Start', status: 'purchasing' },
+    { date: '2026-08-03', project: 'COC', label: 'Ship Date',                 status: 'purchasing' },
+    { date: '2026-08-03', project: 'COC', label: 'Freight Invoice — TBD',     status: 'purchasing' },
+
+    // ─────────────────────────────────────────
+    // PITNEY BOS  |  Ship: Jul 27  |  status: engineering
+    // ─────────────────────────────────────────
+    // Eng due Jun 19 → purchasing Jun 26 → parts arrive Jul 24 → prod Jul 24–27
+    { date: '2026-06-19', project: 'PITNEY BOS', label: 'Engineering Due',           status: 'engineering' },
+    { date: '2026-06-19', project: 'PITNEY BOS', label: 'Invoice $68K — Eng Complete', status: 'engineering' },
+    { date: '2026-06-26', project: 'PITNEY BOS', label: 'Parts Order Placed',         status: 'engineering' },
+    { date: '2026-07-24', project: 'PITNEY BOS', label: 'Parts Arrive / Prod Start',  status: 'engineering' },
+    { date: '2026-07-27', project: 'PITNEY BOS', label: 'Ship Date',                  status: 'engineering' },
+    { date: '2026-07-27', project: 'PITNEY BOS', label: 'Invoice $68K — Initial Ship',status: 'engineering' },
+
+    // ─────────────────────────────────────────
+    // LOLOI RUGS  |  Ship: Jul 27  |  status: production
+    // ─────────────────────────────────────────
+    // Parts arrive Jul 9 → prod Jul 9–27
+    { date: '2026-07-09', project: 'LOLOI RUGS', label: 'Parts Arrive / Prod Start',  status: 'production' },
+    { date: '2026-07-09', project: 'LOLOI RUGS', label: 'Justin — Programming Due',    status: 'production' },
+    { date: '2026-07-27', project: 'LOLOI RUGS', label: 'Ship Date',                   status: 'production' },
+    { date: '2026-07-27', project: 'LOLOI RUGS', label: 'Invoice $93.5K — Final Ship (Net 15)', status: 'production' },
+
+    // ─────────────────────────────────────────
+    // NEW HORIZONS  |  Ship: Jul 31  |  status: pre-procurement
+    // ─────────────────────────────────────────
+    // Design acceptance Jun 19 → eng due Jun 26 → parts order Jul 3 → arrive Jul 31 → prod Jul 31
+    { date: '2026-06-19', project: 'NEW HORIZONS', label: 'Design Acceptance — Invoice $60.8K', status: 'pre-procurement' },
+    { date: '2026-06-26', project: 'NEW HORIZONS', label: 'Engineering Due',              status: 'pre-procurement' },
+    { date: '2026-07-03', project: 'NEW HORIZONS', label: 'Parts Order Placed',           status: 'pre-procurement' },
+    { date: '2026-07-31', project: 'NEW HORIZONS', label: 'Parts Arrive / Prod Start',    status: 'pre-procurement' },
+    { date: '2026-07-31', project: 'NEW HORIZONS', label: 'Ship Date',                    status: 'pre-procurement' },
+    { date: '2026-07-31', project: 'NEW HORIZONS', label: 'Invoice $60.8K — FAT Ship',    status: 'pre-procurement' },
+    { date: '2026-08-30', project: 'NEW HORIZONS', label: 'Invoice $20.3K — Delivery (Net 30)', status: 'pre-procurement' },
+
+    // ─────────────────────────────────────────
+    // SPARTAN NASH  |  Ship: Aug 7  |  status: engineering
+    // ─────────────────────────────────────────
+    // Eng due Jun 26 → parts order Jul 3 → arrive Jul 31 → prod Jul 31–Aug 7
+    { date: '2026-06-26', project: 'SPARTAN NASH', label: 'Engineering Due',             status: 'engineering' },
+    { date: '2026-06-26', project: 'SPARTAN NASH', label: 'Invoice $29.6K — Eng (Net 15)', status: 'engineering' },
+    { date: '2026-07-03', project: 'SPARTAN NASH', label: 'Parts Order Placed',           status: 'engineering' },
+    { date: '2026-07-31', project: 'SPARTAN NASH', label: 'Parts Arrive / Prod Start',    status: 'engineering' },
+    { date: '2026-08-07', project: 'SPARTAN NASH', label: 'Ship Date',                    status: 'engineering' },
+    { date: '2026-08-07', project: 'SPARTAN NASH', label: 'Invoice $19.7K — Ship (Net 30)', status: 'engineering' },
+
+    // ─────────────────────────────────────────
+    // R2  |  Ship: Aug 17  |  status: engineering
+    // ─────────────────────────────────────────
+    // DP received → eng due Jul 3 → parts order Jul 10 → arrive Aug 7 → prod Aug 7–17
+    { date: '2026-07-03', project: 'R2', label: 'Engineering Due',             status: 'engineering' },
+    { date: '2026-07-10', project: 'R2', label: 'Parts Order Placed',          status: 'engineering' },
+    { date: '2026-08-07', project: 'R2', label: 'Parts Arrive / Prod Start',   status: 'engineering' },
+    { date: '2026-08-17', project: 'R2', label: 'Ship Date',                   status: 'engineering' },
+    { date: '2026-08-17', project: 'R2', label: 'Invoice $23.2K — Ship Notif', status: 'engineering' },
+    { date: '2026-09-17', project: 'R2', label: 'Invoice $15.5K — Delivery',   status: 'engineering' },
+
+    // ─────────────────────────────────────────
+    // AMAZON CANADA  |  Ship: Aug 28  |  status: engineering
+    // ─────────────────────────────────────────
+    // Eng due Jun 26 → parts order Jul 3 → arrive Jul 31 → prod Jul 31–Aug 28
+    { date: '2026-06-26', project: 'AMAZON CA', label: 'Engineering Due',             status: 'engineering' },
+    { date: '2026-06-26', project: 'AMAZON CA', label: 'Invoice $53.4K — Eng (Net 30)', status: 'engineering' },
+    { date: '2026-07-03', project: 'AMAZON CA', label: 'Parts Order Placed',           status: 'engineering' },
+    { date: '2026-07-31', project: 'AMAZON CA', label: 'Parts Arrive / Prod Start',    status: 'engineering' },
+    { date: '2026-08-28', project: 'AMAZON CA', label: 'Ship Date',                    status: 'engineering' },
+    { date: '2026-08-28', project: 'AMAZON CA', label: 'Invoice $53.4K — Initial Ship',status: 'engineering' },
+
+    // ─────────────────────────────────────────
+    // FORSYTH  |  Ship: Aug 10  |  status: pre-procurement
+    // ─────────────────────────────────────────
+    // Awaiting DP → eng due Jul 3 → parts order Jul 10 → arrive Aug 7 → prod Aug 7–10
+    { date: '2026-06-19', project: 'FORSYTH', label: '⚠️ DP Due ($20,570) — Eng Blocked', status: 'pre-procurement' },
+    { date: '2026-07-03', project: 'FORSYTH', label: 'Engineering Due (if DP received)',   status: 'pre-procurement' },
+    { date: '2026-07-10', project: 'FORSYTH', label: 'Parts Order Placed',                 status: 'pre-procurement' },
+    { date: '2026-08-07', project: 'FORSYTH', label: 'Parts Arrive / Prod Start',          status: 'pre-procurement' },
+    { date: '2026-08-10', project: 'FORSYTH', label: 'Ship Date',                          status: 'pre-procurement' },
+    { date: '2026-08-10', project: 'FORSYTH', label: 'Invoice $20.6K — Final Ship (Net 15)', status: 'pre-procurement' },
+  ];
+
+  // ── Calendar state ──
+  const today = new Date();
+  let viewYear = today.getFullYear();
+  let viewMonth = today.getMonth();
+
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  // Mon–Fri only
+  const DAYS = ['Mon','Tue','Wed','Thu','Fri'];
+
+  function parseDate(str) {
+    const [y,m,d] = str.split('-').map(Number);
+    return new Date(y, m-1, d);
+  }
+
+  // Returns true if date is Mon–Fri
+  function isWeekday(d) {
+    const dow = d.getDay();
+    return dow >= 1 && dow <= 5;
+  }
+
+  // Add businessDays business days to a date (returns new Date)
+  function addBizDays(date, n) {
+    const d = new Date(date);
+    let added = 0;
+    while (added < n) {
+      d.setDate(d.getDate() + 1);
+      if (isWeekday(d)) added++;
+    }
+    return d;
+  }
+
+  // Format date to YYYY-MM-DD string
+  function toDateStr(d) {
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
+  }
+
+  // ── Spans: production/engineering ranges shown across every business day ──
+  // Each span: { project, label, start: 'YYYY-MM-DD', end: 'YYYY-MM-DD', status }
+  const spans = [
+    // ACTUS — production Jun 10–Jul 1
+    { project: 'ACTUS',        label: 'Production',    start: '2026-06-10', end: '2026-07-01', status: 'production' },
+
+    // OCADO — in production / shipping Jun 1–Jul 1
+    { project: 'OCADO',        label: 'Production',    start: '2026-06-01', end: '2026-07-01', status: 'production' },
+
+    // ADI — production Jun 8–Jun 22
+    { project: 'ADI',          label: 'Production',    start: '2026-06-08', end: '2026-06-22', status: 'production' },
+
+    // ARHAUS — pulling Jun 11–Jul 2
+    { project: 'ARHAUS',       label: 'Pulling',       start: '2026-06-11', end: '2026-07-02', status: 'pulling' },
+
+    // FRONTIER DENTAL — production Jun 30–Jul 21
+    { project: 'FRONTIER',     label: 'Production',    start: '2026-06-30', end: '2026-07-21', status: 'purchasing' },
+
+    // CONVEYOR ON CASTERS — production Jul 20–Aug 3
+    { project: 'COC',          label: 'Production',    start: '2026-07-20', end: '2026-08-03', status: 'purchasing' },
+
+    // PITNEY BOS — engineering now–Jun 19, production Jul 24–27
+    { project: 'PITNEY BOS',   label: 'Engineering',   start: '2026-06-17', end: '2026-06-19', status: 'engineering' },
+    { project: 'PITNEY BOS',   label: 'Production',    start: '2026-07-24', end: '2026-07-27', status: 'engineering' },
+
+    // LOLOI RUGS — production Jul 9–27
+    { project: 'LOLOI RUGS',   label: 'Production',    start: '2026-07-09', end: '2026-07-27', status: 'production' },
+
+    // NEW HORIZONS — engineering Jun 19–26, production Jul 31
+    { project: 'NEW HORIZONS', label: 'Engineering',   start: '2026-06-19', end: '2026-06-26', status: 'pre-procurement' },
+    { project: 'NEW HORIZONS', label: 'Production',    start: '2026-07-17', end: '2026-07-31', status: 'pre-procurement' },
+
+    // SPARTAN NASH — engineering Jun 17–26, production Jul 31–Aug 7
+    { project: 'SPARTAN NASH', label: 'Engineering',   start: '2026-06-17', end: '2026-06-26', status: 'engineering' },
+    { project: 'SPARTAN NASH', label: 'Production',    start: '2026-07-31', end: '2026-08-07', status: 'engineering' },
+
+    // R2 — engineering Jun 17–Jul 3, production Aug 7–17
+    { project: 'R2',           label: 'Engineering',   start: '2026-06-17', end: '2026-07-03', status: 'engineering' },
+    { project: 'R2',           label: 'Production',    start: '2026-08-07', end: '2026-08-17', status: 'engineering' },
+
+    // AMAZON CANADA — engineering Jun 17–26, production Jul 31–Aug 28
+    { project: 'AMAZON CA',    label: 'Engineering',   start: '2026-06-17', end: '2026-06-26', status: 'engineering' },
+    { project: 'AMAZON CA',    label: 'Production',    start: '2026-07-31', end: '2026-08-28', status: 'engineering' },
+
+    // FORSYTH — engineering Jul 3–10 (pending DP), production Aug 7–10
+    { project: 'FORSYTH',      label: 'Engineering',   start: '2026-07-03', end: '2026-07-10', status: 'pre-procurement' },
+    { project: 'FORSYTH',      label: 'Production',    start: '2026-08-07', end: '2026-08-10', status: 'pre-procurement' },
+  ];
+
+  // Build a set of dateStr → [{project, label, status}] for span days
+  function buildSpanMap() {
+    const map = {};
+    spans.forEach(sp => {
+      const s = parseDate(sp.start);
+      const e = parseDate(sp.end);
+      const cur = new Date(s);
+      while (cur <= e) {
+        if (isWeekday(cur)) {
+          const key = toDateStr(cur);
+          if (!map[key]) map[key] = [];
+          map[key].push({ project: sp.project, label: sp.label, status: sp.status, isSpan: true });
+        }
+        cur.setDate(cur.getDate() + 1);
+      }
+    });
+    return map;
+  }
+
+  function renderCalendar() {
+    const label = document.getElementById('cal-month-label');
+    label.innerHTML = MONTHS[viewMonth] + ' <em>' + viewYear + '</em>';
+
+    const section = document.getElementById('cal-section');
+    section.innerHTML = '';
+
+    // Weekday headers Mon–Fri
+    const wkRow = document.createElement('div');
+    wkRow.className = 'cal-weekdays';
+    DAYS.forEach(d => {
+      const cell = document.createElement('div');
+      cell.className = 'cal-weekday';
+      cell.textContent = d;
+      wkRow.appendChild(cell);
+    });
+    section.appendChild(wkRow);
+
+    const grid = document.createElement('div');
+    grid.className = 'cal-grid';
+
+    const spanMap = buildSpanMap();
+
+    // First weekday of month (Mon=1 → col 0, ..., Fri=5 → col 4)
+    const firstOfMonth = new Date(viewYear, viewMonth, 1);
+    const daysInMonth  = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+    // Find first Monday on or before the 1st of this month
+    // We only show Mon–Fri so we need to know how many Mon–Fri cells to pad
+    let firstDayDow = firstOfMonth.getDay(); // 0=Sun,1=Mon,...,6=Sat
+    // Calculate padding: Mon=0 cols, Tue=1, Wed=2, Thu=3, Fri=4, Sat=skip(5→4), Sun=skip(0→show prev fri? no, just 0 pad)
+    // For weekend first days we start with 0 padding (first weekday is Mon of that week)
+    let padCols = 0;
+    if (firstDayDow === 0) padCols = 0; // Sun → show Mon as first
+    else if (firstDayDow === 6) padCols = 0; // Sat → show Mon as first
+    else padCols = firstDayDow - 1; // Mon=0,Tue=1,Wed=2,Thu=3,Fri=4
+
+    // Add blank padding cells
+    for (let i = 0; i < padCols; i++) {
+      const blank = document.createElement('div');
+      blank.className = 'cal-cell other-month';
+      grid.appendChild(blank);
+    }
+
+    // Render each day of the month that is Mon–Fri
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(viewYear, viewMonth, d);
+      if (!isWeekday(date)) continue;
+
+      const dateStr = toDateStr(date);
+      const isToday = (d === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear());
+      const dayEvents = events.filter(e => e.date === dateStr);
+      const daySpans  = spanMap[dateStr] || [];
+
+      const cell = buildCell(d, false, isToday, dayEvents, daySpans);
+      grid.appendChild(cell);
+    }
+
+    // Trailing blank cells to complete the last row
+    const totalRendered = padCols + [...Array(daysInMonth)].filter((_,i) => isWeekday(new Date(viewYear, viewMonth, i+1))).length;
+    const remainder = totalRendered % 5 === 0 ? 0 : 5 - (totalRendered % 5);
+    for (let i = 0; i < remainder; i++) {
+      const blank = document.createElement('div');
+      blank.className = 'cal-cell other-month';
+      grid.appendChild(blank);
+    }
+
+    section.appendChild(grid);
+    renderUpcoming();
+  }
+
+  function buildCell(dayNum, otherMonth, isToday, dayEvents, daySpans) {
+    const cell = document.createElement('div');
+    cell.className = 'cal-cell' + (otherMonth ? ' other-month' : '') + (isToday ? ' today' : '');
+
+    const num = document.createElement('div');
+    num.className = 'cal-day-num';
+    num.textContent = dayNum;
+    cell.appendChild(num);
+
+    const evtWrap = document.createElement('div');
+    evtWrap.className = 'cal-events';
+
+    // Span bars first (production/engineering ranges) — shown as slim background bars
+    daySpans.forEach(sp => {
+      const e = document.createElement('div');
+      e.className = 'cal-event cal-span ' + sp.status;
+      e.title = sp.project + ': ' + sp.label;
+      e.textContent = sp.project + ' · ' + sp.label;
+      evtWrap.appendChild(e);
+    });
+
+    // Milestone events on top
+    dayEvents.forEach(ev => {
+      const e = document.createElement('div');
+      e.className = 'cal-event cal-milestone ' + ev.status;
+      e.title = ev.project + ': ' + ev.label;
+      e.textContent = ev.project + ' — ' + ev.label;
+      evtWrap.appendChild(e);
+    });
+
+    if (evtWrap.children.length > 0) cell.appendChild(evtWrap);
+    return cell;
+  }
+
+  function renderUpcoming() {
+    const header = document.getElementById('upcoming-header');
+    const list = document.getElementById('upcoming-list');
+    list.innerHTML = '';
+
+    const monthEvents = events
+      .filter(e => {
+        const d = parseDate(e.date);
+        return d.getFullYear() === viewYear && d.getMonth() === viewMonth;
+      })
+      .sort((a,b) => a.date.localeCompare(b.date));
+
+    if (monthEvents.length === 0) {
+      header.textContent = 'No milestones this month';
+      return;
+    }
+
+    header.textContent = MONTHS[viewMonth] + ' ' + viewYear + ' — Milestones';
+
+    monthEvents.forEach(ev => {
+      const d = parseDate(ev.date);
+      const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+      const item = document.createElement('div');
+      item.className = 'upcoming-item';
+      item.innerHTML =
+        '<span class="upcoming-date">' + dateStr + '</span>' +
+        '<span class="upcoming-project">' + ev.project + '</span>' +
+        '<span class="upcoming-desc">' + ev.label + '</span>' +
+        '<span class="upcoming-badge ' + ev.status + '">' + ev.status.replace('-', ' ') + '</span>';
+      list.appendChild(item);
+    });
+  }
+
+  document.getElementById('prev-month').addEventListener('click', () => {
+    viewMonth--;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    renderCalendar();
+  });
+  document.getElementById('next-month').addEventListener('click', () => {
+    viewMonth++;
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    renderCalendar();
+  });
+  document.getElementById('today-btn').addEventListener('click', () => {
+    viewYear = today.getFullYear();
+    viewMonth = today.getMonth();
+    renderCalendar();
+  });
+
+  document.getElementById('footer-date').textContent =
+    new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+  renderCalendar();
+</script>
+</body>
+</html>
