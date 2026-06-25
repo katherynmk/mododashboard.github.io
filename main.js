@@ -157,6 +157,18 @@ document.addEventListener('DOMContentLoaded', function () {
       lastInvoice: "None yet",
       address: "Storage Solutions, 910 E. 169th Street, Westfield, IN 46074"
     },
+    {
+  title: "NUMINA BOXOUT JAX",
+  integrator: "MODO8",
+  status: "engineering",
+  state: "PO Received — Down Payment Invoiced",
+  shipDate: "Sep 14, 2026",
+  contractValue: 278522.00,
+  invoiced: 0,
+  nextInvoice: "$55,704 — Down Payment (20%)",
+  lastInvoice: "—",
+  address: "Boxout | 3750 Cisco Drive W, Unit 1 | Jacksonville, FL 32219"
+},
   ];
 
   const fmt = n => '$' + n.toLocaleString();
