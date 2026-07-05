@@ -7,11 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "production",
       state: "On-site CMES visit scheduled",
       shipDate: "Jul 1, 2026",
-      contractValue: 253208.38,
-      invoiced: 195000,
-      nextInvoice: "$23,013 — SAT (10%)",
-      lastInvoice: "$23,076 — Change Order",
-      address: "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212"
+      address: "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212",
+      notes: "",
+      install: false
     },
     {
       title: "OCADO",
@@ -19,11 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "production",
       state: "Working On Phased Shipping and Installation",
       shipDate: "Jul 1, 2026",
-      contractValue: 560517.34,
-      invoiced: 218586.14,
-      nextInvoice: "$109,293 — Initial Shipment",
-      lastInvoice: "$109,293 — Engineering Complete",
-      address: "9091 88th Ave, Pleasant Prairie, WI"
+      address: "9091 88th Ave, Pleasant Prairie, WI",
+      notes: "",
+      install: false
     },
     {
       title: "ADI / MALIN",
@@ -31,11 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "production",
       state: "Working On Phased Shipping",
       shipDate: "Jun 22, 2026",
-      contractValue: 278500,
-      invoiced: 194950,
-      nextInvoice: "$55,700 — Initial Shipment",
-      lastInvoice: "$83,550 — Engineering Complete",
-      address: "3200 Richmond Rd, Easton, PA 18040"
+      address: "3200 Richmond Rd, Easton, PA 18040",
+      notes: "",
+      install: false
     },
     {
       title: "ARHAUS",
@@ -43,11 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "pulling",
       state: "Pulling job",
       shipDate: "Jul 2, 2026",
-      contractValue: 48655,
-      invoiced: 34058.50,
-      nextInvoice: "$9,731 — Initial Shipment",
-      lastInvoice: "$14,596.50 — Engineering Complete",
-      address: "51 East Hines Hill Rd, Boston Heights, OH 44236 | James Coddington 216-276-3956"
+      address: "51 East Hines Hill Rd, Boston Heights, OH 44236 | James Coddington 216-276-3956",
+      notes: "",
+      install: false
     },
     {
       title: "FRONTIER DENTAL",
@@ -55,11 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "purchasing",
       state: "Purchased — CHANGE ORDER?",
       shipDate: "Jul 21, 2026",
-      contractValue: 350000,
-      invoiced: 105000,
-      nextInvoice: "$70,000 — Start of Manufacturing",
-      lastInvoice: "$105,000 — PO Placement (30%)",
-      address: "2500 W. Carey Ave, Bldg F, North Las Vegas, NV 89032"
+      address: "2500 W. Carey Ave, Bldg F, North Las Vegas, NV 89032",
+      notes: "",
+      install: false
     },
     {
       title: "CONVEYOR ON CASTERS",
@@ -67,11 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "purchasing",
       state: "Paid in full — freight to be invoiced at ship",
       shipDate: "Aug 3, 2026",
-      contractValue: 4938,
-      invoiced: 4938,
-      nextInvoice: "Freight — TBD at shipment",
-      lastInvoice: "Paid in Full — PO 101087",
-      address: "979 Corporate Blvd, Linthicum Heights, MD 21090"
+      address: "979 Corporate Blvd, Linthicum Heights, MD 21090",
+      notes: "",
+      install: false
     },
     {
       title: "PITNEY BOS",
@@ -79,11 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "engineering",
       state: "Working On CET Drawing",
       shipDate: "Jul 27, 2026",
-      contractValue: 226822.25,
-      invoiced: 90728.90,
-      nextInvoice: "$68,046 — Engineering Complete (Jun 19)",
-      lastInvoice: "$90,728 — Downpayment",
-      address: "Pitney Bowes, 5071 W 74th St, Indianapolis, IN 46268"
+      address: "Pitney Bowes, 5071 W 74th St, Indianapolis, IN 46268",
+      notes: "",
+      install: false
     },
     {
       title: "LOLOI RUGS",
@@ -91,11 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "production",
       state: "Justin Needs to Program",
       shipDate: "Jul 27, 2026",
-      contractValue: 187126,
-      invoiced: 93563,
-      nextInvoice: "$93,563 — Final Shipment (Net 15)",
-      lastInvoice: "$93,563 — 50% Downpayment",
-      address: "4550 Spring Valley Rd, Farmers Branch, TX 75244"
+      address: "4550 Spring Valley Rd, Farmers Branch, TX 75244",
+      notes: "",
+      install: false
     },
     {
       title: "NEW HORIZONS",
@@ -103,11 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "pre-procurement",
       state: "Pre-procurement — FAT terms",
       shipDate: "Jul 31, 2026",
-      contractValue: 202665,
-      invoiced: 60799.50,
-      nextInvoice: "$60,799 — Design Acceptance (30%)",
-      lastInvoice: "$60,799 — Order (30%) — PO 101076",
-      address: "211 Woodlawn Avenue, Norwalk, OH 44857"
+      address: "211 Woodlawn Avenue, Norwalk, OH 44857",
+      notes: "",
+      install: false
     },
     {
       title: "SPARTAN NASH",
@@ -115,11 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "engineering",
       state: "Engineering — downpayment received",
       shipDate: "Aug 7, 2026",
-      contractValue: 98637,
-      invoiced: 49318.50,
-      nextInvoice: "$29,591 — Engineering Complete (Jun 26, Net 15)",
-      lastInvoice: "$49,318 — 50% Downpayment",
-      address: "1300 West Elkhorn Avenue, Sioux Falls, SD 57101"
+      address: "1300 West Elkhorn Avenue, Sioux Falls, SD 57101",
+      notes: "",
+      install: false
     },
     {
       title: "R2",
@@ -127,11 +107,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "engineering",
       state: "Engineering — downpayment received",
       shipDate: "Aug 17, 2026",
-      contractValue: 77310,
-      invoiced: 38655,
-      nextInvoice: "$23,193 — Ship Notification (30%, Net 30)",
-      lastInvoice: "$38,655 — 50% Downpayment — MODO826014-R2",
-      address: "Automation Intelligence LLC, 6181 Taylor Dr, Flint, MI 48507"
+      address: "Automation Intelligence LLC, 6181 Taylor Dr, Flint, MI 48507",
+      notes: "",
+      install: false
     },
     {
       title: "AMAZON CANADA",
@@ -139,11 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "engineering",
       state: "Engineering — downpayment received",
       shipDate: "Aug 28, 2026",
-      contractValue: 177856,
-      invoiced: 71142.40,
-      nextInvoice: "$53,356 — Engineering Complete (Jun 26, Net 30)",
-      lastInvoice: "$71,142 — 40% Downpayment",
-      address: "Ryder, 1530 Gamble Pl, Winnipeg, MB R3T 1N6, Canada"
+      address: "Ryder, 1530 Gamble Pl, Winnipeg, MB R3T 1N6, Canada",
+      notes: "",
+      install: false
     },
     {
       title: "FORSYTH",
@@ -151,27 +127,21 @@ document.addEventListener('DOMContentLoaded', function () {
       status: "pre-procurement",
       state: "Pre-procurement — awaiting downpayment",
       shipDate: "Aug 10, 2026",
-      contractValue: 41140,
-      invoiced: 0,
-      nextInvoice: "$20,570 — 50% Downpayment at PO",
-      lastInvoice: "None yet",
-      address: "Storage Solutions, 910 E. 169th Street, Westfield, IN 46074"
+      address: "Storage Solutions, 910 E. 169th Street, Westfield, IN 46074",
+      notes: "",
+      install: false
     },
     {
-  title: "NUMINA BOXOUT JAX",
-  integrator: "MODO8",
-  status: "engineering",
-  state: "PO Received — Down Payment Invoiced",
-  shipDate: "Sep 14, 2026",
-  contractValue: 278522.00,
-  invoiced: 0,
-  nextInvoice: "$55,704 — Down Payment (20%)",
-  lastInvoice: "—",
-  address: "Boxout | 3750 Cisco Drive W, Unit 1 | Jacksonville, FL 32219"
-},
+      title: "NUMINA BOXOUT JAX",
+      integrator: "MODO8",
+      status: "engineering",
+      state: "PO Received — Down Payment Invoiced",
+      shipDate: "Sep 14, 2026",
+      address: "Boxout | 3750 Cisco Drive W, Unit 1 | Jacksonville, FL 32219",
+      notes: "",
+      install: false
+    },
   ];
-
-  const fmt = n => '$' + n.toLocaleString();
 
   // ── Build project cards ──
   const grid = document.getElementById('project-grid');
@@ -182,21 +152,18 @@ document.addEventListener('DOMContentLoaded', function () {
       card.innerHTML =
         '<div class="card-status-bar ' + p.status + '"></div>' +
         '<div class="card-top">' +
-          '<div class="card-title">' + p.title + '</div>' +
+          '<div class="card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
           '<span class="badge ' + p.status + '">' + p.status.replace('-', ' ') + '</span>' +
         '</div>' +
         '<hr class="card-divider">' +
         '<div class="card-rows">' +
           '<div class="card-row"><span class="label">Status</span><span class="value">' + p.state + '</span></div>' +
           '<div class="card-row"><span class="label">Ship Date</span><span class="value date">' + p.shipDate + '</span></div>' +
-          '<div class="card-row"><span class="label">Contract</span><span class="value money">' + fmt(p.contractValue) + '</span></div>' +
-          '<div class="card-row"><span class="label">Invoiced</span><span class="value money">' + fmt(p.invoiced) + '</span></div>' +
-          '<div class="card-row"><span class="label">Last Invoice</span><span class="value date">' + p.lastInvoice + '</span></div>' +
           '<div class="card-row"><span class="label">Integrator</span><span class="value">' + p.integrator + '</span></div>' +
         '</div>' +
-        '<div class="card-next">' +
-          '<div class="footer-label">Next Invoice</div>' +
-          '<div class="footer-val">' + p.nextInvoice + '</div>' +
+        '<div class="card-notes">' +
+          '<div class="footer-label">Notes</div>' +
+          '<div class="footer-val notes-text">' + (p.notes ? p.notes : '<em>No notes yet</em>') + '</div>' +
         '</div>' +
         '<div class="card-footer">' +
           '<div class="footer-label">Ship-To Address</div>' +
@@ -206,25 +173,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── Hero stats ──
-  var total = 0;
-  var totalInv = 0;
-  var activeCount = 0;
-  for (var i = 0; i < projects.length; i++) {
-    total += projects[i].contractValue;
-    totalInv += projects[i].invoiced;
-    if (projects[i].status === 'production') activeCount++;
-  }
+  // ── Hero: live status board (which projects are in each phase) ──
+  const STATUS_BOARD_KEYS = ['engineering', 'purchasing', 'production'];
 
-  var elTotal = document.getElementById('total-value');
-  var elInv = document.getElementById('total-invoiced');
-  var elActive = document.getElementById('active-count');
+  function buildStatusBoard() {
+    const board = document.getElementById('status-board');
+    if (!board) return;
+    board.innerHTML = '';
+    STATUS_BOARD_KEYS.forEach(function (key) {
+      const matches = projects.filter(function (p) { return p.status === key; });
+      const col = document.createElement('div');
+      col.className = 'status-col status-col-' + key;
+      col.innerHTML =
+        '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + ' <span class="status-count">(' + matches.length + ')</span></div>' +
+        '<div class="status-col-list">' +
+          (matches.length
+            ? matches.map(function (p) { return '<div class="status-chip">' + p.title + '</div>'; }).join('')
+            : '<div class="status-chip status-chip-empty">None</div>') +
+        '</div>';
+      board.appendChild(col);
+    });
+  }
+  buildStatusBoard();
+
   var elCount = document.getElementById('grid-count');
   var elDate = document.getElementById('footer-date');
-
-  if (elTotal) elTotal.textContent = fmt(total);
-  if (elInv) elInv.textContent = fmt(totalInv);
-  if (elActive) elActive.textContent = activeCount;
   if (elCount) elCount.textContent = projects.length + ' projects';
   if (elDate) elDate.textContent = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
@@ -240,15 +213,12 @@ document.addEventListener('DOMContentLoaded', function () {
       slide.innerHTML =
         '<div class="tv-card">' +
           '<div class="tv-card-eyebrow">Project 0' + (j + 1) + ' of ' + projects.length + '</div>' +
-          '<div class="tv-card-title">' + p.title + '</div>' +
+          '<div class="tv-card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
           '<div class="tv-card-integrator">Integrator: ' + p.integrator + '</div>' +
           '<div class="tv-card-grid">' +
             '<div class="tv-stat"><div class="tv-stat-label">Status</div><div class="tv-stat-val">' + p.state + '</div></div>' +
             '<div class="tv-stat"><div class="tv-stat-label">Ship Date</div><div class="tv-stat-val date">' + p.shipDate + '</div></div>' +
-            '<div class="tv-stat"><div class="tv-stat-label">Contract Value</div><div class="tv-stat-val money">' + fmt(p.contractValue) + '</div></div>' +
-            '<div class="tv-stat"><div class="tv-stat-label">Invoiced to Date</div><div class="tv-stat-val money">' + fmt(p.invoiced) + '</div></div>' +
-            '<div class="tv-stat"><div class="tv-stat-label">Last Invoice</div><div class="tv-stat-val date">' + p.lastInvoice + '</div></div>' +
-            '<div class="tv-stat"><div class="tv-stat-label">Next Invoice</div><div class="tv-stat-val">' + p.nextInvoice + '</div></div>' +
+            '<div class="tv-stat tv-stat-notes"><div class="tv-stat-label">Notes</div><div class="tv-stat-val">' + (p.notes ? p.notes : '<em>No notes yet</em>') + '</div></div>' +
           '</div>' +
           '<hr class="tv-divider">' +
           '<div class="tv-address-row">' +
