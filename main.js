@@ -405,15 +405,28 @@ function buildStatusBoard() {
   board.innerHTML = '';
   STATUS_BOARD_KEYS.forEach(function (key) {
     const matches = projects.filter(function (p) { return p.status === key; });
+    const next = matches.length
+      ? matches.slice().sort(function (a, b) {
+          return (a.dates.shipDate || '9999-99-99').localeCompare(b.dates.shipDate || '9999-99-99');
+        })[0]
+      : null;
+
     const col = document.createElement('div');
     col.className = 'status-col status-col-' + key;
-    col.innerHTML =
-      '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + ' <span class="status-count">(' + matches.length + ')</span></div>' +
-      '<div class="status-col-list">' +
-        (matches.length
-          ? matches.map(function (p) { return '<div class="status-chip">' + p.title + '</div>'; }).join('')
-          : '<div class="status-chip status-chip-empty">None</div>') +
-      '</div>';
+
+    if (next) {
+      col.innerHTML =
+        '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + ' <span class="status-count">(' + matches.length + ' total)</span></div>' +
+        '<div class="status-next-card">' +
+          '<div class="status-next-title">' + next.title + '</div>' +
+          '<div class="status-next-meta">' + next.state + '</div>' +
+          '<div class="status-next-ship">Ship ' + formatDisplayDate(next.dates.shipDate) + '</div>' +
+        '</div>';
+    } else {
+      col.innerHTML =
+        '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + '</div>' +
+        '<div class="status-next-card status-next-empty">None right now</div>';
+    }
     board.appendChild(col);
   });
 }
