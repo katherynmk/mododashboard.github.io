@@ -196,4 +196,286 @@ function buildStatusBoard() {
     const col = document.createElement('div');
     col.className = 'status-col status-col-' + key;
     col.innerHTML =
-      '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + ' <span class="status-count">(' +
+      '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + ' <span class="status-count">(' + matches.length + ')</span></div>' +
+      '<div class="status-col-list">' +
+        (matches.length
+          ? matches.map(function (p) { return '<div class="status-chip">' + p.title + '</div>'; }).join('')
+          : '<div class="status-chip status-chip-empty">None</div>') +
+      '</div>';
+    board.appendChild(col);
+  });
+}
+
+// ── Editor ──
+
+function ensureToken() {
+  if (editToken) return editToken;
+  const t = window.prompt(
+    'Enter your GitHub fine-grained token (scoped to this repo only, ' +
+    'Contents: read & write). This stays in this browser tab\'s memory only — ' +
+    'it is never saved to the page or the repo.'
+  );
+  if (t) editToken = t.trim();
+  return editToken;
+}
+
+function setSaveStatus(msg, isError) {
+  const el = document.getElementById('save-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.className = isError ? 'save-status error' : 'save-status';
+}
+
+const EDITABLE_FIELDS = [
+  { key: 'title', label: 'Title' },
+  { key: 'integrator', label: 'Integrator' },
+  { key: 'status', label: 'Status (production / pulling / purchasing / engineering / pre-procurement)' },
+  { key: 'state', label: 'Status detail text' },
+  { key: 'shipDate', label: 'Ship Date' },
+  { key: 'address', label: 'Ship-To Address' },
+  { key: 'notes', label: 'Notes' },
+];
+
+function renderEditorPanel() {
+  const panel = document.getElementById('editor-panel');
+  if (!panel) return;
+  panel.innerHTML = '';
+
+  projects.forEach((p, idx) => {
+    const row = document.createElement('div');
+    row.className = 'editor-row';
+
+    let fieldsHtml = EDITABLE_FIELDS.map(function (f) {
+      const val = (p[f.key] || '').toString().replace(/"/g, '&quot;');
+      return (
+        '<label class="editor-field">' + f.label +
+          '<input type="text" data-idx="' + idx + '" data-key="' + f.key + '" value="' + val + '">' +
+        '</label>'
+      );
+    }).join('');
+
+    row.innerHTML =
+      '<div class="editor-row-header">' +
+        '<strong>' + (p.title || 'New Project') + '</strong>' +
+        '<label class="editor-install"><input type="checkbox" data-idx="' + idx + '" data-key="install" ' + (p.install ? 'checked' : '') + '> Install</label>' +
+        '<button type="button" class="editor-delete-btn" data-idx="' + idx + '">Delete</button>' +
+      '</div>' +
+      '<div class="editor-fields">' + fieldsHtml + '</div>';
+
+    panel.appendChild(row);
+  });
+
+  panel.querySelectorAll('input[type="text"]').forEach(function (input) {
+    input.addEventListener('input', function (e) {
+      const idx = parseInt(e.target.getAttribute('data-idx'), 10);
+      const key = e.target.getAttribute('data-key');
+      projects[idx][key] = e.target.value;
+      renderCards();
+      buildStatusBoard();
+    });
+  });
+
+  panel.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+    cb.addEventListener('change', function (e) {
+      const idx = parseInt(e.target.getAttribute('data-idx'), 10);
+      projects[idx].install = e.target.checked;
+      renderCards();
+    });
+  });
+
+  panel.querySelectorAll('.editor-delete-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      const idx = parseInt(e.target.getAttribute('data-idx'), 10);
+      if (!window.confirm('Delete "' + projects[idx].title + '" from the dashboard? This is only staged locally until you click Save.')) return;
+      projects.splice(idx, 1);
+      renderEditorPanel();
+      renderCards();
+      buildStatusBoard();
+    });
+  });
+}
+
+function addNewProject() {
+  projects.push({
+    title: 'NEW PROJECT',
+    integrator: '',
+    status: 'pre-procurement',
+    state: '',
+    shipDate: '',
+    address: '',
+    notes: '',
+    install: false
+  });
+  renderEditorPanel();
+  renderCards();
+  buildStatusBoard();
+}
+
+async function saveToGitHub() {
+  const token = ensureToken();
+  if (!token) {
+    setSaveStatus('Save cancelled — no token entered.', true);
+    return;
+  }
+
+  try {
+    setSaveStatus('Fetching current file from GitHub...');
+    const getRes = await fetch(
+      'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_PATH + '?ref=' + GH_BRANCH,
+      { headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' } }
+    );
+    if (!getRes.ok) {
+      throw new Error('Could not fetch main.js (HTTP ' + getRes.status + '). Check your token scope and repo name.');
+    }
+    const fileData = await getRes.json();
+    const currentContent = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ''))));
+
+    // Marker-based replace — robust to formatting changes, unlike matching on indentation
+    const markerRegex = /\/\/ ===PROJECTS_START===[\s\S]*?\/\/ ===PROJECTS_END===/;
+    if (!markerRegex.test(currentContent)) {
+      throw new Error('Could not find the ===PROJECTS_START===/===PROJECTS_END=== markers in main.js — aborted to avoid corrupting the file.');
+    }
+
+    const newBlock =
+      '// ===PROJECTS_START===\nconst projects = ' + JSON.stringify(projects, null, 2) + ';\n// ===PROJECTS_END===';
+    const newContent = currentContent.replace(markerRegex, newBlock);
+    const newContentBase64 = btoa(unescape(encodeURIComponent(newContent)));
+
+    setSaveStatus('Committing to GitHub...');
+    const putRes = await fetch(
+      'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_PATH,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: 'Bearer ' + token,
+          Accept: 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Dashboard edit via on-site editor — ' + new Date().toISOString(),
+          content: newContentBase64,
+          sha: fileData.sha,
+          branch: GH_BRANCH
+        })
+      }
+    );
+
+    if (!putRes.ok) {
+      const errBody = await putRes.json().catch(function () { return {}; });
+      throw new Error('GitHub rejected the commit (HTTP ' + putRes.status + '): ' + (errBody.message || 'unknown error'));
+    }
+
+    setSaveStatus('✔ Saved — commit pushed to ' + GH_BRANCH + '. GitHub Pages will update in ~30–60s.');
+  } catch (err) {
+    console.error(err);
+    setSaveStatus('✖ ' + err.message, true);
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// Initial page load — cards, status board, carousel, buttons
+// ══════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function () {
+
+  renderCards();
+  buildStatusBoard();
+
+  var elCount = document.getElementById('grid-count');
+  var elDate = document.getElementById('footer-date');
+  if (elCount) elCount.textContent = projects.length + ' projects';
+  if (elDate) elDate.textContent = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+  // ── Build carousel slides ──
+  var track = document.getElementById('carousel-track');
+  var dotsEl = document.getElementById('carousel-dots');
+
+  if (track && dotsEl) {
+    for (var j = 0; j < projects.length; j++) {
+      var p = projects[j];
+      var slide = document.createElement('div');
+      slide.className = 'carousel-slide' + (j === 0 ? ' active' : '');
+      slide.innerHTML =
+        '<div class="tv-card">' +
+          '<div class="tv-card-eyebrow">Project 0' + (j + 1) + ' of ' + projects.length + '</div>' +
+          '<div class="tv-card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
+          '<div class="tv-card-integrator">Integrator: ' + p.integrator + '</div>' +
+          '<div class="tv-card-grid">' +
+            '<div class="tv-stat"><div class="tv-stat-label">Status</div><div class="tv-stat-val">' + p.state + '</div></div>' +
+            '<div class="tv-stat"><div class="tv-stat-label">Ship Date</div><div class="tv-stat-val date">' + p.shipDate + '</div></div>' +
+            '<div class="tv-stat tv-stat-notes"><div class="tv-stat-label">Notes</div><div class="tv-stat-val">' + (p.notes ? p.notes : '<em>No notes yet</em>') + '</div></div>' +
+          '</div>' +
+          '<hr class="tv-divider">' +
+          '<div class="tv-address-row">' +
+            '<div class="tv-address"><div class="tv-stat-label">Ship-To Address</div><div class="tv-stat-val">' + p.address.replace('\n', '<br>') + '</div></div>' +
+            '<span class="tv-badge-status ' + p.status + '">' + p.status.replace('-', ' ') + '</span>' +
+          '</div>' +
+        '</div>';
+      track.appendChild(slide);
+
+      var dot = document.createElement('span');
+      dot.className = 'dot' + (j === 0 ? ' active' : '');
+      (function(idx) {
+        dot.addEventListener('click', function() { goTo(idx); });
+      })(j);
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  // ── Carousel logic ──
+  var current = 0;
+  var INTERVAL = 7000;
+  var timer = null;
+  var fill = document.getElementById('autoplay-fill');
+  var progress = document.getElementById('carousel-progress');
+
+  function goTo(n) {
+    var allSlides = track.querySelectorAll('.carousel-slide');
+    var allDots = dotsEl.querySelectorAll('.dot');
+    allSlides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
+    allDots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+    current = n;
+    if (progress) progress.textContent = (n + 1) + ' / ' + projects.length;
+    startFill();
+  }
+
+  function next() { goTo((current + 1) % projects.length); }
+  function prev() { goTo((current - 1 + projects.length) % projects.length); }
+
+  function startFill() {
+    if (!fill) return;
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    clearTimeout(timer);
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        fill.style.transition = 'width ' + INTERVAL + 'ms linear';
+        fill.style.width = '100%';
+      });
+    });
+    timer = setTimeout(next, INTERVAL);
+  }
+
+  var btnNext = document.getElementById('next-btn');
+  var btnPrev = document.getElementById('prev-btn');
+  if (btnNext) btnNext.addEventListener('click', next);
+  if (btnPrev) btnPrev.addEventListener('click', prev);
+
+  goTo(0);
+
+  // ── Editor button wiring ──
+  const toggleBtn = document.getElementById('edit-toggle-btn');
+  const panel = document.getElementById('editor-panel');
+  const addBtn = document.getElementById('add-project-btn');
+  const saveBtn = document.getElementById('save-github-btn');
+
+  if (toggleBtn && panel) {
+    toggleBtn.addEventListener('click', function () {
+      const showing = panel.style.display !== 'none';
+      panel.style.display = showing ? 'none' : 'block';
+      if (!showing) renderEditorPanel();
+    });
+  }
+  if (addBtn) addBtn.addEventListener('click', addNewProject);
+  if (saveBtn) saveBtn.addEventListener('click', saveToGitHub);
+
+});
