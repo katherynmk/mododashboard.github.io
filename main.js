@@ -9,10 +9,10 @@ const projects = [
   {
     "title": "ACTUS",
     "integrator": "MODO8",
-    "status": "complete",
+    "status": "production",
     "state": "On-site CMES visit scheduled",
     "address": "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212",
-    "notes": "",
+    "notes": "complete",
     "install": false,
     "dates": {
       "engineeringDue": null,
@@ -103,7 +103,7 @@ const projects = [
     "status": "production",
     "state": "Working On Phased Shipping and Installation",
     "address": "9091 88th Ave, Pleasant Prairie, WI",
-    "notes": "",
+    "notes": "installation",
     "install": false,
     "dates": {
       "engineeringDue": null,
