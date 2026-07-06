@@ -57,7 +57,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jun 25",
-        "checked": false
+        "checked": true
       },
       {
         "id": "actus-5",
@@ -75,7 +75,7 @@ const projects = [
           "logistics"
         ],
         "due": "Jun 27",
-        "checked": false
+        "checked": true
       },
       {
         "id": "actus-7",
