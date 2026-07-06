@@ -103,7 +103,7 @@ const projects = [
     "status": "production",
     "state": "Working On Phased Shipping and Installation",
     "address": "9091 88th Ave, Pleasant Prairie, WI",
-    "notes": "installation",
+    "notes": "",
     "install": false,
     "dates": {
       "engineeringDue": null,
