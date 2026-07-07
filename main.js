@@ -7,223 +7,6 @@
 // ===PROJECTS_START===
 const projects = [
   {
-    "title": "ACTUS",
-    "integrator": "MODO8",
-    "status": "complete",
-    "state": "On-Site Visit Required",
-    "address": "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212",
-    "notes": "NEED TO VISIT SITE 7/26?",
-    "install": false,
-    "dates": {
-      "engineeringDue": null,
-      "partsOrderDate": null,
-      "downpaymentDate": null,
-      "leadTimeWeeks": null,
-      "buildLabel": "Production",
-      "buildStart": "2026-06-10",
-      "buildEnd": "2026-07-01",
-      "shipDate": "2026-07-01"
-    },
-    "tasks": [
-      {
-        "id": "actus-1",
-        "title": "Engineering complete — drawings done",
-        "tags": [
-          "engineering"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "actus-2",
-        "title": "Parts ordered (4-wk lead time)",
-        "tags": [
-          "ops"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "actus-3",
-        "title": "Change order invoice issued ($23,076)",
-        "tags": [
-          "invoice"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "actus-4",
-        "title": "Complete teardown window and document findings",
-        "tags": [
-          "engineering"
-        ],
-        "due": "Jun 25",
-        "checked": true
-      },
-      {
-        "id": "actus-5",
-        "title": "Confirm CMES on-site visit logistics",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jun 25",
-        "checked": false
-      },
-      {
-        "id": "actus-6",
-        "title": "Coordinate freight — confirm carrier for Jul 1 ship",
-        "tags": [
-          "logistics"
-        ],
-        "due": "Jun 27",
-        "checked": true
-      },
-      {
-        "id": "actus-7",
-        "title": "Send SAT invoice ($23,013) on ship date",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Jul 1",
-        "checked": false
-      },
-      {
-        "id": "actus-8",
-        "title": "Confirm Jul 13 site support schedule with CMES",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 5",
-        "checked": false
-      }
-    ]
-  },
-  {
-    "title": "OCADO",
-    "integrator": "Temple Controls",
-    "status": "complete",
-    "state": "Need Equipment Back",
-    "address": "9091 88th Ave, Pleasant Prairie, WI",
-    "notes": "Finish install and route belts when power is up Get change order to OCADO for new support heights",
-    "install": false,
-    "dates": {
-      "engineeringDue": null,
-      "partsOrderDate": null,
-      "downpaymentDate": null,
-      "leadTimeWeeks": null,
-      "buildLabel": "Production",
-      "buildStart": "2026-06-01",
-      "buildEnd": "2026-07-01",
-      "shipDate": "2026-07-01"
-    },
-    "tasks": [
-      {
-        "id": "ocado-1",
-        "title": "Engineering complete",
-        "tags": [
-          "engineering"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "ocado-2",
-        "title": "Parts ordered and received",
-        "tags": [
-          "ops"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "ocado-3",
-        "title": "Base PO (30%) and Engineering (30%) invoiced",
-        "tags": [
-          "invoice"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "ocado-4",
-        "title": "Change order down payment ($53,853) — pending receipt",
-        "tags": [
-          "invoice",
-          "urgent"
-        ],
-        "due": "Jun 17",
-        "checked": false
-      },
-      {
-        "id": "ocado-5",
-        "title": "Install pre-ship invoice ($35,400) — pending receipt",
-        "tags": [
-          "invoice",
-          "urgent"
-        ],
-        "due": "Jun 17",
-        "checked": false
-      },
-      {
-        "id": "ocado-6",
-        "title": "Finalize phased shipping & installation plan with Temple Controls",
-        "tags": [
-          "ops",
-          "urgent"
-        ],
-        "due": "Jun 20",
-        "checked": false
-      },
-      {
-        "id": "ocado-7",
-        "title": "Confirm Pleasant Prairie site readiness",
-        "tags": [
-          "logistics"
-        ],
-        "due": "Jun 25",
-        "checked": false
-      },
-      {
-        "id": "ocado-8",
-        "title": "Ship — send initial shipment invoice ($109,293)",
-        "tags": [
-          "invoice",
-          "logistics"
-        ],
-        "due": "Jul 1",
-        "checked": false
-      },
-      {
-        "id": "ocado-9",
-        "title": "Coordinate install labor release invoice ($30,975)",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Jul 1",
-        "checked": false
-      },
-      {
-        "id": "ocado-10",
-        "title": "Send change order final invoice ($53,853) upon install complete",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Jul 15",
-        "checked": false
-      },
-      {
-        "id": "ocado-11",
-        "title": "Send install complete invoice ($22,125) and base system arrival ($36,431)",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Aug 1",
-        "checked": false
-      }
-    ]
-  },
-  {
     "title": "ADI / MALIN",
     "integrator": "MALIN",
     "status": "complete",
@@ -289,13 +72,13 @@ const projects = [
       },
       {
         "id": "adi-6",
-        "title": "Ship — send initial shipment invoice ($55,700)",
+        "title": "Ship \u2014 send initial shipment invoice ($55,700)",
         "tags": [
           "invoice",
           "logistics"
         ],
         "due": "Jun 22",
-        "checked": false
+        "checked": true
       },
       {
         "id": "adi-7",
@@ -304,6 +87,273 @@ const projects = [
           "invoice"
         ],
         "due": "Jun 26",
+        "checked": true
+      },
+      {
+        "id": "adi-8",
+        "title": "Bill for freight",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "ACTUS",
+    "integrator": "MODO8",
+    "status": "complete",
+    "state": "On-Site Visit Required",
+    "address": "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212",
+    "notes": "NEED TO VISIT SITE 7/26?",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-06-10",
+      "buildEnd": "2026-07-01",
+      "shipDate": "2026-07-01"
+    },
+    "tasks": [
+      {
+        "id": "actus-1",
+        "title": "Engineering complete \u2014 drawings done",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "actus-2",
+        "title": "Parts ordered (4-wk lead time)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "actus-3",
+        "title": "Change order invoice issued ($23,076)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "actus-4",
+        "title": "Complete teardown window and document findings",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jun 25",
+        "checked": true
+      },
+      {
+        "id": "actus-5",
+        "title": "Confirm CMES on-site visit logistics",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jun 25",
+        "checked": true
+      },
+      {
+        "id": "actus-6",
+        "title": "Coordinate freight \u2014 confirm carrier for Jul 1 ship",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Jun 27",
+        "checked": true
+      },
+      {
+        "id": "actus-7",
+        "title": "Send SAT invoice ($23,013) on ship date",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Jul 1",
+        "checked": true
+      },
+      {
+        "id": "actus-8",
+        "title": "Confirm and schedule on-site visit with CMES \u2014 target Jul 26",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": "Jul 26",
+        "checked": false
+      },
+      {
+        "id": "actus-9",
+        "title": "Complete on-site visit and document findings",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 26",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "OCADO",
+    "integrator": "Temple Controls",
+    "status": "complete",
+    "state": "Need Equipment Back",
+    "address": "9091 88th Ave, Pleasant Prairie, WI",
+    "notes": "Finish install and route belts when power is up Get change order to OCADO for new support heights",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-06-01",
+      "buildEnd": "2026-07-01",
+      "shipDate": "2026-07-01"
+    },
+    "tasks": [
+      {
+        "id": "ocado-1",
+        "title": "Engineering complete",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "ocado-2",
+        "title": "Parts ordered and received",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "ocado-3",
+        "title": "Base PO (30%) and Engineering (30%) invoiced",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "ocado-4",
+        "title": "Change order down payment ($53,853) \u2014 pending receipt",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": "Jun 17",
+        "checked": false
+      },
+      {
+        "id": "ocado-5",
+        "title": "Install pre-ship invoice ($35,400) \u2014 pending receipt",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": "Jun 17",
+        "checked": false
+      },
+      {
+        "id": "ocado-6",
+        "title": "Finalize phased shipping & installation plan with Temple Controls",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": "Jun 20",
+        "checked": false
+      },
+      {
+        "id": "ocado-7",
+        "title": "Confirm Pleasant Prairie site readiness",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Jun 25",
+        "checked": false
+      },
+      {
+        "id": "ocado-8",
+        "title": "Ship \u2014 send initial shipment invoice ($109,293)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Jul 1",
+        "checked": false
+      },
+      {
+        "id": "ocado-9",
+        "title": "Coordinate install labor release invoice ($30,975)",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Jul 1",
+        "checked": false
+      },
+      {
+        "id": "ocado-10",
+        "title": "Send change order final invoice ($53,853) upon install complete",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Jul 15",
+        "checked": false
+      },
+      {
+        "id": "ocado-11",
+        "title": "Send install complete invoice ($22,125) and base system arrival ($36,431)",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Aug 1",
+        "checked": false
+      },
+      {
+        "id": "ocado-12",
+        "title": "Coordinate return of MODOROLL equipment from OCADO",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "ocado-13",
+        "title": "Finish install and route belts once power is up",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "ocado-14",
+        "title": "Send change order to OCADO for new support heights",
+        "tags": [
+          "invoice",
+          "engineering",
+          "urgent"
+        ],
+        "due": null,
         "checked": false
       }
     ]
@@ -338,7 +388,7 @@ const projects = [
       },
       {
         "id": "arhaus-2",
-        "title": "Engineering complete — invoiced ($14,596.50)",
+        "title": "Engineering complete \u2014 invoiced ($14,596.50)",
         "tags": [
           "engineering",
           "invoice"
@@ -357,7 +407,7 @@ const projects = [
       },
       {
         "id": "arhaus-4",
-        "title": "Pull all components — confirm everything staged",
+        "title": "Pull all components \u2014 confirm everything staged",
         "tags": [
           "ops",
           "urgent"
@@ -385,211 +435,30 @@ const projects = [
       },
       {
         "id": "arhaus-7",
-        "title": "Ship — send initial shipment invoice ($9,731)",
+        "title": "Ship \u2014 send initial shipment invoice ($9,731)",
         "tags": [
           "invoice",
           "logistics"
         ],
         "due": "Jul 2",
-        "checked": false
+        "checked": true
       },
       {
         "id": "arhaus-8",
-        "title": "Send final shipment invoice ($4,865.50)",
+        "title": "Send final shipment invoice ($4,865.50) \u2014 bill for freight",
         "tags": [
           "invoice"
         ],
         "due": "Aug 1",
         "checked": false
-      }
-    ]
-  },
-  {
-    "title": "FRONTIER DENTAL",
-    "integrator": "KPI",
-    "status": "purchasing",
-    "state": "Change order spares",
-    "address": "2500 W. Carey Ave, Bldg F, North Las Vegas, NV 89032",
-    "notes": "Engineering: waiting on guard rail Purchasing: has rollers coming in July 17th",
-    "install": false,
-    "dates": {
-      "engineeringDue": null,
-      "partsOrderDate": null,
-      "downpaymentDate": null,
-      "leadTimeWeeks": null,
-      "buildLabel": "Pulling",
-      "buildStart": "2026-06-30",
-      "buildEnd": "2026-07-21",
-      "shipDate": "2026-08-03"
-    },
-    "tasks": [
+      },
       {
-        "id": "fd-1",
-        "title": "PO placement (30%) received — $105,000",
+        "id": "arhaus-9",
+        "title": "Complete on-site installation",
         "tags": [
-          "invoice"
+          "ops"
         ],
         "due": null,
-        "checked": true
-      },
-      {
-        "id": "fd-2",
-        "title": "Engineering complete — info sent to purchasing",
-        "tags": [
-          "engineering"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "fd-3",
-        "title": "Clarify change order status — confirm scope with KPI",
-        "tags": [
-          "ops",
-          "urgent"
-        ],
-        "due": "Jun 19",
-        "checked": false
-      },
-      {
-        "id": "fd-4",
-        "title": "Invoice start of manufacturing ($70,000) — Net 30",
-        "tags": [
-          "invoice",
-          "urgent"
-        ],
-        "due": "Jun 19",
-        "checked": false
-      },
-      {
-        "id": "fd-5",
-        "title": "Confirm parts arrival — begin production (target Jun 30)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jun 30",
-        "checked": false
-      },
-      {
-        "id": "fd-6",
-        "title": "Invoice manufacturing complete ($70,000) — Net 30",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Jun 30",
-        "checked": false
-      },
-      {
-        "id": "fd-7",
-        "title": "QA and stage for North Las Vegas, NV shipment",
-        "tags": [
-          "logistics"
-        ],
-        "due": "Jul 19",
-        "checked": false
-      },
-      {
-        "id": "fd-8",
-        "title": "Ship — send start of shipping invoice ($52,500)",
-        "tags": [
-          "invoice",
-          "logistics"
-        ],
-        "due": "Jul 21",
-        "checked": false
-      },
-      {
-        "id": "fd-9",
-        "title": "Confirm delivery (2 days) — send delivery invoice ($52,500)",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Jul 23",
-        "checked": false
-      }
-    ]
-  },
-  {
-    "title": "CONVEYOR ON CASTERS",
-    "integrator": "Formic",
-    "status": "purchasing",
-    "state": "Paid in full — freight to be invoiced at ship",
-    "address": "979 Corporate Blvd, Linthicum Heights, MD 21090",
-    "notes": "Engineering and Purchasing complete",
-    "install": false,
-    "dates": {
-      "engineeringDue": "2026-06-19",
-      "partsOrderDate": "2026-06-22",
-      "downpaymentDate": null,
-      "leadTimeWeeks": null,
-      "buildLabel": "Production",
-      "buildStart": "2026-07-20",
-      "buildEnd": "2026-08-03",
-      "shipDate": "2026-08-03"
-    },
-    "tasks": [
-      {
-        "id": "coc-1",
-        "title": "Paid in full upfront ($4,938) — PO 101087",
-        "tags": [
-          "invoice"
-        ],
-        "due": null,
-        "checked": true
-      },
-      {
-        "id": "coc-2",
-        "title": "Send engineering info to purchasing",
-        "tags": [
-          "engineering"
-        ],
-        "due": "Jun 19",
-        "checked": false
-      },
-      {
-        "id": "coc-3",
-        "title": "Place parts order by Jun 22 (4-wk lead → parts arrive Jul 20)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jun 22",
-        "checked": false
-      },
-      {
-        "id": "coc-4",
-        "title": "Confirm parts arrival — begin production (target Jul 20)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 20",
-        "checked": false
-      },
-      {
-        "id": "coc-5",
-        "title": "Stage and prep for Linthicum Heights, MD shipment",
-        "tags": [
-          "logistics"
-        ],
-        "due": "Aug 1",
-        "checked": false
-      },
-      {
-        "id": "coc-6",
-        "title": "Ship — generate and send freight invoice",
-        "tags": [
-          "invoice",
-          "logistics"
-        ],
-        "due": "Aug 3",
-        "checked": false
-      },
-      {
-        "id": "coc-7",
-        "title": "Confirm delivery receipt with Formic",
-        "tags": [
-          "ops"
-        ],
-        "due": "Aug 7",
         "checked": false
       }
     ]
@@ -615,7 +484,7 @@ const projects = [
     "tasks": [
       {
         "id": "pb-1",
-        "title": "Downpayment received ($90,728) — MODO826048",
+        "title": "Downpayment received ($90,728) \u2014 MODO826048",
         "tags": [
           "invoice"
         ],
@@ -624,7 +493,7 @@ const projects = [
       },
       {
         "id": "pb-2",
-        "title": "Complete CET drawing — engineering due THIS FRIDAY Jun 19",
+        "title": "Complete CET drawing \u2014 engineering due THIS FRIDAY Jun 19",
         "tags": [
           "engineering",
           "urgent"
@@ -634,7 +503,7 @@ const projects = [
       },
       {
         "id": "pb-3",
-        "title": "Issue engineering completion invoice ($68,046) — Net 30",
+        "title": "Issue engineering completion invoice ($68,046) \u2014 Net 30",
         "tags": [
           "invoice",
           "urgent"
@@ -653,16 +522,16 @@ const projects = [
       },
       {
         "id": "pb-5",
-        "title": "Place parts order by Jun 26 (4-wk lead → parts arrive Jul 24)",
+        "title": "Place parts order by Jun 26 (4-wk lead \u2192 parts arrive Jul 24)",
         "tags": [
           "ops"
         ],
         "due": "Jun 26",
-        "checked": false
+        "checked": true
       },
       {
         "id": "pb-6",
-        "title": "Confirm parts arrival — begin production (target Jul 24)",
+        "title": "Confirm parts arrival \u2014 begin production (target Jul 24)",
         "tags": [
           "ops"
         ],
@@ -671,7 +540,7 @@ const projects = [
       },
       {
         "id": "pb-7",
-        "title": "Ship to Indianapolis, IN — confirm carrier",
+        "title": "Ship to Indianapolis, IN \u2014 confirm carrier",
         "tags": [
           "logistics"
         ],
@@ -680,7 +549,7 @@ const projects = [
       },
       {
         "id": "pb-8",
-        "title": "Ship date Jul 27 — send initial shipment invoice ($68,046)",
+        "title": "Ship date Jul 27 \u2014 send initial shipment invoice ($68,046)",
         "tags": [
           "invoice",
           "logistics"
@@ -729,7 +598,7 @@ const projects = [
       },
       {
         "id": "lr-3",
-        "title": "Parts ordered (4-wk lead → arrive Jul 9)",
+        "title": "Parts ordered (4-wk lead \u2192 arrive Jul 9)",
         "tags": [
           "ops"
         ],
@@ -738,7 +607,7 @@ const projects = [
       },
       {
         "id": "lr-4",
-        "title": "Justin — complete robot programming before production start",
+        "title": "Justin \u2014 complete robot programming before production start",
         "tags": [
           "engineering",
           "urgent"
@@ -748,7 +617,7 @@ const projects = [
       },
       {
         "id": "lr-5",
-        "title": "Confirm parts arrival — begin production (target Jul 9)",
+        "title": "Confirm parts arrival \u2014 begin production (target Jul 9)",
         "tags": [
           "ops"
         ],
@@ -775,143 +644,58 @@ const projects = [
       },
       {
         "id": "lr-8",
-        "title": "Ship — send final shipment invoice ($93,563 — Net 15)",
+        "title": "Ship \u2014 send final shipment invoice ($93,563 \u2014 Net 15)",
         "tags": [
           "invoice",
           "logistics"
         ],
         "due": "Jul 27",
         "checked": false
-      }
-    ]
-  },
-  {
-    "title": "NEW HORIZONS",
-    "integrator": "Formic",
-    "status": "pre-procurement",
-    "state": "Phased Shipping",
-    "address": "211 Woodlawn Avenue, Norwalk, OH 44857",
-    "notes": "August 25th full ship Engineering: 100% Section A: Purchased Section B: Not purchased",
-    "install": true,
-    "dates": {
-      "engineeringDue": "2026-06-26",
-      "partsOrderDate": "2026-07-03",
-      "downpaymentDate": null,
-      "leadTimeWeeks": null,
-      "buildLabel": "Production",
-      "buildStart": "2026-07-17",
-      "buildEnd": "2026-07-31",
-      "shipDate": "2026-07-31"
-    },
-    "tasks": [
-      {
-        "id": "nh-1",
-        "title": "Order (30%) received ($60,799) — PO 101076",
-        "tags": [
-          "invoice"
-        ],
-        "due": null,
-        "checked": true
       },
       {
-        "id": "nh-2",
-        "title": "Get design acceptance from Formic — invoice ($60,799)",
+        "id": "lr-9",
+        "title": "Complete installation",
         "tags": [
-          "invoice",
+          "ops",
           "urgent"
-        ],
-        "due": "Jun 19",
-        "checked": false
-      },
-      {
-        "id": "nh-3",
-        "title": "Complete engineering drawings",
-        "tags": [
-          "engineering",
-          "urgent"
-        ],
-        "due": "Jun 26",
-        "checked": false
-      },
-      {
-        "id": "nh-4",
-        "title": "Send engineering info to purchasing by Jun 26",
-        "tags": [
-          "engineering"
-        ],
-        "due": "Jun 26",
-        "checked": false
-      },
-      {
-        "id": "nh-5",
-        "title": "Place parts order by Jul 3 (4-wk lead → arrive Jul 31)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 3",
-        "checked": false
-      },
-      {
-        "id": "nh-6",
-        "title": "Confirm parts arrival — begin production (target Jul 31)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 31",
-        "checked": false
-      },
-      {
-        "id": "nh-7",
-        "title": "Ship to Norwalk, OH — book freight",
-        "tags": [
-          "logistics"
         ],
         "due": "Jul 29",
         "checked": false
       },
       {
-        "id": "nh-8",
-        "title": "Ship Jul 31 — send FAT shipment invoice ($60,799)",
+        "id": "lr-10",
+        "title": "Meet with Garlynd to review install details",
         "tags": [
-          "invoice",
-          "logistics"
+          "ops",
+          "urgent"
         ],
-        "due": "Jul 31",
-        "checked": false
-      },
-      {
-        "id": "nh-9",
-        "title": "Confirm delivery & acceptance — send final invoice ($20,266 — Net 30)",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Aug 30",
+        "due": null,
         "checked": false
       }
     ]
   },
   {
-    "title": "SPARTAN NASH",
-    "integrator": "Tompkins",
-    "status": "engineering",
-    "state": "September Date - Check",
-    "address": "1300 West Elkhorn Avenue, Sioux Falls, SD 57101",
-    "notes": "Engineering: Drew needs to do supports Purchasing: 100%",
-    "install": true,
+    "title": "FRONTIER DENTAL",
+    "integrator": "KPI",
+    "status": "purchasing",
+    "state": "Change order spares",
+    "address": "2500 W. Carey Ave, Bldg F, North Las Vegas, NV 89032",
+    "notes": "Engineering: waiting on guard rail Purchasing: has rollers coming in July 17th",
+    "install": false,
     "dates": {
-      "engineeringDue": "2026-06-26",
-      "partsOrderDate": "2026-07-03",
+      "engineeringDue": null,
+      "partsOrderDate": null,
       "downpaymentDate": null,
       "leadTimeWeeks": null,
-      "buildLabel": "Production",
-      "buildStart": "2026-07-31",
-      "buildEnd": "2026-08-07",
-      "shipDate": "2026-09-17"
+      "buildLabel": "Pulling",
+      "buildStart": "2026-06-30",
+      "buildEnd": "2026-07-21",
+      "shipDate": "2026-08-03"
     },
     "tasks": [
       {
-        "id": "sn-1",
-        "title": "Downpayment (50%) received ($49,318)",
+        "id": "fd-1",
+        "title": "PO placement (30%) received \u2014 $105,000",
         "tags": [
           "invoice"
         ],
@@ -919,163 +703,173 @@ const projects = [
         "checked": true
       },
       {
-        "id": "sn-2",
-        "title": "Complete engineering drawings (deadline Jun 26)",
-        "tags": [
-          "engineering",
-          "urgent"
-        ],
-        "due": "Jun 26",
-        "checked": false
-      },
-      {
-        "id": "sn-3",
-        "title": "Issue engineering completion invoice ($29,591 — Net 15)",
-        "tags": [
-          "invoice"
-        ],
-        "due": "Jun 26",
-        "checked": false
-      },
-      {
-        "id": "sn-4",
-        "title": "Send engineering info to purchasing by Jun 26",
+        "id": "fd-2",
+        "title": "Engineering complete \u2014 info sent to purchasing",
         "tags": [
           "engineering"
         ],
-        "due": "Jun 26",
-        "checked": false
-      },
-      {
-        "id": "sn-5",
-        "title": "Place parts order by Jul 3 (4-wk lead → arrive Jul 31)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 3",
-        "checked": false
-      },
-      {
-        "id": "sn-6",
-        "title": "Confirm parts arrival — begin production (target Jul 31)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 31",
-        "checked": false
-      },
-      {
-        "id": "sn-7",
-        "title": "Ship to Sioux Falls, SD — book freight",
-        "tags": [
-          "logistics"
-        ],
-        "due": "Aug 5",
-        "checked": false
-      },
-      {
-        "id": "sn-8",
-        "title": "Ship date Aug 7 — send shipment invoice ($19,727 — Net 30)",
-        "tags": [
-          "invoice",
-          "logistics"
-        ],
-        "due": "Aug 7",
-        "checked": false
-      }
-    ]
-  },
-  {
-    "title": "R2",
-    "integrator": "Automation Intelligence",
-    "status": "engineering",
-    "state": "Engineering — downpayment received",
-    "address": "Automation Intelligence LLC, 6181 Taylor Dr, Flint, MI 48507",
-    "notes": "",
-    "install": false,
-    "dates": {
-      "engineeringDue": "2026-07-03",
-      "partsOrderDate": "2026-07-10",
-      "downpaymentDate": null,
-      "leadTimeWeeks": null,
-      "buildLabel": "Production",
-      "buildStart": "2026-08-07",
-      "buildEnd": "2026-08-17",
-      "shipDate": "2026-08-17"
-    },
-    "tasks": [
-      {
-        "id": "r2-1",
-        "title": "Downpayment (50%) received ($38,655) — MODO826014-R2",
-        "tags": [
-          "invoice"
-        ],
         "due": null,
         "checked": true
       },
       {
-        "id": "r2-2",
-        "title": "Complete engineering drawings",
+        "id": "fd-3",
+        "title": "Clarify change order for spares \u2014 confirm scope with KPI (waiting on guard rail)",
         "tags": [
-          "engineering",
+          "ops",
           "urgent"
-        ],
-        "due": "Jul 3",
-        "checked": false
-      },
-      {
-        "id": "r2-3",
-        "title": "Verify ship-to address — Automation Intelligence, Flint, MI 48507",
-        "tags": [
-          "ops"
         ],
         "due": "Jun 19",
         "checked": false
       },
       {
-        "id": "r2-4",
-        "title": "Send engineering info to purchasing by Jul 3",
+        "id": "fd-4",
+        "title": "Invoice start of manufacturing ($70,000) \u2014 Net 30",
         "tags": [
-          "engineering"
+          "invoice",
+          "urgent"
         ],
-        "due": "Jul 3",
+        "due": "Jun 19",
         "checked": false
       },
       {
-        "id": "r2-5",
-        "title": "Place parts order by Jul 10 (4-wk lead → arrive Aug 7)",
-        "tags": [
-          "ops"
-        ],
-        "due": "Jul 10",
-        "checked": false
-      },
-      {
-        "id": "r2-6",
-        "title": "Confirm parts arrival — begin production (target Aug 7)",
+        "id": "fd-5",
+        "title": "Confirm rollers arrival (Jul 17) \u2014 begin production",
         "tags": [
           "ops"
         ],
-        "due": "Aug 7",
+        "due": "Jul 17",
         "checked": false
       },
       {
-        "id": "r2-7",
-        "title": "Ship date Aug 17 — send ship notification invoice ($23,193 — Net 30)",
+        "id": "fd-6",
+        "title": "Invoice manufacturing complete ($70,000) \u2014 Net 30",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Jul 17",
+        "checked": false
+      },
+      {
+        "id": "fd-7",
+        "title": "QA and stage for North Las Vegas, NV shipment",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Jul 31",
+        "checked": false
+      },
+      {
+        "id": "fd-8",
+        "title": "Ship date Aug 3 \u2014 send start of shipping invoice ($52,500)",
         "tags": [
           "invoice",
           "logistics"
         ],
-        "due": "Aug 17",
+        "due": "Aug 3",
         "checked": false
       },
       {
-        "id": "r2-8",
-        "title": "Confirm delivery — send delivery confirmation invoice ($15,462 — Net 30)",
+        "id": "fd-9",
+        "title": "Confirm delivery (2 days) \u2014 send delivery invoice ($52,500)",
         "tags": [
           "invoice"
         ],
-        "due": "Sep 17",
+        "due": "Aug 5",
+        "checked": false
+      },
+      {
+        "id": "fd-10",
+        "title": "Engineering \u2014 resolve guard rail for change order",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "CONVEYOR ON CASTERS",
+    "integrator": "Formic",
+    "status": "purchasing",
+    "state": "Paid in full \u2014 freight to be invoiced at ship",
+    "address": "979 Corporate Blvd, Linthicum Heights, MD 21090",
+    "notes": "Engineering and Purchasing complete",
+    "install": false,
+    "dates": {
+      "engineeringDue": "2026-06-19",
+      "partsOrderDate": "2026-06-22",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-07-20",
+      "buildEnd": "2026-08-03",
+      "shipDate": "2026-08-03"
+    },
+    "tasks": [
+      {
+        "id": "coc-1",
+        "title": "Paid in full upfront ($4,938) \u2014 PO 101087",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "coc-2",
+        "title": "Send engineering info to purchasing",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jun 19",
+        "checked": true
+      },
+      {
+        "id": "coc-3",
+        "title": "Place parts order by Jun 22 (4-wk lead \u2192 parts arrive Jul 20)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jun 22",
+        "checked": true
+      },
+      {
+        "id": "coc-4",
+        "title": "Confirm parts arrival \u2014 begin production (target Jul 20)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 20",
+        "checked": false
+      },
+      {
+        "id": "coc-5",
+        "title": "Stage and prep for Linthicum Heights, MD shipment",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Aug 1",
+        "checked": false
+      },
+      {
+        "id": "coc-6",
+        "title": "Ship \u2014 generate and send freight invoice",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Aug 3",
+        "checked": false
+      },
+      {
+        "id": "coc-7",
+        "title": "Confirm delivery receipt with Formic",
+        "tags": [
+          "ops"
+        ],
+        "due": "Aug 7",
         "checked": false
       }
     ]
@@ -1084,7 +878,7 @@ const projects = [
     "title": "AMAZON CANADA",
     "integrator": "SJF",
     "status": "engineering",
-    "state": "Engineering — downpayment received",
+    "state": "Engineering \u2014 downpayment received",
     "address": "Ryder, 1530 Gamble Pl, Winnipeg, MB R3T 1N6, Canada",
     "notes": "Engineering: Everything except lift Purchasing: 0%",
     "install": false,
@@ -1095,13 +889,13 @@ const projects = [
       "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-31",
-      "buildEnd": "2026-08-28",
+      "buildEnd": "2026-08-10",
       "shipDate": "2026-08-10"
     },
     "tasks": [
       {
         "id": "ac-1",
-        "title": "Downpayment (40%) received ($71,142) — engineering started",
+        "title": "Downpayment (40%) received ($71,142) \u2014 engineering started",
         "tags": [
           "invoice"
         ],
@@ -1116,7 +910,7 @@ const projects = [
           "urgent"
         ],
         "due": "Jun 26",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ac-3",
@@ -1129,7 +923,7 @@ const projects = [
       },
       {
         "id": "ac-4",
-        "title": "Issue engineering completion invoice ($53,356 — Net 30)",
+        "title": "Issue engineering completion invoice ($53,356 \u2014 Net 30)",
         "tags": [
           "invoice"
         ],
@@ -1138,9 +932,10 @@ const projects = [
       },
       {
         "id": "ac-5",
-        "title": "Place parts order by Jul 3 (4-wk lead → arrive Jul 31)",
+        "title": "Place parts order by Jul 3 (4-wk lead \u2192 arrive Jul 31)",
         "tags": [
-          "ops"
+          "ops",
+          "urgent"
         ],
         "due": "Jul 3",
         "checked": false
@@ -1156,7 +951,7 @@ const projects = [
       },
       {
         "id": "ac-7",
-        "title": "Confirm parts arrival — begin production (target Jul 31)",
+        "title": "Confirm parts arrival \u2014 begin production (target Jul 31)",
         "tags": [
           "ops"
         ],
@@ -1174,12 +969,22 @@ const projects = [
       },
       {
         "id": "ac-9",
-        "title": "Ship date Aug 28 — send initial shipment invoice ($53,356 — Net 30)",
+        "title": "Ship date Aug 10 \u2014 send initial shipment invoice ($53,356 \u2014 Net 30)",
         "tags": [
           "invoice",
           "logistics"
         ],
-        "due": "Aug 28",
+        "due": "Aug 10",
+        "checked": false
+      },
+      {
+        "id": "ac-10",
+        "title": "Finalize lift component engineering",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": null,
         "checked": false
       }
     ]
@@ -1188,7 +993,7 @@ const projects = [
     "title": "FORSYTH",
     "integrator": "CRG / Storage Solutions",
     "status": "pre-procurement",
-    "state": "Pre-procurement — awaiting downpayment",
+    "state": "Pre-procurement \u2014 awaiting downpayment",
     "address": "Storage Solutions, 910 E. 169th Street, Westfield, IN 46074",
     "notes": "**** No Downpayment",
     "install": false,
@@ -1199,13 +1004,13 @@ const projects = [
       "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-08-07",
-      "buildEnd": "2026-08-10",
+      "buildEnd": "2026-08-14",
       "shipDate": "2026-08-14"
     },
     "tasks": [
       {
         "id": "fy-1",
-        "title": "Awaiting downpayment (50% — $20,570) — do not start engineering until received",
+        "title": "Awaiting downpayment (50% \u2014 $20,570) \u2014 do not start engineering until received",
         "tags": [
           "invoice",
           "urgent"
@@ -1243,7 +1048,7 @@ const projects = [
       },
       {
         "id": "fy-5",
-        "title": "Place parts order by Jul 10 (4-wk lead → arrive Aug 7)",
+        "title": "Place parts order by Jul 10 (4-wk lead \u2192 arrive Aug 7)",
         "tags": [
           "ops"
         ],
@@ -1252,7 +1057,7 @@ const projects = [
       },
       {
         "id": "fy-6",
-        "title": "Confirm parts arrival — begin production (target Aug 7)",
+        "title": "Confirm parts arrival \u2014 begin production (target Aug 7)",
         "tags": [
           "ops"
         ],
@@ -1261,21 +1066,231 @@ const projects = [
       },
       {
         "id": "fy-7",
-        "title": "Ship to Westfield, IN — book freight",
+        "title": "Ship to Westfield, IN \u2014 book freight",
         "tags": [
           "logistics"
         ],
-        "due": "Aug 8",
+        "due": "Aug 12",
         "checked": false
       },
       {
         "id": "fy-8",
-        "title": "Ship date Aug 10 — send final shipment invoice ($20,570 — Net 15)",
+        "title": "Ship date Aug 14 \u2014 send final shipment invoice ($20,570 \u2014 Net 15)",
         "tags": [
           "invoice",
           "logistics"
         ],
-        "due": "Aug 10",
+        "due": "Aug 14",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "R2",
+    "integrator": "Automation Intelligence",
+    "status": "engineering",
+    "state": "Engineering \u2014 downpayment received",
+    "address": "Automation Intelligence LLC, 6181 Taylor Dr, Flint, MI 48507",
+    "notes": "",
+    "install": false,
+    "dates": {
+      "engineeringDue": "2026-07-03",
+      "partsOrderDate": "2026-07-10",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-08-07",
+      "buildEnd": "2026-08-17",
+      "shipDate": "2026-08-17"
+    },
+    "tasks": [
+      {
+        "id": "r2-1",
+        "title": "Downpayment (50%) received ($38,655) \u2014 MODO826014-R2",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "r2-2",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": "Jul 3",
+        "checked": false
+      },
+      {
+        "id": "r2-3",
+        "title": "Verify ship-to address \u2014 Automation Intelligence, Flint, MI 48507",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jun 19",
+        "checked": false
+      },
+      {
+        "id": "r2-4",
+        "title": "Send engineering info to purchasing by Jul 3",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jul 3",
+        "checked": false
+      },
+      {
+        "id": "r2-5",
+        "title": "Place parts order by Jul 10 (4-wk lead \u2192 arrive Aug 7)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 10",
+        "checked": false
+      },
+      {
+        "id": "r2-6",
+        "title": "Confirm parts arrival \u2014 begin production (target Aug 7)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Aug 7",
+        "checked": false
+      },
+      {
+        "id": "r2-7",
+        "title": "Ship date Aug 17 \u2014 send ship notification invoice ($23,193 \u2014 Net 30)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Aug 17",
+        "checked": false
+      },
+      {
+        "id": "r2-8",
+        "title": "Confirm delivery \u2014 send delivery confirmation invoice ($15,462 \u2014 Net 30)",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Sep 17",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "NEW HORIZONS",
+    "integrator": "Formic",
+    "status": "pre-procurement",
+    "state": "Phased Shipping",
+    "address": "211 Woodlawn Avenue, Norwalk, OH 44857",
+    "notes": "August 25th full ship Engineering: 100% Section A: Purchased Section B: Not purchased",
+    "install": true,
+    "dates": {
+      "engineeringDue": "2026-06-26",
+      "partsOrderDate": "2026-07-03",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-07-17",
+      "buildEnd": "2026-08-25",
+      "shipDate": "2026-08-25"
+    },
+    "tasks": [
+      {
+        "id": "nh-1",
+        "title": "Order (30%) received ($60,799) \u2014 PO 101076",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "nh-2",
+        "title": "Get design acceptance from Formic \u2014 invoice ($60,799)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": "Jun 19",
+        "checked": false
+      },
+      {
+        "id": "nh-3",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": "Jun 26",
+        "checked": true
+      },
+      {
+        "id": "nh-4",
+        "title": "Send engineering info to purchasing by Jun 26",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jun 26",
+        "checked": true
+      },
+      {
+        "id": "nh-5",
+        "title": "Place parts order \u2014 Section A (4-wk lead \u2192 arrive Jul 31)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 3",
+        "checked": true
+      },
+      {
+        "id": "nh-6",
+        "title": "Confirm parts arrival \u2014 begin production (target Jul 31)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 31",
+        "checked": false
+      },
+      {
+        "id": "nh-7",
+        "title": "Ship to Norwalk, OH \u2014 book freight",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Jul 29",
+        "checked": false
+      },
+      {
+        "id": "nh-8",
+        "title": "Ship Aug 25 \u2014 send FAT shipment invoice ($60,799)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Aug 25",
+        "checked": false
+      },
+      {
+        "id": "nh-9",
+        "title": "Confirm delivery & acceptance \u2014 send final invoice ($20,266 \u2014 Net 30)",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Sep 24",
+        "checked": false
+      },
+      {
+        "id": "nh-11",
+        "title": "Place parts order \u2014 Section B (not yet purchased)",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
         "checked": false
       }
     ]
@@ -1284,7 +1299,7 @@ const projects = [
     "title": "NUMINA BOXOUT JAX",
     "integrator": "Numina Group",
     "status": "engineering",
-    "state": "PO Received — Down Payment Invoiced",
+    "state": "PO Received \u2014 Down Payment Invoiced",
     "address": "Boxout | 3750 Cisco Drive W, Unit 1 | Jacksonville, FL 32219",
     "notes": "**** No downpayment",
     "install": false,
@@ -1301,7 +1316,7 @@ const projects = [
     "tasks": [
       {
         "id": "nbj-1",
-        "title": "PO received — down payment invoiced ($55,704) Invoice #843",
+        "title": "PO received \u2014 down payment invoiced ($55,704) Invoice #843",
         "tags": [
           "invoice"
         ],
@@ -1310,7 +1325,7 @@ const projects = [
       },
       {
         "id": "nbj-2",
-        "title": "Collect down payment ($55,704 — Net 0)",
+        "title": "Collect down payment ($55,704 \u2014 Net 0)",
         "tags": [
           "invoice",
           "urgent"
@@ -1338,7 +1353,7 @@ const projects = [
       },
       {
         "id": "nbj-5",
-        "title": "Issue 2nd payment invoice ($83,557) upon receipt of first payment — Net 30",
+        "title": "Issue 2nd payment invoice ($83,557) upon receipt of first payment \u2014 Net 30",
         "tags": [
           "invoice"
         ],
@@ -1347,7 +1362,7 @@ const projects = [
       },
       {
         "id": "nbj-6",
-        "title": "Place parts order by Jul 17 (4-wk lead → arrive Aug 14)",
+        "title": "Place parts order by Jul 17 (4-wk lead \u2192 arrive Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1356,7 +1371,7 @@ const projects = [
       },
       {
         "id": "nbj-7",
-        "title": "Confirm parts arrival — begin production (target Aug 14)",
+        "title": "Confirm parts arrival \u2014 begin production (target Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1365,7 +1380,7 @@ const projects = [
       },
       {
         "id": "nbj-8",
-        "title": "Ship to Jacksonville, FL — book freight",
+        "title": "Ship to Jacksonville, FL \u2014 book freight",
         "tags": [
           "logistics"
         ],
@@ -1374,7 +1389,7 @@ const projects = [
       },
       {
         "id": "nbj-9",
-        "title": "Ship date Sep 14 — send initial shipment invoice ($83,557 — Net 30)",
+        "title": "Ship date Sep 14 \u2014 send initial shipment invoice ($83,557 \u2014 Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -1384,7 +1399,7 @@ const projects = [
       },
       {
         "id": "nbj-10",
-        "title": "Confirm system arrival — send final invoice ($55,704 — Net 30)",
+        "title": "Confirm system arrival \u2014 send final invoice ($55,704 \u2014 Net 30)",
         "tags": [
           "invoice"
         ],
@@ -1397,7 +1412,7 @@ const projects = [
     "title": "NUMINA BOXOUT FTW",
     "integrator": "Numina Group",
     "status": "engineering",
-    "state": "PO Received — Down Payment Invoiced",
+    "state": "PO Received \u2014 Down Payment Invoiced",
     "address": "Ft Worth, TX",
     "notes": "**** No downpayment",
     "install": false,
@@ -1414,7 +1429,7 @@ const projects = [
     "tasks": [
       {
         "id": "nfw-1",
-        "title": "PO received — down payment invoiced ($58,901) Invoice #844",
+        "title": "PO received \u2014 down payment invoiced ($58,901) Invoice #844",
         "tags": [
           "invoice"
         ],
@@ -1423,7 +1438,7 @@ const projects = [
       },
       {
         "id": "nfw-2",
-        "title": "Collect down payment ($58,900.80 — Net 0)",
+        "title": "Collect down payment ($58,900.80 \u2014 Net 0)",
         "tags": [
           "invoice",
           "urgent"
@@ -1451,7 +1466,7 @@ const projects = [
       },
       {
         "id": "nfw-5",
-        "title": "Issue 2nd payment invoice ($88,351) upon receipt of first payment — Net 30",
+        "title": "Issue 2nd payment invoice ($88,351) upon receipt of first payment \u2014 Net 30",
         "tags": [
           "invoice"
         ],
@@ -1460,7 +1475,7 @@ const projects = [
       },
       {
         "id": "nfw-6",
-        "title": "Place parts order by Jul 17 (4-wk lead → arrive Aug 14)",
+        "title": "Place parts order by Jul 17 (4-wk lead \u2192 arrive Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1469,7 +1484,7 @@ const projects = [
       },
       {
         "id": "nfw-7",
-        "title": "Confirm site contact: Matt Schaber — Ft Worth, TX",
+        "title": "Confirm site contact: Matt Schaber \u2014 Ft Worth, TX",
         "tags": [
           "ops"
         ],
@@ -1478,7 +1493,7 @@ const projects = [
       },
       {
         "id": "nfw-8",
-        "title": "Confirm parts arrival — begin production (target Aug 14)",
+        "title": "Confirm parts arrival \u2014 begin production (target Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1487,7 +1502,7 @@ const projects = [
       },
       {
         "id": "nfw-9",
-        "title": "Ship to Fort Worth, TX — book freight",
+        "title": "Ship to Fort Worth, TX \u2014 book freight",
         "tags": [
           "logistics"
         ],
@@ -1496,7 +1511,7 @@ const projects = [
       },
       {
         "id": "nfw-10",
-        "title": "Ship date Sep 14 — send initial shipment invoice ($88,351 — Net 30)",
+        "title": "Ship date Sep 14 \u2014 send initial shipment invoice ($88,351 \u2014 Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -1506,11 +1521,116 @@ const projects = [
       },
       {
         "id": "nfw-11",
-        "title": "Confirm system arrival — send final invoice ($58,901 — Net 30)",
+        "title": "Confirm system arrival \u2014 send final invoice ($58,901 \u2014 Net 30)",
         "tags": [
           "invoice"
         ],
         "due": "Oct 14",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "SPARTAN NASH",
+    "integrator": "Tompkins",
+    "status": "engineering",
+    "state": "September Date - Check",
+    "address": "1300 West Elkhorn Avenue, Sioux Falls, SD 57101",
+    "notes": "Engineering: Drew needs to do supports Purchasing: 100%",
+    "install": true,
+    "dates": {
+      "engineeringDue": "2026-06-26",
+      "partsOrderDate": "2026-07-03",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-09-10",
+      "buildEnd": "2026-09-17",
+      "shipDate": "2026-09-17"
+    },
+    "tasks": [
+      {
+        "id": "sn-1",
+        "title": "Downpayment (50%) received ($49,318)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "sn-2",
+        "title": "Complete engineering drawings (deadline Jun 26)",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": "Jun 26",
+        "checked": false
+      },
+      {
+        "id": "sn-3",
+        "title": "Issue engineering completion invoice ($29,591 \u2014 Net 15)",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Jun 26",
+        "checked": false
+      },
+      {
+        "id": "sn-4",
+        "title": "Send engineering info to purchasing by Jun 26",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jun 26",
+        "checked": false
+      },
+      {
+        "id": "sn-5",
+        "title": "Place parts order by Jul 3 (4-wk lead \u2192 arrive Jul 31)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 3",
+        "checked": true
+      },
+      {
+        "id": "sn-6",
+        "title": "Confirm parts arrival \u2014 begin production (target Jul 31)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Sep 10",
+        "checked": false
+      },
+      {
+        "id": "sn-7",
+        "title": "Ship to Sioux Falls, SD \u2014 book freight",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Sep 15",
+        "checked": false
+      },
+      {
+        "id": "sn-8",
+        "title": "Ship date Sep 17 \u2014 send shipment invoice ($19,727 \u2014 Net 30)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Sep 17",
+        "checked": false
+      },
+      {
+        "id": "sn-9",
+        "title": "Drew \u2014 complete additional supports engineering",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": null,
         "checked": false
       }
     ]
