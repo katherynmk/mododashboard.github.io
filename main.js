@@ -1200,7 +1200,7 @@ const projects = [
       "buildLabel": "Production",
       "buildStart": "2026-08-07",
       "buildEnd": "2026-08-10",
-      "shipDate": "2026-08-10"
+      "shipDate": "2026-08-14"
     },
     "tasks": [
       {
