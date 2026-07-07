@@ -17,6 +17,8 @@ const projects = [
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-06-10",
       "buildEnd": "2026-07-01",
@@ -108,6 +110,8 @@ const projects = [
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-06-01",
       "buildEnd": "2026-07-01",
@@ -230,6 +234,8 @@ const projects = [
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-06-08",
       "buildEnd": "2026-06-22",
@@ -313,6 +319,8 @@ const projects = [
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Pulling",
       "buildStart": "2026-06-11",
       "buildEnd": "2026-07-02",
@@ -407,6 +415,8 @@ const projects = [
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-06-30",
       "buildEnd": "2026-07-21",
@@ -510,6 +520,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-06-19",
       "partsOrderDate": "2026-06-22",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-20",
       "buildEnd": "2026-08-03",
@@ -593,6 +605,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-06-19",
       "partsOrderDate": "2026-06-26",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-24",
       "buildEnd": "2026-07-27",
@@ -687,6 +701,8 @@ const projects = [
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-09",
       "buildEnd": "2026-07-27",
@@ -780,6 +796,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-06-26",
       "partsOrderDate": "2026-07-03",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-17",
       "buildEnd": "2026-07-31",
@@ -883,6 +901,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-06-26",
       "partsOrderDate": "2026-07-03",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-31",
       "buildEnd": "2026-08-07",
@@ -976,6 +996,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-07-03",
       "partsOrderDate": "2026-07-10",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-08-07",
       "buildEnd": "2026-08-17",
@@ -1069,6 +1091,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-06-26",
       "partsOrderDate": "2026-07-03",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-07-31",
       "buildEnd": "2026-08-28",
@@ -1171,6 +1195,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-07-03",
       "partsOrderDate": "2026-07-10",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-08-07",
       "buildEnd": "2026-08-10",
@@ -1265,6 +1291,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-07-10",
       "partsOrderDate": "2026-07-17",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-08-14",
       "buildEnd": "2026-09-14",
@@ -1376,6 +1404,8 @@ const projects = [
     "dates": {
       "engineeringDue": "2026-07-10",
       "partsOrderDate": "2026-07-17",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
       "buildLabel": "Production",
       "buildStart": "2026-08-14",
       "buildEnd": "2026-09-14",
@@ -1530,6 +1560,7 @@ function getMilestones() {
     if (!p.dates) return;
     if (p.dates.engineeringDue) out.push({ date: p.dates.engineeringDue, project: p.title, label: 'Engineering Due', status: p.status });
     if (p.dates.partsOrderDate) out.push({ date: p.dates.partsOrderDate, project: p.title, label: 'Parts Order Placed', status: p.status });
+    if (p.dates.downpaymentDate) out.push({ date: p.dates.downpaymentDate, project: p.title, label: 'Downpayment Received', status: p.status });
     if (p.dates.shipDate) out.push({ date: p.dates.shipDate, project: p.title, label: 'Ship Date', status: p.status });
   });
   return out;
@@ -1543,17 +1574,24 @@ function renderCards() {
   if (!grid) return;
   grid.innerHTML = '';
   projects.forEach((p) => {
+    const isComplete = p.status === 'complete';
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card' + (isComplete ? ' card-complete' : '');
+    if (isComplete) {
+      card.style.opacity = '0.55';
+      card.style.filter = 'grayscale(1)';
+    }
     card.innerHTML =
-      '<div class="card-status-bar ' + p.status + '"></div>' +
+      '<div class="card-status-bar ' + p.status + '"' + (isComplete ? ' style="background:#9ca3af;"' : '') + '></div>' +
       '<div class="card-top">' +
         '<div class="card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
-        '<span class="badge ' + p.status + '">' + p.status.replace('-', ' ') + '</span>' +
+        '<span class="badge ' + p.status + '"' + (isComplete ? ' style="background:#9ca3af;color:#fff;"' : '') + '>' + p.status.replace('-', ' ') + '</span>' +
       '</div>' +
       '<hr class="card-divider">' +
       '<div class="card-rows">' +
         '<div class="card-row"><span class="label">Status</span><span class="value">' + p.state + '</span></div>' +
+        '<div class="card-row"><span class="label">Downpayment</span><span class="value date">' + formatDisplayDate(p.dates.downpaymentDate) + '</span></div>' +
+        '<div class="card-row"><span class="label">Lead Time</span><span class="value">' + (p.dates.leadTimeWeeks ? p.dates.leadTimeWeeks + ' wks' : '—') + '</span></div>' +
         '<div class="card-row"><span class="label">Ship Date</span><span class="value date">' + formatDisplayDate(p.dates.shipDate) + '</span></div>' +
         '<div class="card-row"><span class="label">Integrator</span><span class="value">' + p.integrator + '</span></div>' +
       '</div>' +
@@ -1611,22 +1649,25 @@ function buildCarousel() {
 
   for (let j = 0; j < projects.length; j++) {
     const p = projects[j];
+    const isComplete = p.status === 'complete';
     const slide = document.createElement('div');
     slide.className = 'carousel-slide' + (j === 0 ? ' active' : '');
     slide.innerHTML =
-      '<div class="tv-card">' +
+      '<div class="tv-card' + (isComplete ? ' tv-card-complete' : '') + '"' + (isComplete ? ' style="opacity:0.55;filter:grayscale(1);"' : '') + '>' +
         '<div class="tv-card-eyebrow">Project 0' + (j + 1) + ' of ' + projects.length + '</div>' +
         '<div class="tv-card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
         '<div class="tv-card-integrator">Integrator: ' + p.integrator + '</div>' +
         '<div class="tv-card-grid">' +
           '<div class="tv-stat"><div class="tv-stat-label">Status</div><div class="tv-stat-val">' + p.state + '</div></div>' +
+          '<div class="tv-stat"><div class="tv-stat-label">Downpayment</div><div class="tv-stat-val date">' + formatDisplayDate(p.dates.downpaymentDate) + '</div></div>' +
+          '<div class="tv-stat"><div class="tv-stat-label">Lead Time</div><div class="tv-stat-val">' + (p.dates.leadTimeWeeks ? p.dates.leadTimeWeeks + ' wks' : '—') + '</div></div>' +
           '<div class="tv-stat"><div class="tv-stat-label">Ship Date</div><div class="tv-stat-val date">' + formatDisplayDate(p.dates.shipDate) + '</div></div>' +
           '<div class="tv-stat tv-stat-notes"><div class="tv-stat-label">Notes</div><div class="tv-stat-val">' + (p.notes ? p.notes : '<em>No notes yet</em>') + '</div></div>' +
         '</div>' +
         '<hr class="tv-divider">' +
         '<div class="tv-address-row">' +
           '<div class="tv-address"><div class="tv-stat-label">Ship-To Address</div><div class="tv-stat-val">' + p.address.replace('\n', '<br>') + '</div></div>' +
-          '<span class="tv-badge-status ' + p.status + '">' + p.status.replace('-', ' ') + '</span>' +
+          '<span class="tv-badge-status ' + p.status + '"' + (isComplete ? ' style="background:#9ca3af;color:#fff;"' : '') + '>' + p.status.replace('-', ' ') + '</span>' +
         '</div>' +
       '</div>';
     track.appendChild(slide);
@@ -1683,7 +1724,8 @@ const STATUS_COLORS = {
   'engineering':     '#f59e0b',
   'production':      '#22c55e',
   'purchasing':      '#6b7280',
-  'pulling':         '#ec4899'
+  'pulling':         '#ec4899',
+  'complete':        '#9ca3af'
 };
 
 let activeTaskFilter = 'all';
@@ -1719,10 +1761,15 @@ function renderTasks() {
     const { total, done } = projectProgress(proj);
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
     const color = STATUS_COLORS[proj.status] || '#999';
+    const isComplete = proj.status === 'complete';
 
     const block = document.createElement('div');
-    block.className = 'project-task-block';
+    block.className = 'project-task-block' + (isComplete ? ' project-task-complete' : '');
     block.dataset.status = proj.status;
+    if (isComplete) {
+      block.style.opacity = '0.55';
+      block.style.filter = 'grayscale(1)';
+    }
 
     const header = document.createElement('div');
     header.className = 'ptb-header';
@@ -2009,7 +2056,7 @@ function setSaveStatus(msg, isError) {
 const PROJECT_FIELDS = [
   { key: 'title', label: 'Title' },
   { key: 'integrator', label: 'Integrator' },
-  { key: 'status', label: 'Status (production / pulling / purchasing / engineering / pre-procurement)' },
+  { key: 'status', label: 'Status (production / pulling / purchasing / engineering / pre-procurement / complete)' },
   { key: 'state', label: 'Status detail text' },
   { key: 'address', label: 'Ship-To Address' },
   { key: 'notes', label: 'Notes' }
@@ -2017,6 +2064,8 @@ const PROJECT_FIELDS = [
 const DATE_FIELDS = [
   { key: 'engineeringDue', label: 'Engineering Due (YYYY-MM-DD, blank if N/A)' },
   { key: 'partsOrderDate', label: 'Parts Order Placed (YYYY-MM-DD, blank if N/A)' },
+  { key: 'downpaymentDate', label: 'Downpayment Received (YYYY-MM-DD, blank if N/A)' },
+  { key: 'leadTimeWeeks', label: 'Parts Lead Time (weeks, blank if N/A)' },
   { key: 'buildLabel', label: 'Build phase label (Production / Pulling)' },
   { key: 'buildStart', label: 'Build Start (YYYY-MM-DD)' },
   { key: 'buildEnd', label: 'Build End (YYYY-MM-DD)' },
@@ -2203,7 +2252,7 @@ function addNewProject() {
     address: '',
     notes: '',
     install: false,
-    dates: { engineeringDue: null, partsOrderDate: null, buildLabel: 'Production', buildStart: null, buildEnd: null, shipDate: null },
+    dates: { engineeringDue: null, partsOrderDate: null, downpaymentDate: null, leadTimeWeeks: null, buildLabel: 'Production', buildStart: null, buildEnd: null, shipDate: null },
     tasks: []
   });
   renderEditorBody();
