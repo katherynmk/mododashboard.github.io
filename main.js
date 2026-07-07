@@ -68,11 +68,11 @@ const projects = [
           "logistics"
         ],
         "due": "Jun 20",
-        "checked": false
+        "checked": true
       },
       {
         "id": "adi-6",
-        "title": "Ship \u2014 send initial shipment invoice ($55,700)",
+        "title": "Ship — send initial shipment invoice ($55,700)",
         "tags": [
           "invoice",
           "logistics"
@@ -97,7 +97,7 @@ const projects = [
           "urgent"
         ],
         "due": null,
-        "checked": false
+        "checked": true
       }
     ]
   },
@@ -122,7 +122,7 @@ const projects = [
     "tasks": [
       {
         "id": "actus-1",
-        "title": "Engineering complete \u2014 drawings done",
+        "title": "Engineering complete — drawings done",
         "tags": [
           "engineering"
         ],
@@ -167,7 +167,7 @@ const projects = [
       },
       {
         "id": "actus-6",
-        "title": "Coordinate freight \u2014 confirm carrier for Jul 1 ship",
+        "title": "Coordinate freight — confirm carrier for Jul 1 ship",
         "tags": [
           "logistics"
         ],
@@ -185,7 +185,7 @@ const projects = [
       },
       {
         "id": "actus-8",
-        "title": "Confirm and schedule on-site visit with CMES \u2014 target Jul 26",
+        "title": "Confirm and schedule on-site visit with CMES — target Jul 26",
         "tags": [
           "ops",
           "urgent"
@@ -252,23 +252,23 @@ const projects = [
       },
       {
         "id": "ocado-4",
-        "title": "Change order down payment ($53,853) \u2014 pending receipt",
+        "title": "Change order down payment ($53,853) — pending receipt",
         "tags": [
           "invoice",
           "urgent"
         ],
         "due": "Jun 17",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-5",
-        "title": "Install pre-ship invoice ($35,400) \u2014 pending receipt",
+        "title": "Install pre-ship invoice ($35,400) — pending receipt",
         "tags": [
           "invoice",
           "urgent"
         ],
         "due": "Jun 17",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-6",
@@ -278,7 +278,7 @@ const projects = [
           "urgent"
         ],
         "due": "Jun 20",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-7",
@@ -287,17 +287,17 @@ const projects = [
           "logistics"
         ],
         "due": "Jun 25",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-8",
-        "title": "Ship \u2014 send initial shipment invoice ($109,293)",
+        "title": "Ship — send initial shipment invoice ($109,293)",
         "tags": [
           "invoice",
           "logistics"
         ],
         "due": "Jul 1",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-9",
@@ -306,7 +306,7 @@ const projects = [
           "invoice"
         ],
         "due": "Jul 1",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-10",
@@ -315,7 +315,7 @@ const projects = [
           "invoice"
         ],
         "due": "Jul 15",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ocado-11",
@@ -388,7 +388,7 @@ const projects = [
       },
       {
         "id": "arhaus-2",
-        "title": "Engineering complete \u2014 invoiced ($14,596.50)",
+        "title": "Engineering complete — invoiced ($14,596.50)",
         "tags": [
           "engineering",
           "invoice"
@@ -407,13 +407,13 @@ const projects = [
       },
       {
         "id": "arhaus-4",
-        "title": "Pull all components \u2014 confirm everything staged",
+        "title": "Pull all components — confirm everything staged",
         "tags": [
           "ops",
           "urgent"
         ],
         "due": "Jun 25",
-        "checked": false
+        "checked": true
       },
       {
         "id": "arhaus-5",
@@ -422,7 +422,7 @@ const projects = [
           "ops"
         ],
         "due": "Jun 25",
-        "checked": false
+        "checked": true
       },
       {
         "id": "arhaus-6",
@@ -431,11 +431,11 @@ const projects = [
           "logistics"
         ],
         "due": "Jun 27",
-        "checked": false
+        "checked": true
       },
       {
         "id": "arhaus-7",
-        "title": "Ship \u2014 send initial shipment invoice ($9,731)",
+        "title": "Ship — send initial shipment invoice ($9,731)",
         "tags": [
           "invoice",
           "logistics"
@@ -445,7 +445,7 @@ const projects = [
       },
       {
         "id": "arhaus-8",
-        "title": "Send final shipment invoice ($4,865.50) \u2014 bill for freight",
+        "title": "Send final shipment invoice ($4,865.50) — bill for freight",
         "tags": [
           "invoice"
         ],
@@ -484,7 +484,7 @@ const projects = [
     "tasks": [
       {
         "id": "pb-1",
-        "title": "Downpayment received ($90,728) \u2014 MODO826048",
+        "title": "Downpayment received ($90,728) — MODO826048",
         "tags": [
           "invoice"
         ],
@@ -493,23 +493,23 @@ const projects = [
       },
       {
         "id": "pb-2",
-        "title": "Complete CET drawing \u2014 engineering due THIS FRIDAY Jun 19",
+        "title": "Complete CET drawing — engineering due THIS FRIDAY Jun 19",
         "tags": [
           "engineering",
           "urgent"
         ],
         "due": "Jun 19",
-        "checked": false
+        "checked": true
       },
       {
         "id": "pb-3",
-        "title": "Issue engineering completion invoice ($68,046) \u2014 Net 30",
+        "title": "Issue engineering completion invoice ($68,046) — Net 30",
         "tags": [
           "invoice",
           "urgent"
         ],
         "due": "Jun 19",
-        "checked": false
+        "checked": true
       },
       {
         "id": "pb-4",
@@ -518,11 +518,11 @@ const projects = [
           "engineering"
         ],
         "due": "Jun 19",
-        "checked": false
+        "checked": true
       },
       {
         "id": "pb-5",
-        "title": "Place parts order by Jun 26 (4-wk lead \u2192 parts arrive Jul 24)",
+        "title": "Place parts order by Jun 26 (4-wk lead → parts arrive Jul 24)",
         "tags": [
           "ops"
         ],
@@ -531,7 +531,7 @@ const projects = [
       },
       {
         "id": "pb-6",
-        "title": "Confirm parts arrival \u2014 begin production (target Jul 24)",
+        "title": "Confirm parts arrival — begin production (target Jul 24)",
         "tags": [
           "ops"
         ],
@@ -540,7 +540,7 @@ const projects = [
       },
       {
         "id": "pb-7",
-        "title": "Ship to Indianapolis, IN \u2014 confirm carrier",
+        "title": "Ship to Indianapolis, IN — confirm carrier",
         "tags": [
           "logistics"
         ],
@@ -549,7 +549,7 @@ const projects = [
       },
       {
         "id": "pb-8",
-        "title": "Ship date Jul 27 \u2014 send initial shipment invoice ($68,046)",
+        "title": "Ship date Jul 27 — send initial shipment invoice ($68,046)",
         "tags": [
           "invoice",
           "logistics"
@@ -598,7 +598,7 @@ const projects = [
       },
       {
         "id": "lr-3",
-        "title": "Parts ordered (4-wk lead \u2192 arrive Jul 9)",
+        "title": "Parts ordered (4-wk lead → arrive Jul 9)",
         "tags": [
           "ops"
         ],
@@ -607,7 +607,7 @@ const projects = [
       },
       {
         "id": "lr-4",
-        "title": "Justin \u2014 complete robot programming before production start",
+        "title": "Justin — complete robot programming before production start",
         "tags": [
           "engineering",
           "urgent"
@@ -617,12 +617,12 @@ const projects = [
       },
       {
         "id": "lr-5",
-        "title": "Confirm parts arrival \u2014 begin production (target Jul 9)",
+        "title": "Confirm parts arrival — begin production (target Jul 9)",
         "tags": [
           "ops"
         ],
         "due": "Jul 9",
-        "checked": false
+        "checked": true
       },
       {
         "id": "lr-6",
@@ -631,7 +631,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jul 22",
-        "checked": false
+        "checked": true
       },
       {
         "id": "lr-7",
@@ -644,7 +644,7 @@ const projects = [
       },
       {
         "id": "lr-8",
-        "title": "Ship \u2014 send final shipment invoice ($93,563 \u2014 Net 15)",
+        "title": "Ship — send final shipment invoice ($93,563 — Net 15)",
         "tags": [
           "invoice",
           "logistics"
@@ -695,7 +695,7 @@ const projects = [
     "tasks": [
       {
         "id": "fd-1",
-        "title": "PO placement (30%) received \u2014 $105,000",
+        "title": "PO placement (30%) received — $105,000",
         "tags": [
           "invoice"
         ],
@@ -704,7 +704,7 @@ const projects = [
       },
       {
         "id": "fd-2",
-        "title": "Engineering complete \u2014 info sent to purchasing",
+        "title": "Engineering complete — info sent to purchasing",
         "tags": [
           "engineering"
         ],
@@ -713,7 +713,7 @@ const projects = [
       },
       {
         "id": "fd-3",
-        "title": "Clarify change order for spares \u2014 confirm scope with KPI (waiting on guard rail)",
+        "title": "Clarify change order for spares — confirm scope with KPI (waiting on guard rail)",
         "tags": [
           "ops",
           "urgent"
@@ -723,7 +723,7 @@ const projects = [
       },
       {
         "id": "fd-4",
-        "title": "Invoice start of manufacturing ($70,000) \u2014 Net 30",
+        "title": "Invoice start of manufacturing ($70,000) — Net 30",
         "tags": [
           "invoice",
           "urgent"
@@ -733,7 +733,7 @@ const projects = [
       },
       {
         "id": "fd-5",
-        "title": "Confirm rollers arrival (Jul 17) \u2014 begin production",
+        "title": "Confirm rollers arrival (Jul 17) — begin production",
         "tags": [
           "ops"
         ],
@@ -742,7 +742,7 @@ const projects = [
       },
       {
         "id": "fd-6",
-        "title": "Invoice manufacturing complete ($70,000) \u2014 Net 30",
+        "title": "Invoice manufacturing complete ($70,000) — Net 30",
         "tags": [
           "invoice"
         ],
@@ -760,7 +760,7 @@ const projects = [
       },
       {
         "id": "fd-8",
-        "title": "Ship date Aug 3 \u2014 send start of shipping invoice ($52,500)",
+        "title": "Ship date Aug 3 — send start of shipping invoice ($52,500)",
         "tags": [
           "invoice",
           "logistics"
@@ -770,7 +770,7 @@ const projects = [
       },
       {
         "id": "fd-9",
-        "title": "Confirm delivery (2 days) \u2014 send delivery invoice ($52,500)",
+        "title": "Confirm delivery (2 days) — send delivery invoice ($52,500)",
         "tags": [
           "invoice"
         ],
@@ -779,7 +779,7 @@ const projects = [
       },
       {
         "id": "fd-10",
-        "title": "Engineering \u2014 resolve guard rail for change order",
+        "title": "Engineering — resolve guard rail for change order",
         "tags": [
           "engineering",
           "urgent"
@@ -793,7 +793,7 @@ const projects = [
     "title": "CONVEYOR ON CASTERS",
     "integrator": "Formic",
     "status": "purchasing",
-    "state": "Paid in full \u2014 freight to be invoiced at ship",
+    "state": "Paid in full — freight to be invoiced at ship",
     "address": "979 Corporate Blvd, Linthicum Heights, MD 21090",
     "notes": "Engineering and Purchasing complete",
     "install": false,
@@ -810,7 +810,7 @@ const projects = [
     "tasks": [
       {
         "id": "coc-1",
-        "title": "Paid in full upfront ($4,938) \u2014 PO 101087",
+        "title": "Paid in full upfront ($4,938) — PO 101087",
         "tags": [
           "invoice"
         ],
@@ -828,7 +828,7 @@ const projects = [
       },
       {
         "id": "coc-3",
-        "title": "Place parts order by Jun 22 (4-wk lead \u2192 parts arrive Jul 20)",
+        "title": "Place parts order by Jun 22 (4-wk lead → parts arrive Jul 20)",
         "tags": [
           "ops"
         ],
@@ -837,7 +837,7 @@ const projects = [
       },
       {
         "id": "coc-4",
-        "title": "Confirm parts arrival \u2014 begin production (target Jul 20)",
+        "title": "Confirm parts arrival — begin production (target Jul 20)",
         "tags": [
           "ops"
         ],
@@ -855,7 +855,7 @@ const projects = [
       },
       {
         "id": "coc-6",
-        "title": "Ship \u2014 generate and send freight invoice",
+        "title": "Ship — generate and send freight invoice",
         "tags": [
           "invoice",
           "logistics"
@@ -878,7 +878,7 @@ const projects = [
     "title": "AMAZON CANADA",
     "integrator": "SJF",
     "status": "engineering",
-    "state": "Engineering \u2014 downpayment received",
+    "state": "Engineering — downpayment received",
     "address": "Ryder, 1530 Gamble Pl, Winnipeg, MB R3T 1N6, Canada",
     "notes": "Engineering: Everything except lift Purchasing: 0%",
     "install": false,
@@ -895,7 +895,7 @@ const projects = [
     "tasks": [
       {
         "id": "ac-1",
-        "title": "Downpayment (40%) received ($71,142) \u2014 engineering started",
+        "title": "Downpayment (40%) received ($71,142) — engineering started",
         "tags": [
           "invoice"
         ],
@@ -923,7 +923,7 @@ const projects = [
       },
       {
         "id": "ac-4",
-        "title": "Issue engineering completion invoice ($53,356 \u2014 Net 30)",
+        "title": "Issue engineering completion invoice ($53,356 — Net 30)",
         "tags": [
           "invoice"
         ],
@@ -932,7 +932,7 @@ const projects = [
       },
       {
         "id": "ac-5",
-        "title": "Place parts order by Jul 3 (4-wk lead \u2192 arrive Jul 31)",
+        "title": "Place parts order by Jul 3 (4-wk lead → arrive Jul 31)",
         "tags": [
           "ops",
           "urgent"
@@ -951,7 +951,7 @@ const projects = [
       },
       {
         "id": "ac-7",
-        "title": "Confirm parts arrival \u2014 begin production (target Jul 31)",
+        "title": "Confirm parts arrival — begin production (target Jul 31)",
         "tags": [
           "ops"
         ],
@@ -969,7 +969,7 @@ const projects = [
       },
       {
         "id": "ac-9",
-        "title": "Ship date Aug 10 \u2014 send initial shipment invoice ($53,356 \u2014 Net 30)",
+        "title": "Ship date Aug 10 — send initial shipment invoice ($53,356 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -993,7 +993,7 @@ const projects = [
     "title": "FORSYTH",
     "integrator": "CRG / Storage Solutions",
     "status": "pre-procurement",
-    "state": "Pre-procurement \u2014 awaiting downpayment",
+    "state": "Pre-procurement — awaiting downpayment",
     "address": "Storage Solutions, 910 E. 169th Street, Westfield, IN 46074",
     "notes": "**** No Downpayment",
     "install": false,
@@ -1010,7 +1010,7 @@ const projects = [
     "tasks": [
       {
         "id": "fy-1",
-        "title": "Awaiting downpayment (50% \u2014 $20,570) \u2014 do not start engineering until received",
+        "title": "Awaiting downpayment (50% — $20,570) — do not start engineering until received",
         "tags": [
           "invoice",
           "urgent"
@@ -1048,7 +1048,7 @@ const projects = [
       },
       {
         "id": "fy-5",
-        "title": "Place parts order by Jul 10 (4-wk lead \u2192 arrive Aug 7)",
+        "title": "Place parts order by Jul 10 (4-wk lead → arrive Aug 7)",
         "tags": [
           "ops"
         ],
@@ -1057,7 +1057,7 @@ const projects = [
       },
       {
         "id": "fy-6",
-        "title": "Confirm parts arrival \u2014 begin production (target Aug 7)",
+        "title": "Confirm parts arrival — begin production (target Aug 7)",
         "tags": [
           "ops"
         ],
@@ -1066,7 +1066,7 @@ const projects = [
       },
       {
         "id": "fy-7",
-        "title": "Ship to Westfield, IN \u2014 book freight",
+        "title": "Ship to Westfield, IN — book freight",
         "tags": [
           "logistics"
         ],
@@ -1075,7 +1075,7 @@ const projects = [
       },
       {
         "id": "fy-8",
-        "title": "Ship date Aug 14 \u2014 send final shipment invoice ($20,570 \u2014 Net 15)",
+        "title": "Ship date Aug 14 — send final shipment invoice ($20,570 — Net 15)",
         "tags": [
           "invoice",
           "logistics"
@@ -1089,7 +1089,7 @@ const projects = [
     "title": "R2",
     "integrator": "Automation Intelligence",
     "status": "engineering",
-    "state": "Engineering \u2014 downpayment received",
+    "state": "Engineering — downpayment received",
     "address": "Automation Intelligence LLC, 6181 Taylor Dr, Flint, MI 48507",
     "notes": "",
     "install": false,
@@ -1106,7 +1106,7 @@ const projects = [
     "tasks": [
       {
         "id": "r2-1",
-        "title": "Downpayment (50%) received ($38,655) \u2014 MODO826014-R2",
+        "title": "Downpayment (50%) received ($38,655) — MODO826014-R2",
         "tags": [
           "invoice"
         ],
@@ -1125,7 +1125,7 @@ const projects = [
       },
       {
         "id": "r2-3",
-        "title": "Verify ship-to address \u2014 Automation Intelligence, Flint, MI 48507",
+        "title": "Verify ship-to address — Automation Intelligence, Flint, MI 48507",
         "tags": [
           "ops"
         ],
@@ -1143,7 +1143,7 @@ const projects = [
       },
       {
         "id": "r2-5",
-        "title": "Place parts order by Jul 10 (4-wk lead \u2192 arrive Aug 7)",
+        "title": "Place parts order by Jul 10 (4-wk lead → arrive Aug 7)",
         "tags": [
           "ops"
         ],
@@ -1152,7 +1152,7 @@ const projects = [
       },
       {
         "id": "r2-6",
-        "title": "Confirm parts arrival \u2014 begin production (target Aug 7)",
+        "title": "Confirm parts arrival — begin production (target Aug 7)",
         "tags": [
           "ops"
         ],
@@ -1161,7 +1161,7 @@ const projects = [
       },
       {
         "id": "r2-7",
-        "title": "Ship date Aug 17 \u2014 send ship notification invoice ($23,193 \u2014 Net 30)",
+        "title": "Ship date Aug 17 — send ship notification invoice ($23,193 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -1171,7 +1171,7 @@ const projects = [
       },
       {
         "id": "r2-8",
-        "title": "Confirm delivery \u2014 send delivery confirmation invoice ($15,462 \u2014 Net 30)",
+        "title": "Confirm delivery — send delivery confirmation invoice ($15,462 — Net 30)",
         "tags": [
           "invoice"
         ],
@@ -1201,7 +1201,7 @@ const projects = [
     "tasks": [
       {
         "id": "nh-1",
-        "title": "Order (30%) received ($60,799) \u2014 PO 101076",
+        "title": "Order (30%) received ($60,799) — PO 101076",
         "tags": [
           "invoice"
         ],
@@ -1210,7 +1210,7 @@ const projects = [
       },
       {
         "id": "nh-2",
-        "title": "Get design acceptance from Formic \u2014 invoice ($60,799)",
+        "title": "Get design acceptance from Formic — invoice ($60,799)",
         "tags": [
           "invoice",
           "urgent"
@@ -1239,7 +1239,7 @@ const projects = [
       },
       {
         "id": "nh-5",
-        "title": "Place parts order \u2014 Section A (4-wk lead \u2192 arrive Jul 31)",
+        "title": "Place parts order — Section A (4-wk lead → arrive Jul 31)",
         "tags": [
           "ops"
         ],
@@ -1248,7 +1248,7 @@ const projects = [
       },
       {
         "id": "nh-6",
-        "title": "Confirm parts arrival \u2014 begin production (target Jul 31)",
+        "title": "Confirm parts arrival — begin production (target Jul 31)",
         "tags": [
           "ops"
         ],
@@ -1257,7 +1257,7 @@ const projects = [
       },
       {
         "id": "nh-7",
-        "title": "Ship to Norwalk, OH \u2014 book freight",
+        "title": "Ship to Norwalk, OH — book freight",
         "tags": [
           "logistics"
         ],
@@ -1266,7 +1266,7 @@ const projects = [
       },
       {
         "id": "nh-8",
-        "title": "Ship Aug 25 \u2014 send FAT shipment invoice ($60,799)",
+        "title": "Ship Aug 25 — send FAT shipment invoice ($60,799)",
         "tags": [
           "invoice",
           "logistics"
@@ -1276,7 +1276,7 @@ const projects = [
       },
       {
         "id": "nh-9",
-        "title": "Confirm delivery & acceptance \u2014 send final invoice ($20,266 \u2014 Net 30)",
+        "title": "Confirm delivery & acceptance — send final invoice ($20,266 — Net 30)",
         "tags": [
           "invoice"
         ],
@@ -1285,7 +1285,7 @@ const projects = [
       },
       {
         "id": "nh-11",
-        "title": "Place parts order \u2014 Section B (not yet purchased)",
+        "title": "Place parts order — Section B (not yet purchased)",
         "tags": [
           "ops",
           "urgent"
@@ -1299,7 +1299,7 @@ const projects = [
     "title": "NUMINA BOXOUT JAX",
     "integrator": "Numina Group",
     "status": "engineering",
-    "state": "PO Received \u2014 Down Payment Invoiced",
+    "state": "PO Received — Down Payment Invoiced",
     "address": "Boxout | 3750 Cisco Drive W, Unit 1 | Jacksonville, FL 32219",
     "notes": "**** No downpayment",
     "install": false,
@@ -1316,7 +1316,7 @@ const projects = [
     "tasks": [
       {
         "id": "nbj-1",
-        "title": "PO received \u2014 down payment invoiced ($55,704) Invoice #843",
+        "title": "PO received — down payment invoiced ($55,704) Invoice #843",
         "tags": [
           "invoice"
         ],
@@ -1325,7 +1325,7 @@ const projects = [
       },
       {
         "id": "nbj-2",
-        "title": "Collect down payment ($55,704 \u2014 Net 0)",
+        "title": "Collect down payment ($55,704 — Net 0)",
         "tags": [
           "invoice",
           "urgent"
@@ -1353,7 +1353,7 @@ const projects = [
       },
       {
         "id": "nbj-5",
-        "title": "Issue 2nd payment invoice ($83,557) upon receipt of first payment \u2014 Net 30",
+        "title": "Issue 2nd payment invoice ($83,557) upon receipt of first payment — Net 30",
         "tags": [
           "invoice"
         ],
@@ -1362,7 +1362,7 @@ const projects = [
       },
       {
         "id": "nbj-6",
-        "title": "Place parts order by Jul 17 (4-wk lead \u2192 arrive Aug 14)",
+        "title": "Place parts order by Jul 17 (4-wk lead → arrive Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1371,7 +1371,7 @@ const projects = [
       },
       {
         "id": "nbj-7",
-        "title": "Confirm parts arrival \u2014 begin production (target Aug 14)",
+        "title": "Confirm parts arrival — begin production (target Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1380,7 +1380,7 @@ const projects = [
       },
       {
         "id": "nbj-8",
-        "title": "Ship to Jacksonville, FL \u2014 book freight",
+        "title": "Ship to Jacksonville, FL — book freight",
         "tags": [
           "logistics"
         ],
@@ -1389,7 +1389,7 @@ const projects = [
       },
       {
         "id": "nbj-9",
-        "title": "Ship date Sep 14 \u2014 send initial shipment invoice ($83,557 \u2014 Net 30)",
+        "title": "Ship date Sep 14 — send initial shipment invoice ($83,557 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -1399,7 +1399,7 @@ const projects = [
       },
       {
         "id": "nbj-10",
-        "title": "Confirm system arrival \u2014 send final invoice ($55,704 \u2014 Net 30)",
+        "title": "Confirm system arrival — send final invoice ($55,704 — Net 30)",
         "tags": [
           "invoice"
         ],
@@ -1412,7 +1412,7 @@ const projects = [
     "title": "NUMINA BOXOUT FTW",
     "integrator": "Numina Group",
     "status": "engineering",
-    "state": "PO Received \u2014 Down Payment Invoiced",
+    "state": "PO Received — Down Payment Invoiced",
     "address": "Ft Worth, TX",
     "notes": "**** No downpayment",
     "install": false,
@@ -1429,7 +1429,7 @@ const projects = [
     "tasks": [
       {
         "id": "nfw-1",
-        "title": "PO received \u2014 down payment invoiced ($58,901) Invoice #844",
+        "title": "PO received — down payment invoiced ($58,901) Invoice #844",
         "tags": [
           "invoice"
         ],
@@ -1438,7 +1438,7 @@ const projects = [
       },
       {
         "id": "nfw-2",
-        "title": "Collect down payment ($58,900.80 \u2014 Net 0)",
+        "title": "Collect down payment ($58,900.80 — Net 0)",
         "tags": [
           "invoice",
           "urgent"
@@ -1466,7 +1466,7 @@ const projects = [
       },
       {
         "id": "nfw-5",
-        "title": "Issue 2nd payment invoice ($88,351) upon receipt of first payment \u2014 Net 30",
+        "title": "Issue 2nd payment invoice ($88,351) upon receipt of first payment — Net 30",
         "tags": [
           "invoice"
         ],
@@ -1475,7 +1475,7 @@ const projects = [
       },
       {
         "id": "nfw-6",
-        "title": "Place parts order by Jul 17 (4-wk lead \u2192 arrive Aug 14)",
+        "title": "Place parts order by Jul 17 (4-wk lead → arrive Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1484,7 +1484,7 @@ const projects = [
       },
       {
         "id": "nfw-7",
-        "title": "Confirm site contact: Matt Schaber \u2014 Ft Worth, TX",
+        "title": "Confirm site contact: Matt Schaber — Ft Worth, TX",
         "tags": [
           "ops"
         ],
@@ -1493,7 +1493,7 @@ const projects = [
       },
       {
         "id": "nfw-8",
-        "title": "Confirm parts arrival \u2014 begin production (target Aug 14)",
+        "title": "Confirm parts arrival — begin production (target Aug 14)",
         "tags": [
           "ops"
         ],
@@ -1502,7 +1502,7 @@ const projects = [
       },
       {
         "id": "nfw-9",
-        "title": "Ship to Fort Worth, TX \u2014 book freight",
+        "title": "Ship to Fort Worth, TX — book freight",
         "tags": [
           "logistics"
         ],
@@ -1511,7 +1511,7 @@ const projects = [
       },
       {
         "id": "nfw-10",
-        "title": "Ship date Sep 14 \u2014 send initial shipment invoice ($88,351 \u2014 Net 30)",
+        "title": "Ship date Sep 14 — send initial shipment invoice ($88,351 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -1521,7 +1521,7 @@ const projects = [
       },
       {
         "id": "nfw-11",
-        "title": "Confirm system arrival \u2014 send final invoice ($58,901 \u2014 Net 30)",
+        "title": "Confirm system arrival — send final invoice ($58,901 — Net 30)",
         "tags": [
           "invoice"
         ],
@@ -1570,7 +1570,7 @@ const projects = [
       },
       {
         "id": "sn-3",
-        "title": "Issue engineering completion invoice ($29,591 \u2014 Net 15)",
+        "title": "Issue engineering completion invoice ($29,591 — Net 15)",
         "tags": [
           "invoice"
         ],
@@ -1588,7 +1588,7 @@ const projects = [
       },
       {
         "id": "sn-5",
-        "title": "Place parts order by Jul 3 (4-wk lead \u2192 arrive Jul 31)",
+        "title": "Place parts order by Jul 3 (4-wk lead → arrive Jul 31)",
         "tags": [
           "ops"
         ],
@@ -1597,7 +1597,7 @@ const projects = [
       },
       {
         "id": "sn-6",
-        "title": "Confirm parts arrival \u2014 begin production (target Jul 31)",
+        "title": "Confirm parts arrival — begin production (target Jul 31)",
         "tags": [
           "ops"
         ],
@@ -1606,7 +1606,7 @@ const projects = [
       },
       {
         "id": "sn-7",
-        "title": "Ship to Sioux Falls, SD \u2014 book freight",
+        "title": "Ship to Sioux Falls, SD — book freight",
         "tags": [
           "logistics"
         ],
@@ -1615,7 +1615,7 @@ const projects = [
       },
       {
         "id": "sn-8",
-        "title": "Ship date Sep 17 \u2014 send shipment invoice ($19,727 \u2014 Net 30)",
+        "title": "Ship date Sep 17 — send shipment invoice ($19,727 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
@@ -1625,7 +1625,7 @@ const projects = [
       },
       {
         "id": "sn-9",
-        "title": "Drew \u2014 complete additional supports engineering",
+        "title": "Drew — complete additional supports engineering",
         "tags": [
           "engineering",
           "urgent"
