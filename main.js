@@ -102,7 +102,7 @@ const projects = [
   {
     "title": "OCADO",
     "integrator": "Temple Controls",
-    "status": "COMPLETE",
+    "status": "complete",
     "state": "Working On Phased Shipping and Installation",
     "address": "9091 88th Ave, Pleasant Prairie, WI",
     "notes": "Finish install and route belts when power is up ",
