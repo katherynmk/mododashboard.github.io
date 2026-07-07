@@ -9,10 +9,10 @@ const projects = [
   {
     "title": "ACTUS",
     "integrator": "MODO8",
-    "status": "production",
+    "status": "complete",
     "state": "On-site CMES visit scheduled",
     "address": "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212",
-    "notes": "complete",
+    "notes": "NEED TO VISIT SITE 7/26?",
     "install": false,
     "dates": {
       "engineeringDue": null,
@@ -102,10 +102,10 @@ const projects = [
   {
     "title": "OCADO",
     "integrator": "Temple Controls",
-    "status": "production",
+    "status": "COMPLETE",
     "state": "Working On Phased Shipping and Installation",
     "address": "9091 88th Ave, Pleasant Prairie, WI",
-    "notes": "",
+    "notes": "Finish install and route belts when power is up ",
     "install": false,
     "dates": {
       "engineeringDue": null,
@@ -226,7 +226,7 @@ const projects = [
   {
     "title": "ADI / MALIN",
     "integrator": "MALIN",
-    "status": "production",
+    "status": "complete",
     "state": "Working On Phased Shipping",
     "address": "3200 Richmond Rd, Easton, PA 18040",
     "notes": "",
@@ -311,11 +311,11 @@ const projects = [
   {
     "title": "ARHAUS",
     "integrator": "Equipment Depot",
-    "status": "pulling",
+    "status": "complete",
     "state": "Pulling job",
     "address": "51 East Hines Hill Rd, Boston Heights, OH 44236 | James Coddington 216-276-3956",
-    "notes": "",
-    "install": false,
+    "notes": "install ",
+    "install": true,
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
@@ -410,17 +410,17 @@ const projects = [
     "status": "purchasing",
     "state": "Purchased — CHANGE ORDER?",
     "address": "2500 W. Carey Ave, Bldg F, North Las Vegas, NV 89032",
-    "notes": "",
+    "notes": "Engineering: waiting on guard rail Purchasing: has rollers coming in July 17th",
     "install": false,
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
       "downpaymentDate": null,
       "leadTimeWeeks": null,
-      "buildLabel": "Production",
+      "buildLabel": "Pulling",
       "buildStart": "2026-06-30",
       "buildEnd": "2026-07-21",
-      "shipDate": "2026-07-21"
+      "shipDate": "2026-08-03"
     },
     "tasks": [
       {
@@ -515,7 +515,7 @@ const projects = [
     "status": "purchasing",
     "state": "Paid in full — freight to be invoiced at ship",
     "address": "979 Corporate Blvd, Linthicum Heights, MD 21090",
-    "notes": "",
+    "notes": "Engineering and Purchasing complete",
     "install": false,
     "dates": {
       "engineeringDue": "2026-06-19",
@@ -600,7 +600,7 @@ const projects = [
     "status": "engineering",
     "state": "Working On CET Drawing",
     "address": "Pitney Bowes, 5071 W 74th St, Indianapolis, IN 46268",
-    "notes": "",
+    "notes": "Engineering: Drew is working on things Purchasing: 100%",
     "install": false,
     "dates": {
       "engineeringDue": "2026-06-19",
@@ -696,8 +696,8 @@ const projects = [
     "status": "production",
     "state": "Justin Needs to Program",
     "address": "4550 Spring Valley Rd, Farmers Branch, TX 75244",
-    "notes": "",
-    "install": false,
+    "notes": "Justing Needs to Program Install: 7/29 *Need to meet with Garlynd",
+    "install": true,
     "dates": {
       "engineeringDue": null,
       "partsOrderDate": null,
@@ -791,8 +791,8 @@ const projects = [
     "status": "pre-procurement",
     "state": "Pre-procurement — FAT terms",
     "address": "211 Woodlawn Avenue, Norwalk, OH 44857",
-    "notes": "",
-    "install": false,
+    "notes": "August 25th full ship Engineering: 100% Section A: Purchased Section B: Not purchased",
+    "install": true,
     "dates": {
       "engineeringDue": "2026-06-26",
       "partsOrderDate": "2026-07-03",
@@ -896,8 +896,8 @@ const projects = [
     "status": "engineering",
     "state": "Engineering — downpayment received",
     "address": "1300 West Elkhorn Avenue, Sioux Falls, SD 57101",
-    "notes": "",
-    "install": false,
+    "notes": "Engineering: Drew needs to do supports Purchasing: 100%",
+    "install": true,
     "dates": {
       "engineeringDue": "2026-06-26",
       "partsOrderDate": "2026-07-03",
@@ -906,7 +906,7 @@ const projects = [
       "buildLabel": "Production",
       "buildStart": "2026-07-31",
       "buildEnd": "2026-08-07",
-      "shipDate": "2026-08-07"
+      "shipDate": "2026-09-17"
     },
     "tasks": [
       {
@@ -1086,7 +1086,7 @@ const projects = [
     "status": "engineering",
     "state": "Engineering — downpayment received",
     "address": "Ryder, 1530 Gamble Pl, Winnipeg, MB R3T 1N6, Canada",
-    "notes": "",
+    "notes": "Engineering: Everything except lift Purchasing: 0%",
     "install": false,
     "dates": {
       "engineeringDue": "2026-06-26",
@@ -1096,7 +1096,7 @@ const projects = [
       "buildLabel": "Production",
       "buildStart": "2026-07-31",
       "buildEnd": "2026-08-28",
-      "shipDate": "2026-08-28"
+      "shipDate": "2026-08-10"
     },
     "tasks": [
       {
@@ -1190,7 +1190,7 @@ const projects = [
     "status": "pre-procurement",
     "state": "Pre-procurement — awaiting downpayment",
     "address": "Storage Solutions, 910 E. 169th Street, Westfield, IN 46074",
-    "notes": "",
+    "notes": "**** No Downpayment",
     "install": false,
     "dates": {
       "engineeringDue": "2026-07-03",
@@ -1286,7 +1286,7 @@ const projects = [
     "status": "engineering",
     "state": "PO Received — Down Payment Invoiced",
     "address": "Boxout | 3750 Cisco Drive W, Unit 1 | Jacksonville, FL 32219",
-    "notes": "",
+    "notes": "**** No downpayment",
     "install": false,
     "dates": {
       "engineeringDue": "2026-07-10",
@@ -1399,7 +1399,7 @@ const projects = [
     "status": "engineering",
     "state": "PO Received — Down Payment Invoiced",
     "address": "Ft Worth, TX",
-    "notes": "",
+    "notes": "**** No downpayment",
     "install": false,
     "dates": {
       "engineeringDue": "2026-07-10",
