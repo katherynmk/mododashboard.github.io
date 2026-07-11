@@ -3,11 +3,11 @@
 // Dates drive both the calendar spans/milestones and (soon) task due dates.
 // Edit via the floating "Edit Dashboard" button (bottom-right) on any page.
 // ══════════════════════════════════════════════════════════
-
 // ===PROJECTS_START===
 const projects = [
   {
     "title": "ADI / MALIN",
+    "jobNumber": null,
     "integrator": "MALIN",
     "status": "complete",
     "state": "bill for freight",
@@ -103,6 +103,7 @@ const projects = [
   },
   {
     "title": "ACTUS",
+    "jobNumber": null,
     "integrator": "MODO8",
     "status": "complete",
     "state": "On-Site Visit Required",
@@ -206,6 +207,7 @@ const projects = [
   },
   {
     "title": "OCADO",
+    "jobNumber": null,
     "integrator": "Temple Controls",
     "status": "complete",
     "state": "Need Equipment Back",
@@ -360,6 +362,7 @@ const projects = [
   },
   {
     "title": "ARHAUS",
+    "jobNumber": null,
     "integrator": "Equipment Depot",
     "status": "complete",
     "state": "Bill for freight",
@@ -465,6 +468,7 @@ const projects = [
   },
   {
     "title": "PITNEY BOS",
+    "jobNumber": "826048",
     "integrator": "Temple Controls",
     "status": "engineering",
     "state": "Drew is working on ",
@@ -477,9 +481,9 @@ const projects = [
       "downpaymentDate": null,
       "leadTimeWeeks": null,
       "buildLabel": "Production",
-      "buildStart": "2026-07-24",
-      "buildEnd": "2026-07-27",
-      "shipDate": "2026-07-27"
+      "buildStart": "2026-07-23",
+      "buildEnd": "2026-07-30",
+      "shipDate": "2026-07-30"
     },
     "tasks": [
       {
@@ -531,11 +535,11 @@ const projects = [
       },
       {
         "id": "pb-6",
-        "title": "Confirm parts arrival — begin production (target Jul 24)",
+        "title": "Confirm parts arrival (Jul 23) — begin production, working through the weekend to hit Jul 30 ship",
         "tags": [
           "ops"
         ],
-        "due": "Jul 24",
+        "due": "Jul 23",
         "checked": false
       },
       {
@@ -544,23 +548,24 @@ const projects = [
         "tags": [
           "logistics"
         ],
-        "due": "Jul 25",
+        "due": "Jul 29",
         "checked": false
       },
       {
         "id": "pb-8",
-        "title": "Ship date Jul 27 — send initial shipment invoice ($68,046)",
+        "title": "Ship date Jul 30 — send initial shipment invoice ($68,046)",
         "tags": [
           "invoice",
           "logistics"
         ],
-        "due": "Jul 27",
+        "due": "Jul 30",
         "checked": false
       }
     ]
   },
   {
     "title": "LOLOI RUGS",
+    "jobNumber": null,
     "integrator": "AI",
     "status": "production",
     "state": "Justin Needs to Program",
@@ -676,6 +681,7 @@ const projects = [
   },
   {
     "title": "FRONTIER DENTAL",
+    "jobNumber": "826054",
     "integrator": "KPI",
     "status": "purchasing",
     "state": "Change order spares",
@@ -684,12 +690,12 @@ const projects = [
     "install": false,
     "dates": {
       "engineeringDue": null,
-      "partsOrderDate": null,
+      "partsOrderDate": "2026-07-17",
       "downpaymentDate": null,
       "leadTimeWeeks": null,
-      "buildLabel": "Pulling",
-      "buildStart": "2026-06-30",
-      "buildEnd": "2026-07-21",
+      "buildLabel": "Production",
+      "buildStart": "2026-07-17",
+      "buildEnd": "2026-08-03",
       "shipDate": "2026-08-03"
     },
     "tasks": [
@@ -791,11 +797,12 @@ const projects = [
   },
   {
     "title": "CONVEYOR ON CASTERS",
+    "jobNumber": null,
     "integrator": "Formic",
-    "status": "purchasing",
-    "state": "Paid in full — freight to be invoiced at ship",
+    "status": "production",
+    "state": "Built — waiting on caster plates",
     "address": "979 Corporate Blvd, Linthicum Heights, MD 21090",
-    "notes": "Engineering and Purchasing complete",
+    "notes": "Engineering and Purchasing complete. Build finished; only caster plates outstanding before ship prep.",
     "install": false,
     "dates": {
       "engineeringDue": "2026-06-19",
@@ -842,6 +849,16 @@ const projects = [
           "ops"
         ],
         "due": "Jul 20",
+        "checked": true
+      },
+      {
+        "id": "coc-4b",
+        "title": "Waiting on caster plates delivery — last component before ship prep",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
         "checked": false
       },
       {
@@ -876,11 +893,12 @@ const projects = [
   },
   {
     "title": "AMAZON CANADA",
+    "jobNumber": "826127",
     "integrator": "SJF",
     "status": "engineering",
     "state": "Engineering — downpayment received",
     "address": "Ryder, 1530 Gamble Pl, Winnipeg, MB R3T 1N6, Canada",
-    "notes": "Engineering: Everything except lift Purchasing: 0%",
+    "notes": "Engineering complete (including lift) Purchasing: 0% | Board note: MDR / M-SER milestone ~8/14 — verify",
     "install": false,
     "dates": {
       "engineeringDue": "2026-06-26",
@@ -919,7 +937,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jun 26",
-        "checked": false
+        "checked": true
       },
       {
         "id": "ac-4",
@@ -985,12 +1003,13 @@ const projects = [
           "urgent"
         ],
         "due": null,
-        "checked": false
+        "checked": true
       }
     ]
   },
   {
     "title": "FORSYTH",
+    "jobNumber": "826120",
     "integrator": "CRG / Storage Solutions",
     "status": "pre-procurement",
     "state": "Pre-procurement — awaiting downpayment",
@@ -1035,7 +1054,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jul 3",
-        "checked": false
+        "checked": true
       },
       {
         "id": "fy-4",
@@ -1044,7 +1063,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jul 3",
-        "checked": false
+        "checked": true
       },
       {
         "id": "fy-5",
@@ -1087,6 +1106,7 @@ const projects = [
   },
   {
     "title": "R2",
+    "jobNumber": "826014",
     "integrator": "Automation Intelligence",
     "status": "engineering",
     "state": "Engineering — downpayment received",
@@ -1121,7 +1141,7 @@ const projects = [
           "urgent"
         ],
         "due": "Jul 3",
-        "checked": false
+        "checked": true
       },
       {
         "id": "r2-3",
@@ -1139,7 +1159,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jul 3",
-        "checked": false
+        "checked": true
       },
       {
         "id": "r2-5",
@@ -1182,11 +1202,12 @@ const projects = [
   },
   {
     "title": "NEW HORIZONS",
+    "jobNumber": "826008",
     "integrator": "Formic",
     "status": "pre-procurement",
     "state": "Phased Shipping",
     "address": "211 Woodlawn Avenue, Norwalk, OH 44857",
-    "notes": "August 25th full ship Engineering: 100% Section A: Purchased Section B: Not purchased",
+    "notes": "August 25th full ship Engineering: 100% Section A: Purchased Section B: Not purchased. Board: Section A ships 7/31 (parts 7/17, work order/layout/support T.O.S. complete); Section B ships 8/25. Production order: Section A + Frontier Dental start 7/17; Section B follows Forsyth/R2 (~8/17–8/25).",
     "install": true,
     "dates": {
       "engineeringDue": "2026-06-26",
@@ -1297,6 +1318,7 @@ const projects = [
   },
   {
     "title": "NUMINA BOXOUT JAX",
+    "jobNumber": null,
     "integrator": "Numina Group",
     "status": "engineering",
     "state": "PO Received — Down Payment Invoiced",
@@ -1309,9 +1331,9 @@ const projects = [
       "downpaymentDate": null,
       "leadTimeWeeks": null,
       "buildLabel": "Production",
-      "buildStart": "2026-08-14",
-      "buildEnd": "2026-09-14",
-      "shipDate": "2026-09-14"
+      "buildStart": "2026-09-07",
+      "buildEnd": "2026-09-21",
+      "shipDate": "2026-09-21"
     },
     "tasks": [
       {
@@ -1379,22 +1401,31 @@ const projects = [
         "checked": false
       },
       {
+        "id": "nbj-7b",
+        "title": "Begin production (queued behind New Horizons Section B) — target Sep 7, ~2-wk build to ship",
+        "tags": [
+          "ops"
+        ],
+        "due": "Sep 7",
+        "checked": false
+      },
+      {
         "id": "nbj-8",
         "title": "Ship to Jacksonville, FL — book freight",
         "tags": [
           "logistics"
         ],
-        "due": "Sep 12",
+        "due": "Sep 19",
         "checked": false
       },
       {
         "id": "nbj-9",
-        "title": "Ship date Sep 14 — send initial shipment invoice ($83,557 — Net 30)",
+        "title": "Ship date Sep 21 — send initial shipment invoice ($83,557 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
         ],
-        "due": "Sep 14",
+        "due": "Sep 21",
         "checked": false
       },
       {
@@ -1403,13 +1434,14 @@ const projects = [
         "tags": [
           "invoice"
         ],
-        "due": "Oct 14",
+        "due": "Oct 21",
         "checked": false
       }
     ]
   },
   {
     "title": "NUMINA BOXOUT FTW",
+    "jobNumber": null,
     "integrator": "Numina Group",
     "status": "engineering",
     "state": "PO Received — Down Payment Invoiced",
@@ -1422,9 +1454,9 @@ const projects = [
       "downpaymentDate": null,
       "leadTimeWeeks": null,
       "buildLabel": "Production",
-      "buildStart": "2026-08-14",
-      "buildEnd": "2026-09-14",
-      "shipDate": "2026-09-14"
+      "buildStart": "2026-09-25",
+      "buildEnd": "2026-10-09",
+      "shipDate": "2026-10-09"
     },
     "tasks": [
       {
@@ -1501,22 +1533,31 @@ const projects = [
         "checked": false
       },
       {
+        "id": "nfw-8b",
+        "title": "Begin production (queued behind Boxout JAX) — target Sep 25, ~2-wk build to ship",
+        "tags": [
+          "ops"
+        ],
+        "due": "Sep 25",
+        "checked": false
+      },
+      {
         "id": "nfw-9",
         "title": "Ship to Fort Worth, TX — book freight",
         "tags": [
           "logistics"
         ],
-        "due": "Sep 12",
+        "due": "Oct 7",
         "checked": false
       },
       {
         "id": "nfw-10",
-        "title": "Ship date Sep 14 — send initial shipment invoice ($88,351 — Net 30)",
+        "title": "Ship date Oct 9 — send initial shipment invoice ($88,351 — Net 30)",
         "tags": [
           "invoice",
           "logistics"
         ],
-        "due": "Sep 14",
+        "due": "Oct 9",
         "checked": false
       },
       {
@@ -1525,13 +1566,14 @@ const projects = [
         "tags": [
           "invoice"
         ],
-        "due": "Oct 14",
+        "due": "Nov 8",
         "checked": false
       }
     ]
   },
   {
     "title": "SPARTAN NASH",
+    "jobNumber": null,
     "integrator": "Tompkins",
     "status": "engineering",
     "state": "September Date - Check",
@@ -1566,7 +1608,7 @@ const projects = [
           "urgent"
         ],
         "due": "Jun 26",
-        "checked": false
+        "checked": true
       },
       {
         "id": "sn-3",
@@ -1584,7 +1626,7 @@ const projects = [
           "engineering"
         ],
         "due": "Jun 26",
-        "checked": false
+        "checked": true
       },
       {
         "id": "sn-5",
@@ -1637,7 +1679,6 @@ const projects = [
   }
 ];
 // ===PROJECTS_END===
-
 // ══════════════════════════════════════════════════════════
 // GitHub save config
 // ══════════════════════════════════════════════════════════
@@ -1646,10 +1687,8 @@ const GH_REPO = 'mododashboard.github.io';
 const GH_BRANCH = 'main';
 const GH_PATH = 'main.js';
 let editToken = null; // kept in memory only, never persisted or committed
-
 const STATUS_BOARD_KEYS = ['engineering', 'purchasing', 'production'];
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
 // ── Date helpers ──
 function parseISO(str) {
   const [y, m, d] = str.split('-').map(Number);
@@ -1667,7 +1706,6 @@ function formatDisplayDate(iso) {
   const d = parseISO(iso);
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
-
 // ── Derived calendar data from projects[].dates ──
 function getSpans() {
   return projects
@@ -1685,7 +1723,6 @@ function getMilestones() {
   });
   return out;
 }
-
 // ══════════════════════════════════════════════════════════
 // INDEX PAGE — cards, status board, carousel
 // ══════════════════════════════════════════════════════════
@@ -1704,12 +1741,13 @@ function renderCards() {
     card.innerHTML =
       '<div class="card-status-bar ' + p.status + '"' + (isComplete ? ' style="background:#9ca3af;"' : '') + '></div>' +
       '<div class="card-top">' +
-        '<div class="card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
+        '<div class="card-title">' + p.title + (p.jobNumber ? ' <span class="job-number" style="opacity:0.6;font-weight:400;font-size:0.72em;margin-left:6px;">#' + p.jobNumber + '</span>' : '') + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
         '<span class="badge ' + p.status + '"' + (isComplete ? ' style="background:#9ca3af;color:#fff;"' : '') + '>' + p.status.replace('-', ' ') + '</span>' +
       '</div>' +
       '<hr class="card-divider">' +
       '<div class="card-rows">' +
         '<div class="card-row"><span class="label">Status</span><span class="value">' + p.state + '</span></div>' +
+        '<div class="card-row"><span class="label">BOM / Engineering Due</span><span class="value date">' + formatDisplayDate(p.dates.engineeringDue) + '</span></div>' +
         '<div class="card-row"><span class="label">Downpayment</span><span class="value date">' + formatDisplayDate(p.dates.downpaymentDate) + '</span></div>' +
         '<div class="card-row"><span class="label">Lead Time</span><span class="value">' + (p.dates.leadTimeWeeks ? p.dates.leadTimeWeeks + ' wks' : '—') + '</span></div>' +
         '<div class="card-row"><span class="label">Ship Date</span><span class="value date">' + formatDisplayDate(p.dates.shipDate) + '</span></div>' +
@@ -1726,7 +1764,6 @@ function renderCards() {
     grid.appendChild(card);
   });
 }
-
 function buildStatusBoard() {
   const board = document.getElementById('status-board');
   if (!board) return;
@@ -1738,15 +1775,13 @@ function buildStatusBoard() {
           return (a.dates.shipDate || '9999-99-99').localeCompare(b.dates.shipDate || '9999-99-99');
         })[0]
       : null;
-
     const col = document.createElement('div');
     col.className = 'status-col status-col-' + key;
-
     if (next) {
       col.innerHTML =
         '<div class="status-col-header">' + key.charAt(0).toUpperCase() + key.slice(1) + ' <span class="status-count">(' + matches.length + ' total)</span></div>' +
         '<div class="status-next-card">' +
-          '<div class="status-next-title">' + next.title + '</div>' +
+          '<div class="status-next-title">' + next.title + (next.jobNumber ? ' <span style="opacity:0.6;font-weight:400;font-size:0.75em;">#' + next.jobNumber + '</span>' : '') + '</div>' +
           '<div class="status-next-meta">' + next.state + '</div>' +
           '<div class="status-next-ship">Ship ' + formatDisplayDate(next.dates.shipDate) + '</div>' +
         '</div>';
@@ -1758,15 +1793,12 @@ function buildStatusBoard() {
     board.appendChild(col);
   });
 }
-
 function buildCarousel() {
   const track = document.getElementById('carousel-track');
   const dotsEl = document.getElementById('carousel-dots');
   if (!track || !dotsEl) return;
-
   track.innerHTML = '';
   dotsEl.innerHTML = '';
-
   for (let j = 0; j < projects.length; j++) {
     const p = projects[j];
     const isComplete = p.status === 'complete';
@@ -1775,10 +1807,11 @@ function buildCarousel() {
     slide.innerHTML =
       '<div class="tv-card' + (isComplete ? ' tv-card-complete' : '') + '"' + (isComplete ? ' style="opacity:0.55;filter:grayscale(1);"' : '') + '>' +
         '<div class="tv-card-eyebrow">Project 0' + (j + 1) + ' of ' + projects.length + '</div>' +
-        '<div class="tv-card-title">' + p.title + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
+        '<div class="tv-card-title">' + p.title + (p.jobNumber ? ' <span style="opacity:0.6;font-weight:400;font-size:0.6em;margin-left:8px;">#' + p.jobNumber + '</span>' : '') + (p.install ? ' <span class="install-flag" title="Install scope">🔧</span>' : '') + '</div>' +
         '<div class="tv-card-integrator">Integrator: ' + p.integrator + '</div>' +
         '<div class="tv-card-grid">' +
           '<div class="tv-stat"><div class="tv-stat-label">Status</div><div class="tv-stat-val">' + p.state + '</div></div>' +
+          '<div class="tv-stat"><div class="tv-stat-label">BOM / Eng Due</div><div class="tv-stat-val date">' + formatDisplayDate(p.dates.engineeringDue) + '</div></div>' +
           '<div class="tv-stat"><div class="tv-stat-label">Downpayment</div><div class="tv-stat-val date">' + formatDisplayDate(p.dates.downpaymentDate) + '</div></div>' +
           '<div class="tv-stat"><div class="tv-stat-label">Lead Time</div><div class="tv-stat-val">' + (p.dates.leadTimeWeeks ? p.dates.leadTimeWeeks + ' wks' : '—') + '</div></div>' +
           '<div class="tv-stat"><div class="tv-stat-label">Ship Date</div><div class="tv-stat-val date">' + formatDisplayDate(p.dates.shipDate) + '</div></div>' +
@@ -1791,20 +1824,16 @@ function buildCarousel() {
         '</div>' +
       '</div>';
     track.appendChild(slide);
-
     const dot = document.createElement('span');
     dot.className = 'dot' + (j === 0 ? ' active' : '');
     (function (idx) { dot.addEventListener('click', function () { goToSlide(idx); }); })(j);
     dotsEl.appendChild(dot);
   }
-
   goToSlide(0);
 }
-
 let carouselCurrent = 0;
 let carouselTimer = null;
 const CAROUSEL_INTERVAL = 7000;
-
 function goToSlide(n) {
   const track = document.getElementById('carousel-track');
   const dotsEl = document.getElementById('carousel-dots');
@@ -1834,7 +1863,6 @@ function startCarouselFill() {
   });
   carouselTimer = setTimeout(nextSlide, CAROUSEL_INTERVAL);
 }
-
 // ══════════════════════════════════════════════════════════
 // TASKS PAGE
 // ══════════════════════════════════════════════════════════
@@ -1847,9 +1875,7 @@ const STATUS_COLORS = {
   'pulling':         '#ec4899',
   'complete':        '#9ca3af'
 };
-
 let activeTaskFilter = 'all';
-
 function countTasks() {
   let open = 0, done = 0;
   projects.forEach(p => p.tasks.forEach(t => { t.checked ? done++ : open++; }));
@@ -1860,29 +1886,24 @@ function projectProgress(p) {
   const done = p.tasks.filter(t => t.checked).length;
   return { total, done };
 }
-
 function renderTasks() {
   const container = document.getElementById('tasks-container');
   if (!container) return;
   container.innerHTML = '';
-
   const filtered = activeTaskFilter === 'all'
     ? projects
     : projects.filter(p => p.status === activeTaskFilter);
-
   if (filtered.length === 0) {
     container.innerHTML = '<div class="tasks-empty">No projects match this filter.</div>';
     updateTaskStats();
     return;
   }
-
   filtered.forEach((proj) => {
     const projIdx = projects.indexOf(proj);
     const { total, done } = projectProgress(proj);
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
     const color = STATUS_COLORS[proj.status] || '#999';
     const isComplete = proj.status === 'complete';
-
     const block = document.createElement('div');
     block.className = 'project-task-block' + (isComplete ? ' project-task-complete' : '');
     block.dataset.status = proj.status;
@@ -1890,14 +1911,13 @@ function renderTasks() {
       block.style.opacity = '0.55';
       block.style.filter = 'grayscale(1)';
     }
-
     const header = document.createElement('div');
     header.className = 'ptb-header';
     header.innerHTML =
       '<div class="ptb-header-left">' +
         '<div class="ptb-status-dot" style="background:' + color + ';box-shadow:0 0 5px ' + color + ';"></div>' +
         '<div>' +
-          '<div class="ptb-title">' + proj.title + '</div>' +
+          '<div class="ptb-title">' + proj.title + (proj.jobNumber ? ' <span style="opacity:0.6;font-weight:400;font-size:0.75em;">#' + proj.jobNumber + '</span>' : '') + '</div>' +
           '<div class="ptb-integrator">via ' + proj.integrator + '</div>' +
         '</div>' +
       '</div>' +
@@ -1909,51 +1929,39 @@ function renderTasks() {
         '<span class="ptb-toggle open">▲</span>' +
       '</div>';
     block.appendChild(header);
-
     const taskList = document.createElement('div');
     taskList.className = 'ptb-tasks';
-
     proj.tasks.forEach((task, taskIdx) => {
       const row = document.createElement('div');
       row.className = 'task-row';
-
       const check = document.createElement('div');
       check.className = 'task-check' + (task.checked ? ' checked' : '');
       check.addEventListener('click', () => {
         projects[projIdx].tasks[taskIdx].checked = !projects[projIdx].tasks[taskIdx].checked;
         renderTasks();
       });
-
       const body = document.createElement('div');
       body.className = 'task-body';
-
       let metaHTML = '';
       if (task.tags) task.tags.forEach(tag => { metaHTML += '<span class="task-tag ' + tag + '">' + tag + '</span>'; });
       if (task.due) metaHTML += '<span class="task-due">Due ' + task.due + '</span>';
-
       body.innerHTML =
         '<div class="task-title' + (task.checked ? ' done' : '') + '">' + task.title + '</div>' +
         (metaHTML ? '<div class="task-meta">' + metaHTML + '</div>' : '');
-
       row.appendChild(check);
       row.appendChild(body);
       taskList.appendChild(row);
     });
-
     block.appendChild(taskList);
-
     header.addEventListener('click', () => {
       const tgl = header.querySelector('.ptb-toggle');
       taskList.classList.toggle('collapsed');
       tgl.classList.toggle('open');
     });
-
     container.appendChild(block);
   });
-
   updateTaskStats();
 }
-
 function updateTaskStats() {
   const { open, done } = countTasks();
   const elOpen = document.getElementById('stat-open');
@@ -1963,7 +1971,6 @@ function updateTaskStats() {
   if (elDone) elDone.textContent = done;
   if (elProjects) elProjects.textContent = projects.length;
 }
-
 function wireTaskFilters() {
   const btns = document.querySelectorAll('.filter-btn');
   if (!btns.length) return;
@@ -1976,12 +1983,10 @@ function wireTaskFilters() {
     });
   });
 }
-
 // ══════════════════════════════════════════════════════════
 // CALENDAR PAGE
 // ══════════════════════════════════════════════════════════
 let calViewYear, calViewMonth;
-
 function buildSpanMap() {
   const map = {};
   getSpans().forEach(sp => {
@@ -1999,16 +2004,12 @@ function buildSpanMap() {
   });
   return map;
 }
-
 function renderCalendar() {
   const section = document.getElementById('cal-section');
   if (!section) return;
-
   const label = document.getElementById('cal-month-label');
   if (label) label.innerHTML = MONTHS[calViewMonth] + ' <em>' + calViewYear + '</em>';
-
   section.innerHTML = '';
-
   const wkRow = document.createElement('div');
   wkRow.className = 'cal-weekdays';
   ['Mon','Tue','Wed','Thu','Fri'].forEach(d => {
@@ -2018,37 +2019,29 @@ function renderCalendar() {
     wkRow.appendChild(cell);
   });
   section.appendChild(wkRow);
-
   const grid = document.createElement('div');
   grid.className = 'cal-grid';
-
   const spanMap = buildSpanMap();
   const milestones = getMilestones();
   const today = new Date();
-
   const firstOfMonth = new Date(calViewYear, calViewMonth, 1);
   const daysInMonth = new Date(calViewYear, calViewMonth + 1, 0).getDate();
   let firstDayDow = firstOfMonth.getDay();
   let padCols = (firstDayDow === 0 || firstDayDow === 6) ? 0 : firstDayDow - 1;
-
   for (let i = 0; i < padCols; i++) {
     const blank = document.createElement('div');
     blank.className = 'cal-cell other-month';
     grid.appendChild(blank);
   }
-
   for (let d = 1; d <= daysInMonth; d++) {
     const date = new Date(calViewYear, calViewMonth, d);
     if (!isWeekday(date)) continue;
-
     const dateStr = toDateStr(date);
     const isToday = (d === today.getDate() && calViewMonth === today.getMonth() && calViewYear === today.getFullYear());
     const dayMilestones = milestones.filter(e => e.date === dateStr);
     const daySpans = spanMap[dateStr] || [];
-
     grid.appendChild(buildCalCell(d, isToday, dayMilestones, daySpans));
   }
-
   const totalRendered = padCols + [...Array(daysInMonth)].filter((_, i) => isWeekday(new Date(calViewYear, calViewMonth, i + 1))).length;
   const remainder = totalRendered % 5 === 0 ? 0 : 5 - (totalRendered % 5);
   for (let i = 0; i < remainder; i++) {
@@ -2056,23 +2049,18 @@ function renderCalendar() {
     blank.className = 'cal-cell other-month';
     grid.appendChild(blank);
   }
-
   section.appendChild(grid);
   renderUpcoming(milestones);
 }
-
 function buildCalCell(dayNum, isToday, dayMilestones, daySpans) {
   const cell = document.createElement('div');
   cell.className = 'cal-cell' + (isToday ? ' today' : '');
-
   const num = document.createElement('div');
   num.className = 'cal-day-num';
   num.textContent = dayNum;
   cell.appendChild(num);
-
   const evtWrap = document.createElement('div');
   evtWrap.className = 'cal-events';
-
   daySpans.forEach(sp => {
     const e = document.createElement('div');
     e.className = 'cal-event cal-span ' + sp.status;
@@ -2080,7 +2068,6 @@ function buildCalCell(dayNum, isToday, dayMilestones, daySpans) {
     e.textContent = sp.project + ' · ' + sp.label;
     evtWrap.appendChild(e);
   });
-
   dayMilestones.forEach(ev => {
     const e = document.createElement('div');
     e.className = 'cal-event cal-milestone ' + ev.status;
@@ -2088,31 +2075,25 @@ function buildCalCell(dayNum, isToday, dayMilestones, daySpans) {
     e.textContent = ev.project + ' — ' + ev.label;
     evtWrap.appendChild(e);
   });
-
   if (evtWrap.children.length > 0) cell.appendChild(evtWrap);
   return cell;
 }
-
 function renderUpcoming(milestones) {
   const header = document.getElementById('upcoming-header');
   const list = document.getElementById('upcoming-list');
   if (!header || !list) return;
   list.innerHTML = '';
-
   const monthEvents = milestones
     .filter(e => {
       const d = parseISO(e.date);
       return d.getFullYear() === calViewYear && d.getMonth() === calViewMonth;
     })
     .sort((a, b) => a.date.localeCompare(b.date));
-
   if (monthEvents.length === 0) {
     header.textContent = 'No milestones this month';
     return;
   }
-
   header.textContent = MONTHS[calViewMonth] + ' ' + calViewYear + ' — Milestones';
-
   monthEvents.forEach(ev => {
     const d = parseISO(ev.date);
     const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
@@ -2126,13 +2107,11 @@ function renderUpcoming(milestones) {
     list.appendChild(item);
   });
 }
-
 function wireCalendarNav() {
   const prevBtn = document.getElementById('prev-month');
   const nextBtn = document.getElementById('next-month');
   const todayBtn = document.getElementById('today-btn');
   if (!prevBtn) return;
-
   prevBtn.addEventListener('click', () => {
     calViewMonth--;
     if (calViewMonth < 0) { calViewMonth = 11; calViewYear--; }
@@ -2152,7 +2131,6 @@ function wireCalendarNav() {
     });
   }
 }
-
 // ══════════════════════════════════════════════════════════
 // FLOATING EDITOR — injected on every page, no HTML edits required
 // ══════════════════════════════════════════════════════════
@@ -2165,16 +2143,15 @@ function ensureToken() {
   if (t) editToken = t.trim();
   return editToken;
 }
-
 function setSaveStatus(msg, isError) {
   const el = document.getElementById('editor-save-status');
   if (!el) return;
   el.textContent = msg;
   el.style.color = isError ? '#dc2626' : '#15803d';
 }
-
 const PROJECT_FIELDS = [
   { key: 'title', label: 'Title' },
+  { key: 'jobNumber', label: 'Job #' },
   { key: 'integrator', label: 'Integrator' },
   { key: 'status', label: 'Status (production / pulling / purchasing / engineering / pre-procurement / complete)' },
   { key: 'state', label: 'Status detail text' },
@@ -2182,7 +2159,7 @@ const PROJECT_FIELDS = [
   { key: 'notes', label: 'Notes' }
 ];
 const DATE_FIELDS = [
-  { key: 'engineeringDue', label: 'Engineering Due (YYYY-MM-DD, blank if N/A)' },
+  { key: 'engineeringDue', label: 'BOM / Engineering Due (YYYY-MM-DD, blank if N/A)' },
   { key: 'partsOrderDate', label: 'Parts Order Placed (YYYY-MM-DD, blank if N/A)' },
   { key: 'downpaymentDate', label: 'Downpayment Received (YYYY-MM-DD, blank if N/A)' },
   { key: 'leadTimeWeeks', label: 'Parts Lead Time (weeks, blank if N/A)' },
@@ -2191,15 +2168,12 @@ const DATE_FIELDS = [
   { key: 'buildEnd', label: 'Build End (YYYY-MM-DD)' },
   { key: 'shipDate', label: 'Ship Date (YYYY-MM-DD)' }
 ];
-
 let editorTab = 'projects'; // 'projects' | 'tasks'
-
 function injectEditorUI() {
   const bar = document.createElement('div');
   bar.id = 'editor-toggle-bar';
   bar.innerHTML = '<button id="editor-toggle-btn" type="button">✏️ Edit Dashboard</button>';
   document.body.appendChild(bar);
-
   const panel = document.createElement('div');
   panel.id = 'editor-panel-overlay';
   panel.style.display = 'none';
@@ -2220,7 +2194,6 @@ function injectEditorUI() {
       '</div>' +
     '</div>';
   document.body.appendChild(panel);
-
   document.getElementById('editor-toggle-btn').addEventListener('click', () => {
     panel.style.display = 'flex';
     renderEditorBody();
@@ -2239,27 +2212,22 @@ function injectEditorUI() {
   document.getElementById('add-project-btn').addEventListener('click', addNewProject);
   document.getElementById('save-github-btn').addEventListener('click', saveToGitHub);
 }
-
 function renderEditorBody() {
   const body = document.getElementById('editor-panel-body');
   if (!body) return;
   body.innerHTML = '';
-
   if (editorTab === 'projects') {
     projects.forEach((p, idx) => {
       const row = document.createElement('div');
       row.className = 'editor-row';
-
       let fieldsHtml = PROJECT_FIELDS.map(f => {
         const val = (p[f.key] || '').toString().replace(/"/g, '&quot;');
         return '<label class="editor-field">' + f.label + '<input type="text" data-idx="' + idx + '" data-group="base" data-key="' + f.key + '" value="' + val + '"></label>';
       }).join('');
-
       let dateFieldsHtml = DATE_FIELDS.map(f => {
         const val = (p.dates && p.dates[f.key] || '').toString().replace(/"/g, '&quot;');
         return '<label class="editor-field">' + f.label + '<input type="text" data-idx="' + idx + '" data-group="dates" data-key="' + f.key + '" value="' + val + '"></label>';
       }).join('');
-
       row.innerHTML =
         '<div class="editor-row-header">' +
           '<strong>' + (p.title || 'New Project') + '</strong>' +
@@ -2268,10 +2236,8 @@ function renderEditorBody() {
         '</div>' +
         '<div class="editor-fields">' + fieldsHtml + '</div>' +
         '<div class="editor-fields editor-dates-fields">' + dateFieldsHtml + '</div>';
-
       body.appendChild(row);
     });
-
     body.querySelectorAll('input[type="text"]').forEach(input => {
       input.addEventListener('input', e => {
         const idx = parseInt(e.target.getAttribute('data-idx'), 10);
@@ -2301,7 +2267,6 @@ function renderEditorBody() {
         refreshAllRenders();
       });
     });
-
   } else {
     // Tasks tab
     projects.forEach((p, pIdx) => {
@@ -2317,7 +2282,6 @@ function renderEditorBody() {
           '</div>'
         );
       }).join('');
-
       block.innerHTML =
         '<div class="editor-row-header"><strong>' + p.title + '</strong>' +
           '<button type="button" class="editor-add-task-btn" data-pidx="' + pIdx + '">+ Add Task</button>' +
@@ -2325,7 +2289,6 @@ function renderEditorBody() {
         '<div class="editor-task-list">' + taskRows + '</div>';
       body.appendChild(block);
     });
-
     body.querySelectorAll('.editor-task-row input[type="checkbox"]').forEach(cb => {
       cb.addEventListener('change', e => {
         const pIdx = parseInt(e.target.getAttribute('data-pidx'), 10);
@@ -2362,10 +2325,10 @@ function renderEditorBody() {
     });
   }
 }
-
 function addNewProject() {
   projects.push({
     title: 'NEW PROJECT',
+    jobNumber: null,
     integrator: '',
     status: 'pre-procurement',
     state: '',
@@ -2378,7 +2341,6 @@ function addNewProject() {
   renderEditorBody();
   refreshAllRenders();
 }
-
 // Re-render whichever page sections exist
 function refreshAllRenders() {
   renderCards();
@@ -2386,7 +2348,6 @@ function refreshAllRenders() {
   renderTasks();
   if (document.getElementById('cal-section')) renderCalendar();
 }
-
 async function saveToGitHub() {
   const token = ensureToken();
   if (!token) {
@@ -2400,19 +2361,15 @@ async function saveToGitHub() {
       { headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' } }
     );
     if (!getRes.ok) throw new Error('Could not fetch main.js (HTTP ' + getRes.status + '). Check token scope and repo name.');
-
     const fileData = await getRes.json();
     const currentContent = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ''))));
-
     const markerRegex = /\/\/ ===PROJECTS_START===[\s\S]*?\/\/ ===PROJECTS_END===/;
     if (!markerRegex.test(currentContent)) {
       throw new Error('Could not find the ===PROJECTS_START===/===PROJECTS_END=== markers in main.js — aborted to avoid corrupting the file.');
     }
-
     const newBlock = '// ===PROJECTS_START===\nconst projects = ' + JSON.stringify(projects, null, 2) + ';\n// ===PROJECTS_END===';
     const newContent = currentContent.replace(markerRegex, newBlock);
     const newContentBase64 = btoa(unescape(encodeURIComponent(newContent)));
-
     setSaveStatus('Committing to GitHub...');
     const putRes = await fetch(
       'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_PATH,
@@ -2427,19 +2384,16 @@ async function saveToGitHub() {
         })
       }
     );
-
     if (!putRes.ok) {
       const errBody = await putRes.json().catch(() => ({}));
       throw new Error('GitHub rejected the commit (HTTP ' + putRes.status + '): ' + (errBody.message || 'unknown error'));
     }
-
     setSaveStatus('✔ Saved — commit pushed. GitHub Pages will update in ~30–60s.');
   } catch (err) {
     console.error(err);
     setSaveStatus('✖ ' + err.message, true);
   }
 }
-
 // ══════════════════════════════════════════════════════════
 // INIT
 // ══════════════════════════════════════════════════════════
@@ -2448,23 +2402,19 @@ document.addEventListener('DOMContentLoaded', function () {
   renderCards();
   buildStatusBoard();
   buildCarousel();
-
   const elCount = document.getElementById('grid-count');
   const elDate = document.getElementById('footer-date');
   if (elCount) elCount.textContent = projects.length + ' projects';
   if (elDate) elDate.textContent = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-
   const btnNext = document.getElementById('next-btn');
   const btnPrev = document.getElementById('prev-btn');
   if (btnNext) btnNext.addEventListener('click', nextSlide);
   if (btnPrev) btnPrev.addEventListener('click', prevSlide);
-
   // Tasks page
   if (document.getElementById('tasks-container')) {
     renderTasks();
     wireTaskFilters();
   }
-
   // Calendar page
   if (document.getElementById('cal-section')) {
     const today = new Date();
@@ -2473,7 +2423,6 @@ document.addEventListener('DOMContentLoaded', function () {
     wireCalendarNav();
     renderCalendar();
   }
-
   // Editor (all pages)
   injectEditorUI();
 });
