@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calendar — MODO8 Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── CALENDAR PAGE STYLES ── */
+    .cal-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 2.5rem 1.2rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--off-white);
+      position: sticky; top: 58px; z-index: 50;
+    }
+    .cal-nav-month {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .cal-nav-month em {
+      font-style: normal;
+      color: var(--neon-dim);
+    }
+    .cal-nav-btns {
+      display: flex; gap: 0.5rem;
+    }
+    .cal-nav-btns button {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--text-sub);
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cal-nav-btns button:hover {
+      border-color: var(--neon);
+      color: var(--neon-dim);
+    }
+    .cal-nav-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── LEGEND ── */
+    .cal-legend {
+      display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center;
+      padding: 0.9rem 2.5rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--white);
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── CALENDAR GRID ── */
+    .cal-section {
+      padding: 2.5rem 2.5rem 3rem;
+    }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-bottom: 1px;
+    }
+    .cal-weekday {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.5rem 0.6rem;
+      text-align: center;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cal-cell {
+      background: var(--white);
+      min-height: 100px; max-height: 140px; overflow: hidden; align-content: start;
+      padding: 0.5rem 0.6rem;
+      display: flex; flex-direction: column; gap: 0.3rem;
+      transition: background 0.15s;
+    }
+    .cal-cell:hover { background: var(--off-white); }
+    .cal-cell.other-month {
+      background: #fafafa;
+    }
+    .cal-cell.other-month .cal-day-num { color: #ccc; }
+    .cal-cell.today {
+      background: #f0fff6;
+    }
+    .cal-cell.today .cal-day-num {
+      background: var(--neon);
+      color: #0a1a0a;
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+    }
+    .cal-day-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.1rem;
+    }
+    .cal-events {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .cal-event {
+      font-size: 0.67rem;
+      font-weight: 600;
+      padding: 0.18rem 0.4rem;
+      border-radius: 3px;
+      line-height: 1.3;
+      cursor: default;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 0.01em;
+    }
+    /* Span bars — slim background, shows project is active this day */
+    .cal-span {
+      opacity: 0.7;
+      font-size: 0.6rem !important;
+      padding: 0.1rem 0.35rem !important;
+      border-left-width: 3px !important;
+      letter-spacing: 0;
+    }
+    /* Milestone events — bold, stands out */
+    .cal-milestone {
+      font-weight: 700 !important;
+      font-size: 0.67rem !important;
+      border-left-width: 3px !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    /* status colors for events */
+    .cal-event.no-downpayment  { background: rgba(239,68,68,0.12);  color: #dc2626; border-left: 2px solid #ef4444; }
+    .cal-event.pre-procurement { background: rgba(59,130,246,0.12); color: #1d4ed8; border-left: 2px solid #3b82f6; }
+    .cal-event.engineering     { background: rgba(245,158,11,0.12); color: #d97706; border-left: 2px solid #f59e0b; }
+    .cal-event.production      { background: rgba(34,197,94,0.12);  color: #15803d; border-left: 2px solid #22c55e; }
+    .cal-event.done            { background: rgba(0,0,0,0.06);      color: #333;    border-left: 2px solid #555; }
+    .cal-event.purchasing      { background: rgba(107,114,128,0.12);color: #374151; border-left: 2px solid #6b7280; }
+    .cal-event.pulling         { background: rgba(236,72,153,0.12); color: #be185d; border-left: 2px solid #ec4899; }
+
+    /* ── EMPTY MONTH MESSAGE ── */
+    .cal-empty {
+      text-align: center;
+      padding: 3rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── UPCOMING LIST (below calendar) ── */
+    .upcoming-header {
+      padding: 0 2.5rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-top: 1.5px solid var(--border);
+      padding-top: 2rem;
+    }
+    .upcoming-list {
+      padding: 0 2.5rem 3rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .upcoming-item {
+      display: flex; align-items: baseline; gap: 1rem;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .upcoming-item:hover { border-color: var(--neon); }
+    .upcoming-date {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+    .upcoming-project {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+    .upcoming-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      flex: 1;
+    }
+    .upcoming-badge {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .upcoming-badge.no-downpayment  { background: rgba(239,68,68,0.1);  color: #dc2626; }
+    .upcoming-badge.pre-procurement { background: rgba(59,130,246,0.1); color: #1d4ed8; }
+    .upcoming-badge.engineering     { background: rgba(245,158,11,0.1); color: #d97706; }
+    .upcoming-badge.production      { background: rgba(34,197,94,0.1);  color: #15803d; }
+    .upcoming-badge.purchasing      { background: rgba(107,114,128,0.1);color: #374151; }
+    .upcoming-badge.pulling         { background: rgba(236,72,153,0.1); color: #be185d; }
+
+    @media (max-width: 680px) {
+      .cal-section { padding: 1rem; }
+      .cal-nav, .cal-legend, .upcoming-header, .upcoming-list { padding-left: 1rem; padding-right: 1rem; }
+      .cal-cell { min-height: 70px; padding: 0.3rem; }
+      .cal-event { font-size: 0.6rem; padding: 0.12rem 0.3rem; }
+      .upcoming-item { flex-wrap: wrap; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span></span>MODO8 Projects</div>
+  <ul class="nav-links">
+    <li><a href="index.html">All Projects</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+    <li><a href="spareparts.html">Spare Parts</a></li>
+  </ul>
+</nav>
+
+<!-- CALENDAR NAV -->
+<div class="cal-nav">
+  <div>
+    <div class="cal-nav-label">Ship &amp; Milestone Calendar</div>
+    <div class="cal-nav-month" id="cal-month-label">—</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="cal-nav-btns" id="today-btn" style="background:var(--white);border:1.5px solid var(--border);color:var(--text-sub);font-family:var(--mono);font-size:0.72rem;padding:0 0.8rem;height:36px;border-radius:6px;cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;">Today</button>
+    <div class="cal-nav-btns">
+      <button id="prev-month">&#8592;</button>
+      <button id="next-month">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="cal-legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div>No Downpayment</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div>Pre-Procurement</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>Engineering</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>Production</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#6b7280;"></div>Purchasing</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div>Pulling</div>
+</div>
+
+<!-- CALENDAR GRID -->
+<div class="cal-section" id="cal-section"></div>
+
+<!-- UPCOMING THIS MONTH -->
+<div class="upcoming-header" id="upcoming-header"></div>
+<div class="upcoming-list" id="upcoming-list"></div>
+
+<footer>
+  <span>MODO8 LLC — Internal Use</span>
+  <span id="footer-date"></span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

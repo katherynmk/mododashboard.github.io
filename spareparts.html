@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spare Parts — MODO8 Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── SPARE PARTS PAGE ── */
+    .tasks-hero {
+      padding: 2.5rem 2.5rem 1.5rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--off-white);
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .tasks-hero-left .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--neon-dim);
+      margin-bottom: 0.5rem;
+    }
+    .tasks-hero-left h1 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .tasks-hero-left h1 em {
+      font-style: normal;
+      color: var(--neon-dim);
+    }
+    .tasks-stats {
+      display: flex; gap: 2rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .tasks-stats strong { color: var(--text); }
+    .tasks-stats strong.rushed-count { color: #dc2626; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+      padding: 0.9rem 2.5rem;
+      border-bottom: 1.5px solid var(--border);
+      background: var(--white);
+      position: sticky; top: 58px; z-index: 50;
+    }
+    .filter-label {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 0.3rem;
+    }
+    .sp-filter-btn {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sp-filter-btn:hover { border-color: var(--neon); color: var(--neon-dim); }
+    .sp-filter-btn.active { border-color: var(--neon); background: #f0fff6; color: var(--neon-dim); font-weight: 600; }
+    .sp-filter-btn[data-filter="rushed"].active { border-color: #ef4444; background: rgba(239,68,68,0.06); color: #dc2626; }
+
+    /* ── SPARE PARTS CONTAINER ── */
+    .tasks-container {
+      padding: 2rem 2.5rem 4rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    .spb-block {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .spb-block:hover { border-color: var(--neon); }
+    .spb-block.spb-rushed { border-color: #fca5a5; box-shadow: 0 0 0 1px rgba(239,68,68,0.12); }
+    .spb-block.spb-complete { opacity: 0.55; filter: grayscale(1); }
+
+    .spb-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 1rem 1.4rem;
+      background: var(--off-white);
+      border-bottom: 1.5px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+      gap: 1rem;
+    }
+    .spb-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .spb-po {
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 0.3rem;
+    }
+    .spb-badge-rushed {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: #fff1f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .spb-meta {
+      display: flex; gap: 0.9rem; flex-wrap: wrap;
+      margin-top: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .spb-overdue { color: #dc2626; font-weight: 600; }
+    .spb-header-right {
+      display: flex; align-items: center; gap: 1rem; flex-shrink: 0;
+    }
+    .spb-total {
+      font-family: var(--mono);
+      font-weight: 600;
+      color: var(--neon-dim);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .spb-progress {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .spb-progress-bar {
+      width: 80px; height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .spb-progress-fill {
+      height: 100%;
+      background: var(--neon);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .spb-progress-text {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .spb-toggle {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+    .spb-toggle.open { transform: rotate(180deg); }
+
+    /* ── PARTS LIST ── */
+    .spb-parts {
+      display: flex; flex-direction: column;
+    }
+    .spb-parts.collapsed { display: none; }
+
+    .part-row {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 0.75rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+    .part-row:last-child { border-bottom: none; }
+    .part-row:hover { background: var(--off-white); }
+    .part-body { flex: 1; }
+    .part-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .part-title.done {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+    .part-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .part-meta {
+      display: flex; gap: 1.1rem; margin-top: 0.25rem; flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .part-line-total { color: var(--neon-dim); font-weight: 600; }
+
+    /* ── EMPTY STATE ── */
+    .tasks-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 680px) {
+      .tasks-container { padding: 1rem 1rem 3rem; }
+      .filter-bar, .tasks-hero { padding-left: 1rem; padding-right: 1rem; }
+      .spb-progress { display: none; }
+      .spb-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span></span>MODO8 Projects</div>
+  <ul class="nav-links">
+    <li><a href="index.html">All Projects</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+    <li><a href="spareparts.html">Spare Parts</a></li>
+  </ul>
+</nav>
+
+<!-- SPARE PARTS HERO -->
+<div class="tasks-hero">
+  <div class="tasks-hero-left">
+    <div class="hero-eyebrow">Spare Parts Orders</div>
+    <h1><em>Spare Parts</em> Fulfillment</h1>
+  </div>
+  <div class="tasks-stats">
+    <div><strong id="sp-stat-orders">—</strong> orders</div>
+    <div><strong class="rushed-count" id="sp-stat-rushed">—</strong> rushed</div>
+    <div><strong id="sp-stat-open">—</strong> open</div>
+    <div><strong id="sp-stat-done">—</strong> pulled</div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="sp-filter-btn active" data-filter="all">All</button>
+  <button class="sp-filter-btn" data-filter="rushed">Rushed Only</button>
+</div>
+
+<!-- SPARE PARTS CONTAINER -->
+<div class="tasks-container" id="spareparts-container"></div>
+
+<footer>
+  <span>MODO8 LLC — Internal Use</span>
+  <span id="footer-date"></span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
