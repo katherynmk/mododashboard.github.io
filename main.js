@@ -1337,10 +1337,38 @@ const spareParts = [
     "rushed": true,
     "notes": "Payment terms: 30% at order, 30% design acceptance, 30% at shipment (FAT), 10% Net 30 after delivery.",
     "parts": [
-      { "id": "sp-formic-1", "desc": "Panel door with switch", "partNum": "", "qty": 1, "unitPrice": 250.00, "checked": false },
-      { "id": "sp-formic-2", "desc": "Switch (alone)", "partNum": "", "qty": 1, "unitPrice": 185.00, "checked": false },
-      { "id": "sp-formic-3", "desc": "Full width belt", "partNum": "", "qty": 1, "unitPrice": 377.63, "checked": false },
-      { "id": "sp-formic-4", "desc": "V-Conform belts", "partNum": "", "qty": 1, "unitPrice": 6.86, "checked": false }
+      {
+        "id": "sp-formic-1",
+        "desc": "Panel door with switch",
+        "partNum": "",
+        "qty": 1,
+        "unitPrice": 250,
+        "checked": false
+      },
+      {
+        "id": "sp-formic-2",
+        "desc": "Switch (alone)",
+        "partNum": "",
+        "qty": 1,
+        "unitPrice": 185,
+        "checked": false
+      },
+      {
+        "id": "sp-formic-3",
+        "desc": "Full width belt",
+        "partNum": "",
+        "qty": 1,
+        "unitPrice": 377.63,
+        "checked": false
+      },
+      {
+        "id": "sp-formic-4",
+        "desc": "V-Conform belts",
+        "partNum": "",
+        "qty": 1,
+        "unitPrice": 6.86,
+        "checked": false
+      }
     ]
   },
   {
@@ -1356,18 +1384,102 @@ const spareParts = [
     "rushed": false,
     "notes": "",
     "parts": [
-      { "id": "sp-crg-1", "desc": "\"H\" Timing Belt", "partNum": "3001-194", "qty": 2, "unitPrice": 10.74, "checked": false },
-      { "id": "sp-crg-2", "desc": "Belt 0.188\" Dia. x 8.14\" Long 85A HT Clear", "partNum": "3001-003", "qty": 2, "unitPrice": 3.06, "checked": false },
-      { "id": "sp-crg-3", "desc": "Belt 0.188\" Dia. x 10.93\" Long 85A HT Clear", "partNum": "3001-004", "qty": 2, "unitPrice": 3.31, "checked": false },
-      { "id": "sp-crg-4", "desc": "3/16 x 8.75\" 88A HEHT neon green", "partNum": "3001-184", "qty": 2, "unitPrice": 2.74, "checked": false },
-      { "id": "sp-crg-5", "desc": "15\" BF 2 Groove Tapered Carrier", "partNum": "4000-306", "qty": 2, "unitPrice": 44.94, "checked": false },
-      { "id": "sp-crg-6", "desc": "V-Conform-281 belts", "partNum": "3001-011", "qty": 2, "unitPrice": 5.49, "checked": false },
-      { "id": "sp-crg-7", "desc": "3/16 x 9.75\" 88A HEHT Green", "partNum": "3001-178", "qty": 4, "unitPrice": 1.30, "checked": false },
-      { "id": "sp-crg-8", "desc": "Flat 1/16 x 13\" x 47.44\" black", "partNum": "3001-185", "qty": 2, "unitPrice": 170.01, "checked": false },
-      { "id": "sp-crg-9", "desc": "Poly-V Belt", "partNum": "3001-001", "qty": 20, "unitPrice": 5.53, "checked": false },
-      { "id": "sp-crg-10", "desc": "15\" BF Poly V Standard Carrier", "partNum": "4000-141", "qty": 15, "unitPrice": 23.27, "checked": false },
-      { "id": "sp-crg-11", "desc": "15\" BF Poly V 35W Standard \"MDR\"", "partNum": "4000-149", "qty": 2, "unitPrice": 364.80, "checked": false },
-      { "id": "sp-crg-12", "desc": "18\" BF Poly V Carrier Roller", "partNum": "4000-010", "qty": 4, "unitPrice": 28.66, "checked": false }
+      {
+        "id": "sp-crg-1",
+        "desc": "\"H\" Timing Belt",
+        "partNum": "3001-194",
+        "qty": 2,
+        "unitPrice": 10.74,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-2",
+        "desc": "Belt 0.188\" Dia. x 8.14\" Long 85A HT Clear",
+        "partNum": "3001-003",
+        "qty": 2,
+        "unitPrice": 3.06,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-3",
+        "desc": "Belt 0.188\" Dia. x 10.93\" Long 85A HT Clear",
+        "partNum": "3001-004",
+        "qty": 2,
+        "unitPrice": 3.31,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-4",
+        "desc": "3/16 x 8.75\" 88A HEHT neon green",
+        "partNum": "3001-184",
+        "qty": 2,
+        "unitPrice": 2.74,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-5",
+        "desc": "15\" BF 2 Groove Tapered Carrier",
+        "partNum": "4000-306",
+        "qty": 2,
+        "unitPrice": 44.94,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-6",
+        "desc": "V-Conform-281 belts",
+        "partNum": "3001-011",
+        "qty": 2,
+        "unitPrice": 5.49,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-7",
+        "desc": "3/16 x 9.75\" 88A HEHT Green",
+        "partNum": "3001-178",
+        "qty": 4,
+        "unitPrice": 1.3,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-8",
+        "desc": "Flat 1/16 x 13\" x 47.44\" black",
+        "partNum": "3001-185",
+        "qty": 2,
+        "unitPrice": 170.01,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-9",
+        "desc": "Poly-V Belt",
+        "partNum": "3001-001",
+        "qty": 20,
+        "unitPrice": 5.53,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-10",
+        "desc": "15\" BF Poly V Standard Carrier",
+        "partNum": "4000-141",
+        "qty": 15,
+        "unitPrice": 23.27,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-11",
+        "desc": "15\" BF Poly V 35W Standard \"MDR\"",
+        "partNum": "4000-149",
+        "qty": 2,
+        "unitPrice": 364.8,
+        "checked": false
+      },
+      {
+        "id": "sp-crg-12",
+        "desc": "18\" BF Poly V Carrier Roller",
+        "partNum": "4000-010",
+        "qty": 4,
+        "unitPrice": 28.66,
+        "checked": false
+      }
     ]
   },
   {
@@ -1383,12 +1495,54 @@ const spareParts = [
     "rushed": false,
     "notes": "Ship Via: Best Way, Prepay & Add.",
     "parts": [
-      { "id": "sp-numina-1", "desc": "*CAM", "partNum": "", "qty": 10, "unitPrice": 44.26, "checked": false },
-      { "id": "sp-numina-2", "desc": "\"H\" Timing Belt - 1/2\" Pitch - 42-Tooth, 21\" Long - 5/8\" Wide", "partNum": "3001-194", "qty": 4, "unitPrice": 13.42, "checked": false },
-      { "id": "sp-numina-3", "desc": "27.5 BF MDR Roller 108:1 (CAM MDR) Divert Keyed", "partNum": "4000-064", "qty": 3, "unitPrice": 498.86, "checked": false },
-      { "id": "sp-numina-4", "desc": "27.375\" (Install Length) Carrier Roller Transfer (Keyed)", "partNum": "4000-068", "qty": 2, "unitPrice": 44.26, "checked": false },
-      { "id": "sp-numina-5", "desc": "27\" BF 2 Groove Tapered Roller MDR 18:1 Gear Ratio 35W", "partNum": "4000-070", "qty": 4, "unitPrice": 571.14, "checked": false },
-      { "id": "sp-numina-6", "desc": "25.50\" (Install Length) MDR 18:1 50W No Groove Roller Tapped End 5/16\" Thread", "partNum": "4000-289", "qty": 5, "unitPrice": 541.71, "checked": false }
+      {
+        "id": "sp-numina-1",
+        "desc": "*CAM",
+        "partNum": "",
+        "qty": 10,
+        "unitPrice": 44.26,
+        "checked": false
+      },
+      {
+        "id": "sp-numina-2",
+        "desc": "\"H\" Timing Belt - 1/2\" Pitch - 42-Tooth, 21\" Long - 5/8\" Wide",
+        "partNum": "3001-194",
+        "qty": 4,
+        "unitPrice": 13.42,
+        "checked": false
+      },
+      {
+        "id": "sp-numina-3",
+        "desc": "27.5 BF MDR Roller 108:1 (CAM MDR) Divert Keyed",
+        "partNum": "4000-064",
+        "qty": 3,
+        "unitPrice": 498.86,
+        "checked": false
+      },
+      {
+        "id": "sp-numina-4",
+        "desc": "27.375\" (Install Length) Carrier Roller Transfer (Keyed)",
+        "partNum": "4000-068",
+        "qty": 2,
+        "unitPrice": 44.26,
+        "checked": false
+      },
+      {
+        "id": "sp-numina-5",
+        "desc": "27\" BF 2 Groove Tapered Roller MDR 18:1 Gear Ratio 35W",
+        "partNum": "4000-070",
+        "qty": 4,
+        "unitPrice": 571.14,
+        "checked": false
+      },
+      {
+        "id": "sp-numina-6",
+        "desc": "25.50\" (Install Length) MDR 18:1 50W No Groove Roller Tapped End 5/16\" Thread",
+        "partNum": "4000-289",
+        "qty": 5,
+        "unitPrice": 541.71,
+        "checked": false
+      }
     ]
   },
   {
@@ -1401,11 +1555,25 @@ const spareParts = [
     "dueDate": "2026-07-14",
     "terms": "Net 30",
     "total": 1072.75,
-    "rushed": true,
+    "rushed": false,
     "notes": "Vendor requires PO confirmation (qty, pricing, due date) within 24 hrs of order; backordered items must be identified with expected delivery date.",
     "parts": [
-      { "id": "sp-ete-1", "desc": "22.50\" Long MDR 18:1 50W No Groove", "partNum": "4000-290", "qty": 2, "unitPrice": 516.145, "checked": false },
-      { "id": "sp-ete-2", "desc": "Molded Sprocket, Keyed - 16-Tooth for 5", "partNum": "3000-067", "qty": 2, "unitPrice": 20.23, "checked": false }
+      {
+        "id": "sp-ete-1",
+        "desc": "22.50\" Long MDR 18:1 50W No Groove",
+        "partNum": "4000-290",
+        "qty": 2,
+        "unitPrice": 516.145,
+        "checked": false
+      },
+      {
+        "id": "sp-ete-2",
+        "desc": "Molded Sprocket, Keyed - 16-Tooth for 5",
+        "partNum": "3000-067",
+        "qty": 2,
+        "unitPrice": 20.23,
+        "checked": false
+      }
     ]
   }
 ];
