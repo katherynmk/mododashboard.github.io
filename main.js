@@ -1,3 +1,4 @@
+
 // ══════════════════════════════════════════════════════════
 // SINGLE SOURCE OF TRUTH — used by index.html, tasks.html, calendar.html
 // Dates drive both the calendar spans/milestones and (soon) task due dates.
@@ -1316,6 +1317,64 @@ const projects = [
           "urgent"
         ],
         "due": null,
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "FOCUS INTEGRATION",
+    "jobNumber": "826201",
+    "integrator": "Direct",
+    "status": "purchasing",
+    "state": "PO Received — Processing",
+    "address": "FOCUS Integration, Inc., 6061 Commerce Dr, Westland, MI 48185",
+    "notes": "PO #7414 / Quote MODO826201. Terms 40/30/20/10 on $6,300 total ($2,520 / $1,890 / $1,260 / $630). Acknowledgement sent to Alex Zupsic (alex.zupsic@focusintegration.com) — Invoice #857.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-09-11",
+      "shipDate": "2026-09-11"
+    },
+    "tasks": [
+      {
+        "id": "focus-1",
+        "title": "PO #7414 received (Quote MODO826201) — $6,300 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "focus-2",
+        "title": "Acknowledgement sent to Alex Zupsic — Invoice #857",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "focus-3",
+        "title": "Order in processing",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "focus-4",
+        "title": "Confirm freight and ship — Ship date Sep 11",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Sep 11",
         "checked": false
       }
     ]
