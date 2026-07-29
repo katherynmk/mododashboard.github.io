@@ -1,4 +1,3 @@
-
 // ══════════════════════════════════════════════════════════
 // SINGLE SOURCE OF TRUTH — used by index.html, tasks.html, calendar.html
 // Dates drive both the calendar spans/milestones and (soon) task due dates.
@@ -1375,6 +1374,122 @@ const projects = [
           "logistics"
         ],
         "due": "Sep 11",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "G&P CONSTRUCTION",
+    "jobNumber": null,
+    "integrator": "Direct",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "",
+    "notes": "Conveyor system project. Total $117,395.00. Terms: 40% DP with PO ($46,958 — Invoice #862, sent to sgorey@gandpconstruction.com), 30% due upon engineering complete (Net 15), 20% due with PO (Net 15) — NOTE: this term as written duplicates the DP milestone, confirm with G&P what it should actually trigger on, 10% due upon final shipment (Net 15). Remaining balance after DP: $70,437.00.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-08-31",
+      "shipDate": "2026-08-31"
+    },
+    "tasks": [
+      {
+        "id": "gp-1",
+        "title": "PO received — down payment (40%) invoiced ($46,958) Invoice #862 sent to sgorey@gandpconstruction.com",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "gp-2",
+        "title": "Collect down payment ($46,958 — due with PO)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-3",
+        "title": "Clarify 20%-due-with-PO term with G&P — appears to duplicate down payment milestone",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-4",
+        "title": "Confirm/obtain ship-to address",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-5",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-6",
+        "title": "Send engineering info to purchasing",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-7",
+        "title": "Issue engineering-complete invoice (30% — $35,218.50 — Net 15)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-8",
+        "title": "Place parts order (4-wk lead time)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-9",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "gp-10",
+        "title": "Ship — send final shipment invoice (10% — $11,739.50 — Net 15)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Aug 31",
         "checked": false
       }
     ]
