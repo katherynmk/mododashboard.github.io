@@ -1493,6 +1493,121 @@ const projects = [
         "checked": false
       }
     ]
+  },
+  {
+    "title": "FOCUS INTEGRATION - CONVEYOR",
+    "jobNumber": "826200",
+    "integrator": "Direct",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "Focus Integration Inc., 6061 Commerce Dr, Westland, MI 48185",
+    "notes": "PO #7427 / Proposal MODO826200-R2. Terms 40/30/20/10 on $56,580 total ($22,632 / $16,974 / $11,316 / $5,658). Down payment invoiced — Invoice #865 sent to rachel.wright@focusintegration.com. Sales Rep: Adam Hill. Note: proposal doc lists total as $56,680 (vs PO total $56,580) — confirm which figure is correct.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": 8,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-09-21",
+      "shipDate": "2026-09-21"
+    },
+    "tasks": [
+      {
+        "id": "fic-1",
+        "title": "PO #7427 received (Proposal MODO826200-R2) — $56,580 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "fic-2",
+        "title": "Down payment (40%) invoiced — Invoice #865 sent to rachel.wright@focusintegration.com",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "fic-3",
+        "title": "Collect down payment ($22,632 — due on receipt)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-4",
+        "title": "Clarify 20%-due-with-PO term with Focus Integration — appears to duplicate down payment milestone",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-5",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-6",
+        "title": "Send engineering info to purchasing",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-7",
+        "title": "Issue engineering-complete invoice (30% — $16,974 — Net 15)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-8",
+        "title": "Place parts order (proposal lead time: 6-8 wks)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-9",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fic-10",
+        "title": "Ship — send final shipment invoice (10% — $5,658 — Net 15)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Sep 21",
+        "checked": false
+      }
+    ]
   }
 ];
 // ===PROJECTS_END===
