@@ -1608,6 +1608,102 @@ const projects = [
         "checked": false
       }
     ]
+  },
+  {
+    "title": "CRG AUTOMATION",
+    "jobNumber": "826171",
+    "integrator": "Direct",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "CRG Automation, 1700 Watterson Trail, Louisville, KY 40299",
+    "notes": "PO #P465-00001 / Proposal MODO826171-R2. Terms 50/50 on $11,128 total ($5,564 down / $5,564 at shipment). Down payment invoiced — Invoice #866, Due on Receipt, sent to Accounting@crgautomation.com. Sales Rep: Adam Hill. Ship-to contact: Rachel Mahoney (502) 499-4921.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": 8,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-09-25",
+      "shipDate": "2026-09-25"
+    },
+    "tasks": [
+      {
+        "id": "crg-1",
+        "title": "PO #P465-00001 received (Proposal MODO826171-R2) — $11,128 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "crg-2",
+        "title": "Down payment (50%) invoiced — Invoice #866, Due on Receipt, sent to Accounting@crgautomation.com",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "crg-3",
+        "title": "Collect down payment ($5,564)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "crg-4",
+        "title": "Complete engineering drawings / prints",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "crg-5",
+        "title": "Place parts order (proposal lead time: 6-8 wks)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "crg-6",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "crg-7",
+        "title": "Ship — send final shipment invoice (50% — $5,564 — Net 15)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Sep 25",
+        "checked": false
+      },
+      {
+        "id": "crg-8",
+        "title": "Confirm ship-to contact — Rachel Mahoney, (502) 499-4921",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      }
+    ]
   }
 ];
 // ===PROJECTS_END===
