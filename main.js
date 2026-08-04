@@ -1704,6 +1704,93 @@ const projects = [
         "checked": false
       }
     ]
+  },
+  {
+    "title": "FOCUS INTEGRATION - GRAND RAPIDS",
+    "jobNumber": "826210",
+    "integrator": "Direct",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "2112 - Grand Rapids, 900 Hynes Ave SW, Grand Rapids, MI 49507",
+    "notes": "PO #7429 / Proposal MODO826210. Terms 50/50 on $13,940 total ($6,970 down / $6,970 at shipment). Down payment invoiced — Invoice #867, Due on Receipt. Sales Rep: Adam Hill. Billing address: 6061 Commerce Dr, Westland, MI 48185.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": 8,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-09-24",
+      "shipDate": "2026-09-24"
+    },
+    "tasks": [
+      {
+        "id": "fgr-1",
+        "title": "PO #7429 received (Proposal MODO826210) — $13,940 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "fgr-2",
+        "title": "Down payment (50%) invoiced — Invoice #867, Due on Receipt",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "fgr-3",
+        "title": "Collect down payment ($6,970)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fgr-4",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fgr-5",
+        "title": "Place parts order (proposal lead time: 6-8 wks)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fgr-6",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fgr-7",
+        "title": "Ship — send final shipment invoice (50% — $6,970 — Net 15)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Sep 24",
+        "checked": false
+      }
+    ]
   }
 ];
 // ===PROJECTS_END===
