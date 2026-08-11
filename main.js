@@ -6,6 +6,110 @@
 // ===PROJECTS_START===
 const projects = [
   {
+    "title": "ACTUS",
+    "jobNumber": null,
+    "integrator": "MODO8",
+    "status": "complete",
+    "state": "On-Site Visit Required",
+    "address": "Wautoma Plant Milk Specialties Global E. Chicago Road | Wautoma, WI 54982 | (612) 439-5212",
+    "notes": "NEED TO VISIT SITE 7/26?",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-06-10",
+      "buildEnd": "2026-07-01",
+      "shipDate": "2026-07-01"
+    },
+    "tasks": [
+      {
+        "id": "actus-1",
+        "title": "Engineering complete — drawings done",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "actus-2",
+        "title": "Parts ordered (4-wk lead time)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "actus-3",
+        "title": "Change order invoice issued ($23,076)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "actus-4",
+        "title": "Complete teardown window and document findings",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jun 25",
+        "checked": true
+      },
+      {
+        "id": "actus-5",
+        "title": "Confirm CMES on-site visit logistics",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jun 25",
+        "checked": true
+      },
+      {
+        "id": "actus-6",
+        "title": "Coordinate freight — confirm carrier for Jul 1 ship",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Jun 27",
+        "checked": true
+      },
+      {
+        "id": "actus-7",
+        "title": "Send SAT invoice ($23,013) on ship date",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Jul 1",
+        "checked": true
+      },
+      {
+        "id": "actus-8",
+        "title": "Confirm and schedule on-site visit with CMES — target Jul 26",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": "Jul 26",
+        "checked": false
+      },
+      {
+        "id": "actus-9",
+        "title": "Complete on-site visit and document findings",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 26",
+        "checked": false
+      }
+    ]
+  },
+  {
     "title": "PITNEY BOS",
     "jobNumber": "826048",
     "integrator": "Temple Controls",
@@ -98,6 +202,122 @@ const projects = [
           "logistics"
         ],
         "due": "Jul 30",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "LOLOI RUGS",
+    "jobNumber": null,
+    "integrator": "AI",
+    "status": "production",
+    "state": "Justin Needs to Program",
+    "address": "4550 Spring Valley Rd, Farmers Branch, TX 75244",
+    "notes": "Justing Needs to Program Install: 7/29 *Need to meet with Garlynd",
+    "install": true,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-07-09",
+      "buildEnd": "2026-07-27",
+      "shipDate": "2026-07-27"
+    },
+    "tasks": [
+      {
+        "id": "lr-1",
+        "title": "Downpayment (50%) received ($93,563)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "lr-2",
+        "title": "Engineering complete",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "lr-3",
+        "title": "Parts ordered (4-wk lead → arrive Jul 9)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "lr-4",
+        "title": "Justin — complete robot programming before production start",
+        "tags": [
+          "engineering",
+          "urgent"
+        ],
+        "due": "Jul 9",
+        "checked": false
+      },
+      {
+        "id": "lr-5",
+        "title": "Confirm parts arrival — begin production (target Jul 9)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 9",
+        "checked": true
+      },
+      {
+        "id": "lr-6",
+        "title": "QA test conveyor system",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jul 22",
+        "checked": true
+      },
+      {
+        "id": "lr-7",
+        "title": "Book freight to Farmers Branch, TX",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Jul 24",
+        "checked": false
+      },
+      {
+        "id": "lr-8",
+        "title": "Ship — send final shipment invoice ($93,563 — Net 15)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Jul 27",
+        "checked": false
+      },
+      {
+        "id": "lr-9",
+        "title": "Complete installation",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": "Jul 29",
+        "checked": false
+      },
+      {
+        "id": "lr-10",
+        "title": "Meet with Garlynd to review install details",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
         "checked": false
       }
     ]
@@ -214,6 +434,102 @@ const projects = [
           "urgent"
         ],
         "due": null,
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "CONVEYOR ON CASTERS",
+    "jobNumber": null,
+    "integrator": "Formic",
+    "status": "production",
+    "state": "Built — waiting on caster plates",
+    "address": "979 Corporate Blvd, Linthicum Heights, MD 21090",
+    "notes": "Engineering and Purchasing complete. Build finished; only caster plates outstanding before ship prep.",
+    "install": false,
+    "dates": {
+      "engineeringDue": "2026-06-19",
+      "partsOrderDate": "2026-06-22",
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": "2026-07-20",
+      "buildEnd": "2026-08-03",
+      "shipDate": "2026-08-03"
+    },
+    "tasks": [
+      {
+        "id": "coc-1",
+        "title": "Paid in full upfront ($4,938) — PO 101087",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "coc-2",
+        "title": "Send engineering info to purchasing",
+        "tags": [
+          "engineering"
+        ],
+        "due": "Jun 19",
+        "checked": true
+      },
+      {
+        "id": "coc-3",
+        "title": "Place parts order by Jun 22 (4-wk lead → parts arrive Jul 20)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jun 22",
+        "checked": true
+      },
+      {
+        "id": "coc-4",
+        "title": "Confirm parts arrival — begin production (target Jul 20)",
+        "tags": [
+          "ops"
+        ],
+        "due": "Jul 20",
+        "checked": true
+      },
+      {
+        "id": "coc-4b",
+        "title": "Waiting on caster plates delivery — last component before ship prep",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "coc-5",
+        "title": "Stage and prep for Linthicum Heights, MD shipment",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Aug 1",
+        "checked": false
+      },
+      {
+        "id": "coc-6",
+        "title": "Ship — generate and send freight invoice",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Aug 3",
+        "checked": false
+      },
+      {
+        "id": "coc-7",
+        "title": "Confirm delivery receipt with Formic",
+        "tags": [
+          "ops"
+        ],
+        "due": "Aug 7",
         "checked": false
       }
     ]
@@ -1472,6 +1788,129 @@ const projects = [
           "logistics"
         ],
         "due": "Sep 24",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "NUMINA GROUP - PRAIRIE DU CHIEN",
+    "jobNumber": "826218",
+    "integrator": "Numina Group",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "3M Company, 801 N. Marquette Road, Prairie du Chien, WI 53821 (Attn: Kevin Schultz)",
+    "notes": "PO #PO26-00562 (dated Jul 30, 2026) / Proposal MODO826218. Total $218,620.00. Terms 20/30/30/20 ($43,724 PO Net 0 / $65,586 first payment Net 30 / $65,586 initial shipment Net 30 / $43,724 system arrival Net 30). Down payment invoiced — Invoice #875, Due on Receipt, sent to AP and Orders email. Ship date estimated at 12-wk lead time; PO lists Promised 10/2/2026 and proposal lists 10-12 wks — confirm final ship date with Numina.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": 12,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-11-02",
+      "shipDate": "2026-11-02"
+    },
+    "tasks": [
+      {
+        "id": "npc-1",
+        "title": "PO #PO26-00562 received (Proposal MODO826218) — $218,620 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "npc-2",
+        "title": "Down payment (20%) invoiced — Invoice #875, Due on Receipt, sent to AP and Orders email",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "npc-3",
+        "title": "Collect down payment ($43,724 — due on receipt)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "npc-4",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "npc-5",
+        "title": "Send engineering info to purchasing",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "npc-6",
+        "title": "Issue 2nd payment invoice (30% — $65,586 — Net 30) upon receipt of first payment",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "npc-7",
+        "title": "Place parts order (proposal lead time: 10-12 wks)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "npc-8",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "npc-9",
+        "title": "Ship to Prairie du Chien, WI — book freight",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Oct 30",
+        "checked": false
+      },
+      {
+        "id": "npc-10",
+        "title": "Ship date Nov 2 — send initial shipment invoice (30% — $65,586 — Net 30)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Nov 2",
+        "checked": false
+      },
+      {
+        "id": "npc-11",
+        "title": "Confirm system arrival — send final invoice (20% — $43,724 — Net 30)",
+        "tags": [
+          "invoice"
+        ],
+        "due": "Dec 2",
         "checked": false
       }
     ]
