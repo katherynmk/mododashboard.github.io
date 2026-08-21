@@ -1914,6 +1914,245 @@ const projects = [
         "checked": false
       }
     ]
+  },
+  {
+    "title": "FORMIC - SCHULENBURG",
+    "jobNumber": "826225",
+    "integrator": "Formic",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "801 James Avenue, Schulenburg, TX 78956",
+    "notes": "Proposal #MODO826225 (S-Curve conveyor system) / PO #101225 / SO #S-8260225. Total $13,340.00. Terms 50/50 (50% down w/ PO Net 0, 50% at final shipment Net 15). Down payment invoiced — Invoice #880 ($6,670.00, Net 30, due 09/16/2026). Sales Rep: Adam Hill. Install by MODO-GO (mechanical/electrical) — customer responsible for 480V power drops, forklift, and site access. NOTE: Invoice #880 billing address (309 E. Crossroads Parkway, Bolingbrook, IL) and entity name (\"Formic Robotics LLLC\") don't match PO/SO billing info (211 Woodlawn Avenue, Norwalk, OH — \"Formic Robots LLC\") — confirm correct address/entity with Formic.",
+    "install": true,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": 4,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-09-10",
+      "shipDate": "2026-09-10"
+    },
+    "tasks": [
+      {
+        "id": "fsc-1",
+        "title": "PO #101225 received (Proposal MODO826225) — $13,340 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "fsc-2",
+        "title": "Down payment (50%) invoiced — Invoice #880 ($6,670), Net 30, due 09/16/2026",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "fsc-3",
+        "title": "Collect down payment ($6,670)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": "Sep 16",
+        "checked": false
+      },
+      {
+        "id": "fsc-4",
+        "title": "Confirm correct billing address / entity name with Formic — invoice vs. PO/SO mismatch",
+        "tags": [
+          "ops",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fsc-5",
+        "title": "Complete engineering drawings",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fsc-6",
+        "title": "Send engineering info to purchasing",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fsc-7",
+        "title": "Place parts order (4-6 wk lead time)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fsc-8",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "fsc-9",
+        "title": "Ship to Schulenburg, TX — book freight",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Sep 8",
+        "checked": false
+      },
+      {
+        "id": "fsc-10",
+        "title": "Ship date Sep 10 — send final shipment invoice (50% — $6,670 — Net 15)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Sep 10",
+        "checked": false
+      },
+      {
+        "id": "fsc-11",
+        "title": "Coordinate MODO-GO installation (mechanical/electrical setup, checkout, anchoring)",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      }
+    ]
+  },
+  {
+    "title": "826098 CONVEYCO Salisbury",
+    "jobNumber": null,
+    "integrator": "Conveyco",
+    "status": "engineering",
+    "state": "PO Received — Down Payment Invoiced",
+    "address": "American Eagle Outfitters Inc, Attn: Conveyco Installers, 1415 Peeler Rd, Salisbury, NC 28146",
+    "notes": "PO #PO0021071 — Conveyor Hardware, Material Only. Total $231,324.00. Terms 30/30/30/10 (30% down w/ order Net 0 — $69,397.20 / 30% upon BOM approval Net 30 — $69,397.20 / 30% upon shipment Net 30 — $69,397.20 / 10% upon delivery Net 30 — $23,132.40). Down payment invoiced — Invoice #877 ($69,397.20), sent to same distribution as order acknowledgement.",
+    "install": false,
+    "dates": {
+      "engineeringDue": null,
+      "partsOrderDate": null,
+      "downpaymentDate": null,
+      "leadTimeWeeks": null,
+      "buildLabel": "Production",
+      "buildStart": null,
+      "buildEnd": "2026-11-06",
+      "shipDate": "2026-11-06"
+    },
+    "tasks": [
+      {
+        "id": "aeo-1",
+        "title": "PO #PO0021071 received — $231,324.00 total",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "aeo-2",
+        "title": "Down payment (30%) invoiced — Invoice #877 ($69,397.20)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": true
+      },
+      {
+        "id": "aeo-3",
+        "title": "Collect down payment ($69,397.20 — due with order)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "aeo-4",
+        "title": "Complete BOM",
+        "tags": [
+          "engineering"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "aeo-5",
+        "title": "Get BOM approval — issue 2nd payment invoice (30% — $69,397.20 — Net 30)",
+        "tags": [
+          "invoice",
+          "urgent"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "aeo-6",
+        "title": "Place parts order",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "aeo-7",
+        "title": "Confirm parts arrival — begin production",
+        "tags": [
+          "ops"
+        ],
+        "due": null,
+        "checked": false
+      },
+      {
+        "id": "aeo-8",
+        "title": "Ship to Salisbury, NC (Attn: Conveyco Installers) — book freight",
+        "tags": [
+          "logistics"
+        ],
+        "due": "Nov 4",
+        "checked": false
+      },
+      {
+        "id": "aeo-9",
+        "title": "Ship date Nov 6 — send shipment invoice (30% — $69,397.20 — Net 30)",
+        "tags": [
+          "invoice",
+          "logistics"
+        ],
+        "due": "Nov 6",
+        "checked": false
+      },
+      {
+        "id": "aeo-10",
+        "title": "Confirm delivery — send final invoice (10% — $23,132.40 — Net 30)",
+        "tags": [
+          "invoice"
+        ],
+        "due": null,
+        "checked": false
+      }
+    ]
   }
 ];
 // ===PROJECTS_END===
